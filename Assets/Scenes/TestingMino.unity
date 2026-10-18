@@ -1441,7 +1441,7 @@ MonoBehaviour:
   _slideDuration: 0.3
   _slideCooldown: 1
   _slideBuy: 1
-  _camSmoothSpeed: 10
+  _camSmoothSpeed: 20
 --- !u!1001 &4188284580769239100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1464,11 +1464,11 @@ PrefabInstance:
       objectReference: {fileID: 1740573384}
     - target: {fileID: 4211970981571765873, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.16
+      value: -0.305
       objectReference: {fileID: 0}
     - target: {fileID: 4211970981571765873, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.54
+      value: 0.78
       objectReference: {fileID: 0}
     - target: {fileID: 5058697735284419276, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_Mesh

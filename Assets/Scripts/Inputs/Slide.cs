@@ -62,7 +62,6 @@ public class Slide : MonoBehaviour
     {
         if (_moveScript._sliding)
         {
-
             rb.linearVelocity = new Vector3(_slideDirection.x * _slideSpeed, rb.linearVelocity.y, _slideDirection.z * _slideSpeed);
             _slideTimer -= Time.fixedDeltaTime;
             if (_slideTimer <= 0f) _moveScript._sliding = false;
@@ -78,9 +77,16 @@ public class Slide : MonoBehaviour
     private void camMovement()
     {
         // Target in the camera's parent space, so it works wherever _slideCamPos sits in the hierarchy
-        Vector3 target = _moveScript._sliding
-            ? _cam.parent.InverseTransformPoint(_slideCamPos.position)
-            : _camDefaultLocalPos;
+        Vector3 target;
+        if(_moveScript._sliding)
+        {
+            target = _cam.parent.InverseTransformPoint(_slideCamPos.position);
+        }
+        else
+        {
+            target = _camDefaultLocalPos;
+        }
+           
 
         // Frame-rate independent smoothing
         float t = 1f - Mathf.Exp(-_camSmoothSpeed * Time.deltaTime);
