@@ -24,6 +24,10 @@ public class Move : MonoBehaviour
     [Header("Dash")]
     public bool _isDashing = false;
 
+    [Header("Slide")]
+    public bool _sliding = false;
+
+
 
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
@@ -94,6 +98,11 @@ public class Move : MonoBehaviour
     private void Moving()
     {
         if (_isDashing)
+        {
+            return;
+        }
+
+        if(_sliding)
         {
             return;
         }
