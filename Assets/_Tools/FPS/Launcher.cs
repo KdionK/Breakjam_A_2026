@@ -24,7 +24,7 @@ public class Launcher : MonoBehaviour
 
     //Ammo
     [SerializeField] [Tooltip("The max ammo numb before reloading")]
-    const int _magSize = 20;
+    int _magSize = 20;
     public int _currentAmmo;
 
     //Reload
