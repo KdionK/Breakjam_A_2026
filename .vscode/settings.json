@@ -67,5 +67,5 @@
         "*.sln": "*.csproj",
         "*.slnx": "*.csproj"
     },
-    "dotnet.defaultSolution": "template_and_tools.slnx"
+    "dotnet.defaultSolution": "Breakjam_A_2026.slnx"
 }
