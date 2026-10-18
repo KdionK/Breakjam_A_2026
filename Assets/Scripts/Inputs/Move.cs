@@ -11,7 +11,7 @@ public class Move : MonoBehaviour
     [SerializeField] private LayerMask _groundLayer;
     [Header("buyChecks")]
     [SerializeField] bool _jumpBuy = true;
-    [SerializeField] bool _dashBuy = true;
+
 
     [Header("base movement")]
     [SerializeField] float _speed = 5;
@@ -22,14 +22,7 @@ public class Move : MonoBehaviour
     [SerializeField] private float _jumpBufferTime = 0.1f;    // saut mémorisé si pressé juste avant d'atterrir
     [SerializeField] float _rayDownDistance = 5f;
     [Header("Dash")]
-    [SerializeField] float _dashForce = 20f;
-    [SerializeField] float _dashDuration = 0.15f;
-    [SerializeField] float _dashCooldown = 4f;
-    private float _dashTime = 0f;
-    private bool _canDash = true;
-    private bool _isDashing;
-    private float _dashTimer;
-    private Vector3 _dashDirection;
+    public bool _isDashing = false;
 
 
     [Header("Gravité")]
@@ -39,7 +32,7 @@ public class Move : MonoBehaviour
     private Vector2 _moveDirection;
     private Rigidbody rb;
 
-    private bool _isGrounded;
+    public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
     private float _coyoteTimer;
@@ -50,7 +43,6 @@ public class Move : MonoBehaviour
     {
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
-        InputListener.onDashEvent += OnDash;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -76,48 +68,14 @@ public class Move : MonoBehaviour
         }
     }
 
-    private void OnDash(InputAction.CallbackContext context)
-    {
-        if (!_dashBuy || !_canDash) return;
-
-        Vector3 dir = GetMoveDirection();
-        if (dir.sqrMagnitude < 0.01f)
-        {
-            dir = _cam.forward;
-            // dir.y = 0f;
-        }
-        _dashDirection = dir.normalized;
-
-        _isDashing = true;
-        _dashTimer = _dashDuration;
-        _dashTime = _dashCooldown;
-        _canDash = false;
-
-    }
-
-    private void HandleDash()
-    {
-        if(_isDashing)
-        {
-            _dashTimer -= Time.fixedDeltaTime;
-            if(_dashTimer <= 0f) _isDashing = false;
-        }
-
-        if(!_canDash)
-        {
-            _dashTime -= Time.fixedDeltaTime;
-            if(_dashTime <= 0f) _canDash = true;
-        }
-    }
-
-
+   
     // Update is called once per frame
     void FixedUpdate()
     {
         Moving();
         CheckGround();
         HandleJump();
-        HandleDash();
+        // HandleDash();
         ApplyBetterGravity();
     }
 
@@ -137,7 +95,6 @@ public class Move : MonoBehaviour
     {
         if (_isDashing)
         {
-            rb.linearVelocity = new Vector3(_dashDirection.x * _dashForce, 0f, _dashDirection.z * _dashForce);
             return;
         }
 
