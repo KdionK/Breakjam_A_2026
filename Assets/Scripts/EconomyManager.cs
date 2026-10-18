@@ -91,11 +91,11 @@ public class EconomyManager : MonoBehaviour
     /// Change the amount of currency the player has. If the player doesn't have enough money, the change will not be applied.
     /// </summary>
     /// <param name="amountToChangeBy"></param>
-    public bool ChangeCurrency(int amountToChangeBy)
+    public void ChangeCurrency(int amountToChangeBy)
     {
         if (amountToChangeBy < 0 && _currency + amountToChangeBy < 0)
         {
-            return false;
+            return;
             //TODO: add a pop up to show the player that he doesn't have enough money
             //TODO: add a sound to show the player that he doesn't have enough money
             //Debug.Log("Not enough money");
@@ -104,6 +104,6 @@ public class EconomyManager : MonoBehaviour
         
         _numberText.text = _currency.ToString();
         _currentCoroutine = StartCoroutine(COChangeNumber(amountToChangeBy));
-        return true;
+        return;
     }
 }
