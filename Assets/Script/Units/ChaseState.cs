@@ -41,13 +41,12 @@ public class ChaseState : State
                 );
             }
         }
-        
-        //CheckTransition();
+        CheckTransition();
     }
 
     public override void CheckTransition()
     {
-        if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) <= 10)
+        if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) <= unit.weapon.MaxAIRange)
         {
             unit.StateMachine.ChangeState(unit.attackState);
         }

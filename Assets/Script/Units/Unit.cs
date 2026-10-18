@@ -15,9 +15,11 @@ public class Unit : MonoBehaviour, IDamageable
     
     [Header("targetting")]
     [SerializeField] public GameObject target;
+    public Launcher weapon;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        weapon = GetComponent<Launcher>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
         StateMachine = new StateMachine<State>();
         
@@ -56,5 +58,12 @@ public class Unit : MonoBehaviour, IDamageable
     public HealthComponent GetHealth()
     {
         throw new System.NotImplementedException();
+    }
+    
+    private void OnDrawGizmos()
+    {
+        if(weapon == null)return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, weapon.MaxAIRange);
     }
 }

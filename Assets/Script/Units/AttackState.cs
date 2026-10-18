@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AttackState : State
 {
@@ -9,5 +10,17 @@ public class AttackState : State
         unit.Agent.speed = config.agentSpeed;
         this.config = config;
     }
-    
+
+    public override void EnterState()
+    {
+        unit.Agent.stoppingDistance = Mathf.Min(unit.weapon.MaxAIRange, config.stoppingDistance);
+        base.EnterState();
+        unit.weapon.StartFiring();
+    }
+
+    public override void FrameUpdate()
+    {
+        
+        base.FrameUpdate();
+    }
 }
