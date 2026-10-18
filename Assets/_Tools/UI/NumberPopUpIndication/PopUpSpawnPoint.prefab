@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3948507278332182119}
   - component: {fileID: 9021907296822379037}
   m_Layer: 5
-  m_Name: LowerPopUpSpawnPoint
+  m_Name: PopUpSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
