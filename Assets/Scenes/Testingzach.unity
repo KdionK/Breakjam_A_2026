@@ -910,6 +910,8 @@ GameObject:
   - component: {fileID: 1366538484}
   - component: {fileID: 1366538483}
   - component: {fileID: 1366538482}
+  - component: {fileID: 1366538487}
+  - component: {fileID: 1366538486}
   m_Layer: 0
   m_Name: Target
   m_TagString: Player
@@ -1010,6 +1012,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366538486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366538481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6229f4c8eb989bf479df0db9fc4ebd85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TestEnemyZach
+  mats:
+  - {fileID: 2100000, guid: 05f5a6586087eb44da65994e19e3f56c, type: 2}
+  - {fileID: 2100000, guid: a72dc1194db66ef4e84907b5c8ab1a28, type: 2}
+  - {fileID: 2100000, guid: a8cc45e49f2ddbc4a84cc4cf162de462, type: 2}
+  hpcomponent: {fileID: 0}
+--- !u!114 &1366538487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366538481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a477b16669d7d854aae3d5c06b4da75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _fullHealth: 100
+  _currentHealth: 100
+  _extraHealth: 0
 --- !u!1 &1415281950
 GameObject:
   m_ObjectHideFlags: 0
