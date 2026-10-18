@@ -26,6 +26,7 @@ public class Move : MonoBehaviour
 
     [Header("Slide")]
     public bool _sliding = false;
+    [SerializeField] float _slideJumpSpeed = 10;
 
 
 
