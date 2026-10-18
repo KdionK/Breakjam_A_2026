@@ -17,4 +17,11 @@ public class HealthComponent : MonoBehaviour
         return this;
     }
 
+    public int ModifyHealth(int value)
+    {
+        Debug.Log("Modifying health");
+        _currentHealth -= value;
+        return _currentHealth;
+    }
+
 }

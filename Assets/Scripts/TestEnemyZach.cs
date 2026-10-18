@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class TestEnemyZach : MonoBehaviour
+public class TestEnemyZach : MonoBehaviour, IDamageable
 {
     [SerializeField] private Material[] mats;
     private int textureLevel;
     private int meshLevel;
     private int soundLevel;
     private Renderer rend;
+    public HealthComponent hpcomponent;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -20,6 +21,8 @@ public class TestEnemyZach : MonoBehaviour
         UpgradeSound();
         
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+        
+        hpcomponent = GetComponent<HealthComponent>();
     }
 
     // Update is called once per frame
@@ -63,5 +66,22 @@ public class TestEnemyZach : MonoBehaviour
     private void UpgradeSound()
     {
         
+    }
+
+    public DamageInfo TakeDamage(GameObject source, float damage)
+    {
+        DamageInfo dinfo = new DamageInfo();
+        hpcomponent.ModifyHealth((int)damage);
+        return dinfo;
+    }
+
+    public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
+    {
+        return null;
+    }
+
+    public HealthComponent GetHealth()
+    {
+        return hpcomponent;
     }
 }

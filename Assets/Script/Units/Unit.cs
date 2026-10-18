@@ -55,7 +55,7 @@ public class Unit : MonoBehaviour, IDamageable
         StateMachine.CurrentState.PhysicUpdate();
     }
 
-    public DamageInfo TakeDamage(GameObject source, IDamageSource damageSource, float damage)
+    public DamageInfo TakeDamage(GameObject source, float damage)
     {
         throw new System.NotImplementedException();
     }

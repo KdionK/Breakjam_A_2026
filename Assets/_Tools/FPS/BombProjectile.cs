@@ -40,11 +40,15 @@ public class BombProjectile : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Do damage here
-
+        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.TakeDamage(this.gameObject, 1);
+        }
         if (bCanBounce)
         {
             Vector3 bounce = Vector3.Reflect(GetComponent<Rigidbody>().linearVelocity, collision.contacts[0].normal);
-            GetComponent<Rigidbody>().linearVelocity = bounce * _bounceMultiplier;    
+            GetComponent<Rigidbody>().linearVelocity = bounce * _bounceMultiplier;
         }
     }
 }
