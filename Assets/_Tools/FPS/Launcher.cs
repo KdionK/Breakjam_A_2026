@@ -13,7 +13,7 @@ public class Launcher : MonoBehaviour
     [SerializeField] [Tooltip("The prefab of the projectile")]
     GameObject _projectile;
 
-    [SerializeField] [Tooltip("The position where the projectile will be spawned")]
+    [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned")]
     Transform _projectileSpawn;
 
     [SerializeField] [Tooltip("The force of the launch")]
@@ -65,12 +65,12 @@ public class Launcher : MonoBehaviour
         }
     }
 
-    private void Update()
+    protected void Update()
     {
         TryFire();
     }
 
-    private void TryFire()
+    protected void TryFire()
     {
         if (bReloading)
         {
@@ -118,27 +118,31 @@ public class Launcher : MonoBehaviour
         bReloading = false;
     }
 
-    private void Fire()
+    protected void Fire()
     {
-        GameObject p = Instantiate(_projectile, _projectileSpawn.position, _projectileSpawn.rotation);
-        p.GetComponent<Rigidbody>().AddForce(_projectileSpawn.forward * _launchForce, ForceMode.VelocityChange);
+        SpawnProjectile();
 
         _nextFireTime = Time.time + _intervalBetweenShots;
 
         if (bNeedsToReload)
         {
             _currentAmmo--;
+            //Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
             if (_currentAmmo <= 0)
             {
                 StartReload();
             }
         }
+    }
 
-        Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
+    protected void SpawnProjectile()
+    {
+        GameObject p = Instantiate(_projectile, _projectileSpawn.position, _projectileSpawn.rotation);
+        p.GetComponent<Rigidbody>().AddForce(_projectileSpawn.forward * _launchForce, ForceMode.VelocityChange);
     }
 
     //TODO move this in character
-    private void OnRightClick(InputAction.CallbackContext context)
+    protected void OnRightClick(InputAction.CallbackContext context)
     {
         if (context.performed)
         {
