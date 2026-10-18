@@ -41,4 +41,11 @@ public class InputListener : MonoBehaviour
     {
         onJumpEvent?.Invoke(context);
     }
+
+    public static event Action<InputAction.CallbackContext> onDashEvent;
+    public void onDash(InputAction.CallbackContext context)
+    {
+        onDashEvent?.Invoke(context);
+    }
+
 }
