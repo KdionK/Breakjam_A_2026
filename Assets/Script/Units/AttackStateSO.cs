@@ -4,5 +4,7 @@ using UnityEngine;
 public class AttackStateSO : StateScriptableObject
 {
     [Header("Stop attacking")]
-    [SerializeField] private float disengageTimer;
+    [SerializeField] public float disengageTimer;
+
+    public bool rotateTowardUnit;
 }
