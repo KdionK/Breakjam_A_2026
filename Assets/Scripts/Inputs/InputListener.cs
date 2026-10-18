@@ -47,5 +47,11 @@ public class InputListener : MonoBehaviour
     {
         onDashEvent?.Invoke(context);
     }
+    
+    public static event Action<InputAction.CallbackContext> onSlideEvent;
+    public void onSlide(InputAction.CallbackContext context)
+    {
+        onSlideEvent?.Invoke(context);
+    }
 
 }

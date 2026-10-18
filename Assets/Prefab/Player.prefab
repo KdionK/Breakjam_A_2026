@@ -248,7 +248,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2782
+  m_VersionIndex: 2803
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -356,6 +356,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1219257593387812583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4211970981571765873}
+  m_Layer: 0
+  m_Name: CamSlidePos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4211970981571765873
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219257593387812583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.501}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6685516370085358819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2362907824058296712
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +536,7 @@ GameObject:
   - component: {fileID: 6685516370085358819}
   - component: {fileID: 8310299496090823174}
   - component: {fileID: 4644044109358125402}
+  - component: {fileID: 130752072528679702}
   - component: {fileID: 8134651611554454346}
   - component: {fileID: 5281099398382661662}
   - component: {fileID: 8115665570520592067}
@@ -526,12 +558,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6504992817216575190}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4382357096936399528}
+  - {fileID: 4211970981571765873}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8310299496090823174
@@ -591,6 +624,24 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &130752072528679702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504992817216575190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bcd78b1dcc55464984dacc8a369fa27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Dash
+  _cam: {fileID: 4382357096936399528}
+  _moveScript: {fileID: 5281099398382661662}
+  _dashForce: 20
+  _dashDuration: 0.15
+  _dashCooldown: 1
+  _dashBuy: 1
 --- !u!114 &8134651611554454346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -619,15 +670,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Move
   _cam: {fileID: 4382357096936399528}
-  _speed: 5
-  _jumpForce: 3
-  _gravity: 20
+  _groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
   _jumpBuy: 1
-  _jumped: 0
+  _speed: 5
+  _jumpForce: 8
   _maxAirJumps: 0
   _coyoteTime: 0.1
   _jumpBufferTime: 0.1
-  _rayDownDistance: 1
+  _rayDownDistance: 1.1
+  _isDashing: 0
+  _fallMultiplier: 1.3
+  _lowJumpMultiplier: 2
+  _isGrounded: 0
 --- !u!114 &8115665570520592067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -735,13 +791,13 @@ MonoBehaviour:
     m_ActionName: 'BattleInputs/OpenConsoleCommand[/Keyboard/comma]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6504992817216575190}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 7940601109380809531}
+        m_TargetAssemblyTypeName: InputListener, Assembly-CSharp
+        m_MethodName: onJump
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -749,6 +805,26 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 13a900fc-88fe-45a5-84a6-dc679aef4a95
     m_ActionName: 'BattleInputs/OnJump[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7940601109380809531}
+        m_TargetAssemblyTypeName: InputListener, Assembly-CSharp
+        m_MethodName: onDash
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b23db3ae-94e0-4a72-8294-b9e87a540b01
+    m_ActionName: 'BattleInputs/Dash[/Keyboard/shift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9ce16066-2226-483d-a8ab-cfb832eb7502
+    m_ActionName: 'BattleInputs/Slide[/Keyboard/ctrl]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: BattleInputs
@@ -773,7 +849,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6504992817216575190}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
