@@ -7,14 +7,12 @@ public class ChaseState : State
     
     public ChaseState(Unit unit, IStateMachine stateMachine, ChaseStateSO config) : base(unit, stateMachine)
     {
-        
+        this.config = config;
     }
 
     public override void EnterState()
     {
         unit.Agent.speed = config.agentSpeed;
-        this.config = config;
-        //unit.Agent.isStopped = true;
         hasTriggeredAttack = false;
         base.EnterState();
     }
