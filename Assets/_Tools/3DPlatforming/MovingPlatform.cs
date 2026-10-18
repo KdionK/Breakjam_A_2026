@@ -1,35 +1,26 @@
-using NaughtyAttributes;
 using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [BoxGroup("ObligatoryValues")]
     [SerializeField]
     [Range(0, 20)]
     [Tooltip("the movement to the left and right of the box")]
     private float _moveRange = 10;
 
-    [BoxGroup("ObligatoryValues")]
     [SerializeField]
     [Range(0, 20)]
     [Tooltip("the movement to the left and right of the box")]
     private float _speed = 5;
 
-    [BoxGroup("ObligatoryValues")]
     [SerializeField]
     [Tooltip("Is the platform moving")]
     private bool _onPause = false;
 
-    [BoxGroup("Direction")]
     [SerializeField] private PlatformMovementDirection _direction = PlatformMovementDirection.Horizontal;
-    [BoxGroup("Direction")]
 
-    [ShowIf("_direction", PlatformMovementDirection.Horizontal)]
     [SerializeField] private StartPosHorizontal _initialHPosition = StartPosHorizontal.Center;
 
-    [BoxGroup("Direction")]
-    [ShowIf("_direction", PlatformMovementDirection.Vertical)]
     [SerializeField] private StartPosVertical _initialVPosition = StartPosVertical.Center;
 
     private float _posOffset = 0;
