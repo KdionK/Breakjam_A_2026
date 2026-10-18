@@ -14,8 +14,17 @@ public class Unit : MonoBehaviour, IDamageable
     [SerializeField] private AttackStateSO attackStateSO;
     
     [Header("targetting")]
-    [SerializeField] public GameObject target;
+    [HideInInspector] public GameObject target;
+    [HideInInspector]
     public Launcher weapon;
+
+    public GameObject spawnLocation;
+    public GameObject visualObject;
+
+    
+    [Header("texture")]
+    private int textureLevel;
+    [SerializeField] private GameObject[] visualUpgrades;
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
@@ -27,6 +36,12 @@ public class Unit : MonoBehaviour, IDamageable
         attackState = new AttackState(this, StateMachine, attackStateSO);
         
         StateMachine.Init(chaseState);
+        
+        textureLevel = BuyHistory.Instance.GetLevel(UnitType.CommonEnemy, UpgradeCategory.Texture);
+        
+        UpgradeTexture();
+        
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     // Update is called once per frame
@@ -58,6 +73,31 @@ public class Unit : MonoBehaviour, IDamageable
     public HealthComponent GetHealth()
     {
         throw new System.NotImplementedException();
+    }
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.CommonEnemy) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                textureLevel++;
+                UpgradeTexture();
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+        }
+    }
+    private void UpgradeTexture()
+    {
+        if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
+        int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
+        visualObject.SetActive(false);
+        visualUpgrades[i].SetActive(true);
+        visualObject = visualUpgrades[i];
     }
     
     private void OnDrawGizmos()

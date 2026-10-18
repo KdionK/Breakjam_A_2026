@@ -12,13 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d830ee374756a8843aebe6a945b13e35, type: 3}
   m_Name: ChaseState
   m_EditorClassIdentifier: Assembly-CSharp::ChaseStateSO
-  targetPriority:
-  - PizzaSlice
-  - Ingrediant
-  refreshRate: 0
-  detectionRadius: 0
-  enemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
-  stoppingDistance: 0
-  agentSpeed: 0
+  stoppingDistance: 2
+  agentSpeed: 2
