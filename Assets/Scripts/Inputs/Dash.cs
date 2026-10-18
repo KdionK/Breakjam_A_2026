@@ -28,18 +28,33 @@ public class Dash : MonoBehaviour
         HandleDash();
     }
 
-    private void Dashing()
+    private Vector2 ReadWASD()
     {
-        rb.linearVelocity = new Vector3(_dashDirection.x * _dashForce, 0f, _dashDirection.z * _dashForce);
+        var kb = Keyboard.current;
+        if (kb == null) return Vector2.zero;
+
+        float x = 0f, y = 0f;
+        if (kb.wKey.isPressed) y += 1f;
+        if (kb.sKey.isPressed) y -= 1f;
+        if (kb.dKey.isPressed) x += 1f;
+        if (kb.aKey.isPressed) x -= 1f;
+
+        return new Vector2(x, y);
     }
+
+    // private void Dashing()
+    // {
+    //     rb.linearVelocity = new Vector3(_dashDirection.x * _dashForce, 0f, _dashDirection.z * _dashForce);
+    // }
     private void OnDash(InputAction.CallbackContext context)
     {
         if (!_dashBuy || !_canDash) return;
+        if(_moveScript._sliding) return;
 
-        Vector3 dir = GetMoveDirection();
+        Vector3 dir = GetDashDirection();
         if (dir.sqrMagnitude < 0.01f)
         {
-            dir = _cam.forward;
+            dir = transform.forward;
             // dir.y = 0f;
         }
         _dashDirection = dir.normalized;
@@ -56,7 +71,7 @@ public class Dash : MonoBehaviour
         if (_moveScript._isDashing)
         {
 
-            rb.linearVelocity = new Vector3(_dashDirection.x * _dashForce,0f,_dashDirection.z * _dashForce);
+            rb.linearVelocity = new Vector3(_dashDirection.x * _dashForce, 0f, _dashDirection.z * _dashForce);
             _dashTimer -= Time.fixedDeltaTime;
             if (_dashTimer <= 0f) _moveScript._isDashing = false;
         }
@@ -68,15 +83,17 @@ public class Dash : MonoBehaviour
         }
     }
 
-    private Vector3 GetMoveDirection()
+    private Vector3 GetDashDirection()
     {
-        Vector3 forward = _cam.forward;
-        Vector3 right = _cam.right;
+        Vector2 input = ReadWASD();
+
+        Vector3 forward = transform.forward;
+        Vector3 right = transform.right;
         forward.y = 0f;
         right.y = 0f;
         forward.Normalize();
         right.Normalize();
 
-        return forward * _moveDirection.y + right * _moveDirection.x;
+        return forward * input.y + right * input.x;
     }
 }
