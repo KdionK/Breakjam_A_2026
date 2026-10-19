@@ -1579,6 +1579,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3494782746413000247, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: _targetFov
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494782746413000247, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: _fovEaseOutTimerSlide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6504992817216575190, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1622,6 +1630,10 @@ PrefabInstance:
     - target: {fileID: 6685516370085358819, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7822979192233019923, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: field of view
+      value: 82.93403
       objectReference: {fileID: 0}
     - target: {fileID: 8115665570520592067, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Target
