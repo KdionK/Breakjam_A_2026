@@ -11,7 +11,9 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
+    [SerializeField] HealthBar _healthBar;
     [Header("buyChecks")]
+    
     [SerializeField] public bool _jumpBuy = false;
 
 
@@ -78,7 +80,9 @@ public class Move : BuyableBehavior, IDamageable
 
     private void DeathTest()
     {
-        HandleDeath();
+        _healthComponent.ModifyHealth(20);
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        // HandleDeath();
     }
     
 
@@ -240,6 +244,7 @@ public class Move : BuyableBehavior, IDamageable
         DamageInfo dinfo = new DamageInfo();
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         
         
         return dinfo;
@@ -274,6 +279,7 @@ public class Move : BuyableBehavior, IDamageable
 
         // Hold here (fade, death animation, sound, etc. would go in this window)
         _healthComponent.SetHealth();
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         yield return new WaitForSeconds(_respawnTime);
         _killed = false;
         rb.isKinematic = false;
@@ -315,7 +321,7 @@ public class Move : BuyableBehavior, IDamageable
 
     public void UpgradeHealth()
     {
-        _healthComponent.AddHealth(_upgradeHealthAmount);
+        _healthComponent.AddHealth(_upgradeHealthAmount,true);
     }
     
     public void UpgradeSpeed()
