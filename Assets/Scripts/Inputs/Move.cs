@@ -1,6 +1,6 @@
 
-using System.Runtime.InteropServices.WindowsRuntime;
-using NUnit.Framework;
+using System;
+using System.Collections;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -34,6 +34,16 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] float _slideJumpBoostTime = 0.6f;
     private Vector3 _boostDir;
     private float _boostTimer;
+    
+    [Header("Death/Respawn")]
+    [SerializeField] Transform _respawnPoint;
+    [SerializeField] float _respawnTime = 0.2f;
+    private bool _killed;
+    private bool _murder;
+
+    bool _isRespawning = false;
+    
+    
 
 
 
@@ -66,9 +76,23 @@ public class Move : BuyableBehavior, IDamageable
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
+    private void DeathTest()
+    {
+        HandleDeath();
+    }
+    
+
     private void OnMove(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            DeathTest();
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -96,10 +120,17 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
+        
+        
+        if (_healthComponent.CurrentHealth <= 0)
+        {
+            HandleDeath();
+        }
+      
     }
 
     private Vector3 GetMoveDirection()
-    {
+    { 
         Vector3 forward = _cam.forward;
         Vector3 right = _cam.right;
         forward.y = 0f;
@@ -135,7 +166,10 @@ public class Move : BuyableBehavior, IDamageable
 
 
         Vector3 dir = GetMoveDirection();
-        rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        if (!rb.isKinematic)
+        {
+            rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        }
     }
 
     private void CheckGround()
@@ -206,10 +240,6 @@ public class Move : BuyableBehavior, IDamageable
         DamageInfo dinfo = new DamageInfo();
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
-        if (_healthComponent.CurrentHealth <= 0)
-        {
-            HandleDeath();
-        }
         
         
         return dinfo;
@@ -217,7 +247,38 @@ public class Move : BuyableBehavior, IDamageable
 
     public void HandleDeath()
     {
+        Debug.Log("Handle Death");
+        if (_isRespawning) return; 
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        _isRespawning = true;
+        _killed = true;
+        Debug.Log("HandleDeath");
+        _killed = true;
+        // Zero velocity BEFORE going kinematic (setting it on a kinematic body is ignored/warns)
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
         
+        _isDashing = false;
+        _sliding = false;
+
+        rb.position = _respawnPoint.position;
+        rb.rotation = _respawnPoint.rotation;
+        transform.SetPositionAndRotation(_respawnPoint.position, _respawnPoint.rotation);
+
+        _jumpHeld = false;
+
+        // Hold here (fade, death animation, sound, etc. would go in this window)
+        _healthComponent.SetHealth();
+        yield return new WaitForSeconds(_respawnTime);
+        _killed = false;
+        rb.isKinematic = false;
+        _isRespawning = false;
+    
     }
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
