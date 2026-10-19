@@ -1,11 +1,21 @@
+using System;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
     [SerializeField] private int _fullHealth;
-    public int FullHealth { get { return _fullHealth; } }
+    public event Action OnDeath;
+    public int FullHealth
+    {
+        get { return _fullHealth; }
+    }
+
     [SerializeField] private int _currentHealth;
-    public int CurrentHealth { get { return _currentHealth; } }
+
+    public int CurrentHealth
+    {
+        get { return _currentHealth; }
+    }
 
     [SerializeField] private int _extraHealth;
 
@@ -25,12 +35,13 @@ public class HealthComponent : MonoBehaviour
         {
             Death();
         }
+
         return _currentHealth;
     }
-
-    public void Death()
+    
+    private void Death()
     {
-        Destroy(gameObject); //TODO change this
+        OnDeath?.Invoke();
     }
 
 }
