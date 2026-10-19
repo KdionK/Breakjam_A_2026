@@ -16,4 +16,12 @@ public class MapPopUp : MonoBehaviour
         Icon.sprite = icon;
         PriceTag.text = string.Format(_PriceTagFormat, price);
     }
+
+    public static MapPopUp CreatePopUp(Transform parent, string title, Sprite icon, int price)
+    {
+        var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
+        var popUpInstance = Instantiate(popUpPrefab, parent);
+        popUpInstance.SetPopUp(title, icon, price);
+        return popUpInstance;
+    }
 }
