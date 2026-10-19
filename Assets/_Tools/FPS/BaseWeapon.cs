@@ -1,9 +1,6 @@
-using System;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class Launcher : MonoBehaviour
+public class BaseWeapon : MonoBehaviour
 {
     [SerializeField] [Tooltip("If something else than the player is using this weapon, this must be True")]
     bool bIsAIControlled = false;
@@ -20,7 +17,7 @@ public class Launcher : MonoBehaviour
     float _launchForce = 100f;
 
     
-    [SerializeField] float _damage = 10f;
+    [SerializeField] float _damage = 15f;
 
     //Ammo
     [SerializeField] [Tooltip("The max ammo numb before reloading")]
@@ -52,7 +49,6 @@ public class Launcher : MonoBehaviour
     private void Start()
     {
         //move to char
-        InputListener.onRightClickEvent += OnRightClick;
 
         _currentAmmo = _magSize;
         if (!bIsAIControlled)
@@ -138,21 +134,11 @@ public class Launcher : MonoBehaviour
     protected void SpawnProjectile()
     {
         GameObject p = Instantiate(_projectile, _projectileSpawn.position, _projectileSpawn.rotation);
+        BaseProjectile pScript = p.GetComponent<BaseProjectile>();
+        pScript.ProjectileDamage = _damage;
         p.GetComponent<Rigidbody>().AddForce(_projectileSpawn.forward * _launchForce, ForceMode.VelocityChange);
     }
-
-    //TODO move this in character
-    protected void OnRightClick(InputAction.CallbackContext context)
-    {
-        if (context.performed)
-        {
-            StartFiring(); // currentWeapon.StartFiring();
-        }
-        else if (context.canceled)
-        {
-            StopFiring(); // currentWeapon.StopFiring();
-        }
-    }
+    
 
     public void StartFiring() //call this to auto fire if AI, or single fire if player and bIsAuto = false
     {

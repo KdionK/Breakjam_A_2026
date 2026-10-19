@@ -21,7 +21,16 @@ public class HealthComponent : MonoBehaviour
     {
         Debug.Log("Modifying health");
         _currentHealth -= value;
+        if (_currentHealth <= 0)
+        {
+            Death();
+        }
         return _currentHealth;
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject); //TODO change this
     }
 
 }

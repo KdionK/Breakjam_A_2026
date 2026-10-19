@@ -1,12 +1,13 @@
 using UnityEngine;
 
-public class BombProjectile : MonoBehaviour
+public class BaseProjectile : MonoBehaviour
 {
     [SerializeField] protected float _maxLifetime = 5f;
     [SerializeField] public bool bHasGravity = true;
     [SerializeField] protected float _extraGravity = 9.81f;
     [SerializeField] public bool bCanBounce = true;
     [SerializeField] protected float _bounceMultiplier = 1.2f;
+    public float ProjectileDamage = 15f;
     
     protected Rigidbody _rb;
     protected float _remaingLifetime;
@@ -43,12 +44,16 @@ public class BombProjectile : MonoBehaviour
         IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
         if (damageable != null)
         {
-            damageable.TakeDamage(this.gameObject, 1);
+            damageable.TakeDamage(this.gameObject, ProjectileDamage);
         }
         if (bCanBounce)
         {
             Vector3 bounce = Vector3.Reflect(GetComponent<Rigidbody>().linearVelocity, collision.contacts[0].normal);
             GetComponent<Rigidbody>().linearVelocity = bounce * _bounceMultiplier;
+        }
+        else
+        {
+            Destroy(gameObject);
         }
     }
 }
