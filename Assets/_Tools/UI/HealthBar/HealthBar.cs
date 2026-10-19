@@ -1,5 +1,4 @@
 using System.Collections;
-using NaughtyAttributes;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -10,13 +9,9 @@ public class HealthBar : MonoBehaviour
     [Header("Health")]
     [SerializeField] private HealthComponent _healthComponent;
 
-    [BoxGroup("HealthBar")]
     [SerializeField] private Image _healthImage;
-    [BoxGroup("HealthBar")]
     [SerializeField] private Image _healthDelayImage;
-    [BoxGroup("HealthBar")]
     [SerializeField] private Color _blinkColor;
-    [BoxGroup("HealthBar")]
     [SerializeField] NumberPopUpSpawner _numberPopUpSpawner;
 
 

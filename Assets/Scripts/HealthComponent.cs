@@ -1,16 +1,12 @@
-using NaughtyAttributes;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
 {
-    [BoxGroup("HealthBar")]
     [SerializeField] private int _fullHealth;
     public int FullHealth { get { return _fullHealth; } }
-    [BoxGroup("HealthBar")]
     [SerializeField] private int _currentHealth;
     public int CurrentHealth { get { return _currentHealth; } }
 
-    [BoxGroup("Special Health")]
     [SerializeField] private int _extraHealth;
 
     public HealthComponent SetUpHealth(int fullHealth, int extraHealth = 0)
@@ -19,6 +15,22 @@ public class HealthComponent : MonoBehaviour
         _currentHealth = fullHealth;
         _extraHealth = extraHealth;
         return this;
+    }
+
+    public int ModifyHealth(int value)
+    {
+        Debug.Log("Modifying health");
+        _currentHealth -= value;
+        if (_currentHealth <= 0)
+        {
+            Death();
+        }
+        return _currentHealth;
+    }
+
+    public void Death()
+    {
+        Destroy(gameObject); //TODO change this
     }
 
 }

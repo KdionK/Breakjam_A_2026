@@ -1,4 +1,3 @@
-using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,11 +8,8 @@ public class SelectableButton : MonoBehaviour
     private SelectableButton _currentlyHoveredButton;
     [SerializeField] public Color _buttonColor;
 
-    [BoxGroup("UI References")]
     [SerializeField] private InputActionReference pointerAction;
-    [BoxGroup("UI References")]
     [SerializeField] private InputActionReference clickAction;
-    [BoxGroup("UI References")]
     [SerializeField] private RectTransform panelTransform;
     [SerializeField] private Camera uiCamera;
 

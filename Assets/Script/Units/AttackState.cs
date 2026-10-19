@@ -1,0 +1,74 @@
+using UnityEngine;
+using UnityEngine.AI;
+
+public class AttackState : State
+{
+    private AttackStateSO config;
+    private Quaternion  savedRotation;
+    private float timer;
+    public AttackState(Unit unit, IStateMachine stateMachine, AttackStateSO config) : base(unit, stateMachine)
+    {
+        unit.Agent.speed = config.agentSpeed;
+        this.config = config;
+    }
+
+    public override void EnterState()
+    {
+        timer = config.disengageTimer;
+        savedRotation = unit.visualObject.transform.rotation;
+        unit.Agent.stoppingDistance = Mathf.Min(unit.weapon.MaxAIRange, config.stoppingDistance);
+        base.EnterState();
+        unit.weapon.StartFiring();
+    }
+
+    public override void FrameUpdate()
+    {
+        if (config.rotateTowardUnit)
+        {
+            Vector3 directionToTarget =
+                (unit.target.transform.position - unit.visualObject.transform.position).normalized;
+
+            if (directionToTarget != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTarget);
+                unit.visualObject.transform.rotation = Quaternion.Slerp(
+                    unit.visualObject.transform.rotation,
+                    targetRotation,
+                    Time.deltaTime * 5f
+                );
+            }
+            
+            Vector3 directionToTargetSpawnLocation =
+                (unit.target.transform.position - unit.spawnLocation.transform.position).normalized;
+            
+            if (directionToTarget != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(directionToTargetSpawnLocation);
+                unit.spawnLocation.transform.rotation = Quaternion.Slerp(
+                    unit.spawnLocation.transform.rotation,
+                    targetRotation,
+                    Time.deltaTime * 5f
+                );
+            }
+        }
+        if(timer >= 0) timer -= Time.deltaTime;
+        base.FrameUpdate();
+        CheckTransition();
+    }
+
+    public override void ExitState()
+    {
+        unit.visualObject.transform.rotation = savedRotation;
+        unit.weapon.StopFiring();
+        base.ExitState();
+    }
+
+    public override void CheckTransition()
+    {
+        if(timer > 0) return;
+        if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) >= unit.weapon.MaxAIRange)
+        {
+            unit.StateMachine.ChangeState(unit.chaseState);
+        }
+    }
+}

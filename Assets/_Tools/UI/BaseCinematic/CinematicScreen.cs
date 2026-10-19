@@ -1,19 +1,14 @@
 using System.Collections;
-using NaughtyAttributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CinematicScreen : MonoBehaviour
 {
-    [BoxGroup("Text settings")]
     [SerializeField] private TextMeshProUGUI _textDisplay;
-    [BoxGroup("Text settings")]
     [SerializeField] private TextAlignment _textAlignment = TextAlignment.Center;
 
-    [BoxGroup("Text Animation")]
     [SerializeField] private string[] _introTexts;
-    [BoxGroup("Text Animation")]
     [Tooltip("Time in seconds between each letter being displayed.")]
     [SerializeField] private float _typingSpeed = 0.05f;
 
