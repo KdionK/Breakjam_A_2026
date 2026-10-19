@@ -45,6 +45,11 @@ public class HealthComponent : MonoBehaviour
         _fullHealth += value;
         return _currentHealth;
     }
+
+    public void SetHealth()
+    {
+        _currentHealth = _fullHealth;
+    }
     
     private void Death()
     {
