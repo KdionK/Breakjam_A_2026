@@ -21,12 +21,13 @@ public class Unit : MonoBehaviour, IDamageable
     public GameObject spawnLocation;
     public GameObject visualObject;
 
-    
+    private HealthComponent healthComponent;
     [Header("texture")]
     private int textureLevel;
     [SerializeField] private GameObject[] visualUpgrades;
     void Start()
     {
+        healthComponent = GetComponent<HealthComponent>();
         target = GameObject.FindGameObjectWithTag("Player");
         weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
@@ -47,17 +48,26 @@ public class Unit : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if(target == null)return;
         StateMachine.CurrentState.FrameUpdate();
     }
     
     public virtual void FixedUpdate()
     {
+        if(target == null)return;
         StateMachine.CurrentState.PhysicUpdate();
     }
 
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
-        throw new System.NotImplementedException();
+        DamageInfo damageInfo = new DamageInfo()
+        {
+            finalDamage = damage,
+            Source = source,
+            Target = this.gameObject,
+        };
+        healthComponent.ModifyHealth((int)damage);
+        return damageInfo;
     }
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)

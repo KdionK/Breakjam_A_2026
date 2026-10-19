@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class HealthComponent : MonoBehaviour
@@ -8,6 +9,7 @@ public class HealthComponent : MonoBehaviour
     public int CurrentHealth { get { return _currentHealth; } }
 
     [SerializeField] private int _extraHealth;
+    public event Action onDeath; 
 
     public HealthComponent SetUpHealth(int fullHealth, int extraHealth = 0)
     {
