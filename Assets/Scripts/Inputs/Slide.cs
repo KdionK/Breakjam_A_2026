@@ -11,9 +11,9 @@ public class Slide : BuyableBehavior
     [SerializeField] Move _moveScript;
     [SerializeField] float _slideSpeed = 10f;
     [SerializeField] Transform _slideCamPos;
+    [SerializeField] Transform _slideCamRoot;
     [SerializeField] float _slideDuration = 0.3f;
     [SerializeField] float _slideCooldown = 1f;
-    [SerializeField] bool _slideBuy = true;
 
     [Header("Camera")]
     [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
@@ -32,7 +32,7 @@ public class Slide : BuyableBehavior
 
     void Start()
     {
-        _camDefaultLocalPos = _cam.position;
+        _camDefaultLocalPos = _slideCamRoot.transform.localPosition;
         _initialFov = _cinemachineCamera.Lens.FieldOfView;
         InputListener.onSlideEvent += OnSlide;
         rb = GetComponent<Rigidbody>();
@@ -57,7 +57,7 @@ public class Slide : BuyableBehavior
     {
         if (!context.performed) return; // ignore started / canceled (release)
 
-        if (!_slideBuy || !_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
+        if (!_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
 
 
         Vector3 dir = GetMoveDirection();

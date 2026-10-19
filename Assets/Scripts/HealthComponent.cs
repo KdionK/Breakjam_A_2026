@@ -38,6 +38,13 @@ public class HealthComponent : MonoBehaviour
 
         return _currentHealth;
     }
+
+    public int AddHealth(int value)
+    {
+        _currentHealth += value;
+        _fullHealth += value;
+        return _currentHealth;
+    }
     
     private void Death()
     {

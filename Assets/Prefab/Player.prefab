@@ -202,6 +202,37 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &5273010210836354688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4969500770775525119}
+  m_Layer: 6
+  m_Name: CamInitialPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4969500770775525119
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5273010210836354688}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0.19200003}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6685516370085358819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6504992817216575190
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,6 +244,7 @@ GameObject:
   - component: {fileID: 6685516370085358819}
   - component: {fileID: 8310299496090823174}
   - component: {fileID: 4644044109358125402}
+  - component: {fileID: 6669609724099745942}
   - component: {fileID: 1161222763226402767}
   - component: {fileID: 130752072528679702}
   - component: {fileID: 8134651611554454346}
@@ -246,6 +278,7 @@ Transform:
   - {fileID: 1082657311820243534}
   - {fileID: 4382357096936399528}
   - {fileID: 4211970981571765873}
+  - {fileID: 4969500770775525119}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8310299496090823174
@@ -305,7 +338,7 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1161222763226402767
+--- !u!114 &6669609724099745942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -314,17 +347,34 @@ MonoBehaviour:
   m_GameObject: {fileID: 6504992817216575190}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5abb50a6de43643a1edc45b8916606, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ClickBuy
+  rayLenght: 50
+  layerMaskInteract:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  _camera: {fileID: 1082657311820243534}
+--- !u!114 &1161222763226402767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6504992817216575190}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 330b2b747722ecf4ca3d32bb96bb3bba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slide
   _cam: {fileID: 1082657311820243534}
-  _cinemachineCamera: {fileID: 0}
+  _cinemachineCamera: {fileID: 218867773390779946}
   _moveScript: {fileID: 5281099398382661662}
   _slideSpeed: 16
   _slideCamPos: {fileID: 4211970981571765873}
+  _slideCamRoot: {fileID: 4969500770775525119}
   _slideDuration: 0.4
   _slideCooldown: 1
-  _slideBuy: 1
   _camSmoothSpeed: 20
   _targetFov: 90
 --- !u!114 &130752072528679702
@@ -334,7 +384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6504992817216575190}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bcd78b1dcc55464984dacc8a369fa27, type: 3}
   m_Name: 
@@ -344,7 +394,6 @@ MonoBehaviour:
   _dashForce: 20
   _dashDuration: 0.15
   _dashCooldown: 1
-  _dashBuy: 1
 --- !u!114 &8134651611554454346
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -376,6 +425,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 8
+  _sceneManger: {fileID: 0}
   _jumpBuy: 1
   _speed: 12
   _jumpForce: 8
@@ -389,6 +439,8 @@ MonoBehaviour:
   _slideJumpBoostTime: 0.6
   _fallMultiplier: 1.3
   _lowJumpMultiplier: 2
+  _upgradeSpeedAmount: 2.5
+  _upgradeHealthAmount: 30
   _isGrounded: 0
 --- !u!114 &8115665570520592067
 MonoBehaviour:
