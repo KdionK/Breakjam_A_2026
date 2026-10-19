@@ -46,9 +46,19 @@ public class ChaseState : State
 
     public override void CheckTransition()
     {
-        if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) <= unit.weapon.MaxAIRange)
+        if (!config.UseMeleeWeapon)
         {
-            unit.StateMachine.ChangeState(unit.attackState);
+            if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) <= unit.weapon.MaxAIRange)
+            {
+                unit.StateMachine.ChangeState(unit.attackState);
+            }
+        }
+        else
+        {
+            if (Vector3.Distance(unit.gameObject.transform.position, unit.target.transform.position) <= config.DistanceMeleeToTurnAttack)
+            {
+                unit.StateMachine.ChangeState(unit.attackState);
+            }
         }
     }
 }

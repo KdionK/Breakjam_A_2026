@@ -28,14 +28,18 @@ public class CameraFX : MonoBehaviour
             transitionStarted = true;
             StartCoroutine(FovTransitionIn());
         }
+
+
     }
 
     IEnumerator FovTransitionIn()
     {
-       float time = 0;
-       while(time < _fovEaseInTimer)
-        {
-            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov , time / _fovEaseInTimer);
+        Debug.Log("Transition");
+        float time = 0;
+        while (time < _fovEaseInTimer)
+        {   
+            Debug.Log("current FOV" +   _cinemachineCamera.Lens.FieldOfView);
+            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov, time / _fovEaseInTimer);
             yield return null;
             time += Time.deltaTime;
         }
@@ -45,10 +49,10 @@ public class CameraFX : MonoBehaviour
     }
     IEnumerator FovTransitionOut()
     {
-       float time = 0;
-       while(time < _fovEaseOutTimer)
+        float time = 0;
+        while (time < _fovEaseOutTimer)
         {
-            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_targetFov, _initialFov , time / _fovEaseOutTimer);
+            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_targetFov, _initialFov, time / _fovEaseOutTimer);
             yield return null;
             time += Time.deltaTime;
         }

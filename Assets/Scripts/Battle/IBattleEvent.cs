@@ -45,6 +45,8 @@ public enum UpgradeCategory
 {
     Texture,
     Mesh,
-    Sound
+    Sound,
+    Health,
+    Speed
 }
 

@@ -1,21 +1,24 @@
 
 using System.Runtime.InteropServices.WindowsRuntime;
 using NUnit.Framework;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Move : BuyableBehavior
+public class Move : BuyableBehavior, IDamageable
 {
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private SceneManagementSystem _sceneManger;
     [Header("buyChecks")]
-    [SerializeField] bool _jumpBuy = true;
+    [SerializeField] public bool _jumpBuy = false;
 
 
     [Header("base movement")]
     private float _initialSpeed;
     [SerializeField] float _speed = 5;
+    
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
     [SerializeField] private int _maxAirJumps = 0;
@@ -37,10 +40,15 @@ public class Move : BuyableBehavior
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
+    
+    [Header ("Upgrades")]
+    [SerializeField] private float _upgradeSpeedAmount = 2.5f;
+    [SerializeField] private int _upgradeHealthAmount = 30;
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
-
+    private HealthComponent _healthComponent;
+    
     public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
@@ -54,6 +62,8 @@ public class Move : BuyableBehavior
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
+        _healthComponent = GetComponent<HealthComponent>(); 
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -191,4 +201,60 @@ public class Move : BuyableBehavior
     }
 
 
+    public DamageInfo TakeDamage(GameObject source, float damage)
+    {
+        DamageInfo dinfo = new DamageInfo();
+        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        return dinfo;
+    }
+
+    private void HandleDeath()
+    {
+        
+    }
+
+    public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
+    {
+        return null;
+    }
+
+    public HealthComponent GetHealth()
+    {
+        return null;
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.Player) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+            case UpgradeCategory.Health:
+                UpgradeHealth();
+                break;
+            case UpgradeCategory.Speed:
+                UpgradeSpeed();
+                break;
+        }
+    }
+
+    public void UpgradeHealth()
+    {
+        _healthComponent.AddHealth(_upgradeHealthAmount);
+    }
+    
+    public void UpgradeSpeed()
+    {
+        _speed += _upgradeSpeedAmount;
+        _initialSpeed = _speed;
+    }
+    
+    
 }

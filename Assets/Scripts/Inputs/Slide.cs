@@ -1,19 +1,25 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 
 public class Slide : BuyableBehavior
 {
-    
+
     [SerializeField] Transform _cam;
+    [SerializeField] CinemachineCamera _cinemachineCamera;
     [SerializeField] Move _moveScript;
     [SerializeField] float _slideSpeed = 10f;
     [SerializeField] Transform _slideCamPos;
+    [SerializeField] Transform _slideCamRoot;
     [SerializeField] float _slideDuration = 0.3f;
     [SerializeField] float _slideCooldown = 1f;
-    [SerializeField] bool _slideBuy = true;
-    [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
 
+    [Header("Camera")]
+    [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
+    [SerializeField] float _targetFov = 90f;
+    private float _initialFov;
+    private float _arriveThreshold = 0.98f;
     private Vector3 _camDefaultLocalPos;
     private float _slideTime = 0f;
     private bool _canSlide = true;
@@ -26,7 +32,8 @@ public class Slide : BuyableBehavior
 
     void Start()
     {
-        _camDefaultLocalPos = _cam.position;
+        _camDefaultLocalPos = _slideCamRoot.transform.localPosition;
+        _initialFov = _cinemachineCamera.Lens.FieldOfView;
         InputListener.onSlideEvent += OnSlide;
         rb = GetComponent<Rigidbody>();
     }
@@ -35,7 +42,7 @@ public class Slide : BuyableBehavior
     void FixedUpdate()
     {
         HandleSlide();
-        if(!_moveScript._sliding)
+        if (!_moveScript._sliding)
         {
             _slideTime = 0;
         }
@@ -50,7 +57,7 @@ public class Slide : BuyableBehavior
     {
         if (!context.performed) return; // ignore started / canceled (release)
 
-        if (!_slideBuy || !_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
+        if (!_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
 
 
         Vector3 dir = GetMoveDirection();
@@ -87,20 +94,41 @@ public class Slide : BuyableBehavior
     {
         // Target in the camera's parent space, so it works wherever _slideCamPos sits in the hierarchy
         Vector3 target;
-        if(_moveScript._sliding)
+        if (_moveScript._sliding)
         {
+            // make a smooth FOV transition with a cinemachine camera that ends when the camera move end(smoothly) and start resetting the fov when the camera move is over
             target = _cam.parent.InverseTransformPoint(_slideCamPos.position);
         }
         else
         {
             target = _camDefaultLocalPos;
         }
-           
+
 
         // Frame-rate independent smoothing
         float t = 1f - Mathf.Exp(-_camSmoothSpeed * Time.deltaTime);
         _cam.localPosition = Vector3.Lerp(_cam.localPosition, target, t);
     }
+
+
+    // private void UpdateFov(Vector3 slideLocal)
+    // {
+    //     Vector3 path = slideLocal - _camDefaultLocalPos;
+    //     float sqrLense = path.sqrMagnitude;
+
+    //     float progress = 0f;
+    //     if (sqrLense > 0.0001f)
+    //     {
+    //         progress = Vector3.Dot(_cam.localPosition - _camDefaultLocalPos, path) / sqrLense;
+    //         progress = Mathf.Clamp01(progress / _arriveThreshold);
+    //     }
+
+    //     var lens = _cinemachineCamera.Lens;
+    //     float eased = Mathf.SmoothStep(0f, 1f, progress);
+    //     lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov, eased);
+    //     _cinemachineCamera.Lens = lens;
+    // }
+
 
     private Vector3 GetMoveDirection()
     {

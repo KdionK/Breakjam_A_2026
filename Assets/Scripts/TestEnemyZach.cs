@@ -8,9 +8,13 @@ public class TestEnemyZach : MonoBehaviour, IDamageable
     private int soundLevel;
     private Renderer rend;
     public HealthComponent hpcomponent;
+    private HealthComponent healthComponent;
     void Start()
     {
         rend = GetComponent<Renderer>();
+        
+        healthComponent = GetComponent<HealthComponent>();
+        healthComponent.OnDeath += Death;
         
         textureLevel = BuyHistory.Instance.GetLevel(UnitType.CommonEnemy, UpgradeCategory.Texture);
         meshLevel = BuyHistory.Instance.GetLevel(UnitType.CommonEnemy, UpgradeCategory.Mesh);
@@ -75,6 +79,11 @@ public class TestEnemyZach : MonoBehaviour, IDamageable
         return dinfo;
     }
 
+    public void Death()
+    {
+        BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
+        Destroy(this.gameObject);
+    }
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
         return null;

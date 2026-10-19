@@ -9,7 +9,7 @@ public class Dash : BuyableBehavior
     [SerializeField] float _dashForce = 20f;
     [SerializeField] float _dashDuration = 0.15f;
     [SerializeField] float _dashCooldown = 4f;
-    [SerializeField] bool _dashBuy = true;
+    
     private float _dashTime = 0f;
     private bool _canDash = true;
     private float _dashTimer;
@@ -50,7 +50,7 @@ public class Dash : BuyableBehavior
     {
         if (!context.performed) return; // ignore started / canceled (release)
         
-        if (!_dashBuy || !_canDash) return;
+        if (!_canDash) return;
         if (_moveScript._sliding) return;
 
         Vector3 dir = GetDashDirection();
