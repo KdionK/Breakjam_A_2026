@@ -20,8 +20,8 @@ public class EconomyManager : MonoBehaviour
         get { return _currency; }
     }
 
-    private EconomyManager instance;
-    public EconomyManager Instance => instance;
+    private static EconomyManager instance;
+    public static EconomyManager Instance => instance;
 
     private Coroutine _currentCoroutine;
 

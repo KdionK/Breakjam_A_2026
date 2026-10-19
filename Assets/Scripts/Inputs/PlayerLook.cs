@@ -1,9 +1,10 @@
 using System;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 public class PlayerLook : MonoBehaviour
 {
-    [SerializeField] Camera cam;
+    [SerializeField] CinemachineCamera cam;
     [SerializeField] float xSensitivity = 30f;
     [SerializeField] float ySensitivity = 30f;
     private Vector2 _moveDirection;

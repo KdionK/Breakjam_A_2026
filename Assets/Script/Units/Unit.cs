@@ -14,12 +14,28 @@ public class Unit : MonoBehaviour, IDamageable
     [SerializeField] private AttackStateSO attackStateSO;
     
     [Header("targetting")]
-    [SerializeField] public GameObject target;
-    public Launcher weapon;
+    [HideInInspector] public GameObject target;
+    [HideInInspector]
+    public BaseWeapon weapon;
+
+    public GameObject spawnLocation;
+    
+
+    private HealthComponent healthComponent;
+    [Header("Visual")]
+    private int textureLevel;
+    public GameObject visualObject;
+    [SerializeField] private GameObject[] visualUpgrades;
+    public Animator anim;
+    
+    [Header("money")]
+    public int moneyOnDeath;
     void Start()
     {
+        healthComponent = GetComponent<HealthComponent>();
+        healthComponent.OnDeath += Death;
         target = GameObject.FindGameObjectWithTag("Player");
-        weapon = GetComponent<Launcher>();
+        weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
         StateMachine = new StateMachine<State>();
         
@@ -27,22 +43,37 @@ public class Unit : MonoBehaviour, IDamageable
         attackState = new AttackState(this, StateMachine, attackStateSO);
         
         StateMachine.Init(chaseState);
+        
+        textureLevel = BuyHistory.Instance.GetLevel(UnitType.CommonEnemy, UpgradeCategory.Texture);
+        
+        UpgradeTexture();
+        
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(target == null)return;
         StateMachine.CurrentState.FrameUpdate();
     }
     
     public virtual void FixedUpdate()
     {
+        if(target == null)return;
         StateMachine.CurrentState.PhysicUpdate();
     }
 
-    public DamageInfo TakeDamage(GameObject source, IDamageSource damageSource, float damage)
+    public DamageInfo TakeDamage(GameObject source, float damage)
     {
-        throw new System.NotImplementedException();
+        DamageInfo damageInfo = new DamageInfo()
+        {
+            finalDamage = damage,
+            Source = source,
+            Target = this.gameObject,
+        };
+        healthComponent.ModifyHealth((int)damage);
+        return damageInfo;
     }
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
@@ -59,7 +90,38 @@ public class Unit : MonoBehaviour, IDamageable
     {
         throw new System.NotImplementedException();
     }
-    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.CommonEnemy) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                textureLevel++;
+                UpgradeTexture();
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+        }
+    }
+    private void UpgradeTexture()
+    {
+        if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
+        int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
+        visualObject.SetActive(false);
+        visualUpgrades[i].SetActive(true);
+        visualObject = visualUpgrades[i];
+    }
+
+    public void Death()
+    {
+        //EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
+        BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
+        Destroy(this.gameObject);
+    }
     private void OnDrawGizmos()
     {
         if(weapon == null)return;

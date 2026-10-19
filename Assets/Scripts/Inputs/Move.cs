@@ -1,20 +1,24 @@
 
 using System.Runtime.InteropServices.WindowsRuntime;
 using NUnit.Framework;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Move : MonoBehaviour
+public class Move : BuyableBehavior, IDamageable
 {
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private SceneManagementSystem _sceneManger;
     [Header("buyChecks")]
     [SerializeField] bool _jumpBuy = true;
 
 
     [Header("base movement")]
+    private float _initialSpeed;
     [SerializeField] float _speed = 5;
+    
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
     [SerializeField] private int _maxAirJumps = 0;
@@ -24,19 +28,27 @@ public class Move : MonoBehaviour
     [Header("Dash")]
     public bool _isDashing = false;
 
-    [Header("Slide")]
+    [Header("SlideJump/Boost")]
     public bool _sliding = false;
     [SerializeField] float _slideJumpSpeed = 10;
+    [SerializeField] float _slideJumpBoostTime = 0.6f;
+    private Vector3 _boostDir;
+    private float _boostTimer;
 
 
 
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
+    
+    [Header ("Upgrades")]
+    [SerializeField] private float _upgradeSpeedAmount = 2.5f;
+    [SerializeField] private int _upgradeHealthAmount = 30;
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
-
+    private HealthComponent _healthComponent;
+    
     public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
@@ -46,9 +58,12 @@ public class Move : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _initialSpeed = _speed;
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
+        _healthComponent = GetComponent<HealthComponent>(); 
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -73,14 +88,13 @@ public class Move : MonoBehaviour
         }
     }
 
-   
+
     // Update is called once per frame
     void FixedUpdate()
     {
         Moving();
         CheckGround();
         HandleJump();
-        // HandleDash();
         ApplyBetterGravity();
     }
 
@@ -103,10 +117,22 @@ public class Move : MonoBehaviour
             return;
         }
 
-        if(_sliding)
+        if (_sliding)
         {
             return;
         }
+
+        if (_boostTimer > 0f)
+        {
+            _boostTimer -= Time.fixedDeltaTime;
+            float t = Mathf.Clamp01(_boostTimer / _slideJumpBoostTime);
+            _speed = Mathf.Lerp(_initialSpeed, _slideJumpSpeed, t);
+        }
+        else
+        {
+            _speed = _initialSpeed;
+        }
+
 
         Vector3 dir = GetMoveDirection();
         rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
@@ -116,6 +142,7 @@ public class Move : MonoBehaviour
     {
         Debug.DrawRay(transform.position, Vector3.down * _rayDownDistance, Color.green);
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, _rayDownDistance, _groundLayer, QueryTriggerInteraction.Ignore);
+        if(_isGrounded) _boostTimer = 0f;
 
         if (_isGrounded && rb.linearVelocity.y <= 0.01f)
         {
@@ -149,6 +176,11 @@ public class Move : MonoBehaviour
 
     private void Jump()
     {
+        if(_sliding)
+        {
+            _boostTimer = _slideJumpBoostTime;
+            _sliding = false;
+        }
         Vector3 v = rb.linearVelocity;
         rb.linearVelocity = new Vector3(v.x, _jumpForce, v.z);
         _jumpBufferTimer = 0f;
@@ -169,4 +201,60 @@ public class Move : MonoBehaviour
     }
 
 
+    public DamageInfo TakeDamage(GameObject source, float damage)
+    {
+        DamageInfo dinfo = new DamageInfo();
+        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        return dinfo;
+    }
+
+    private void HandleDeath()
+    {
+        
+    }
+
+    public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
+    {
+        return null;
+    }
+
+    public HealthComponent GetHealth()
+    {
+        return null;
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.Player) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+            case UpgradeCategory.Health:
+                UpgradeHealth();
+                break;
+            case UpgradeCategory.Speed:
+                UpgradeSpeed();
+                break;
+        }
+    }
+
+    public void UpgradeHealth()
+    {
+        _healthComponent.AddHealth(_upgradeHealthAmount);
+    }
+    
+    public void UpgradeSpeed()
+    {
+        _speed += _upgradeSpeedAmount;
+        _initialSpeed = _speed;
+    }
+    
+    
 }
