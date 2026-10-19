@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Slide : BuyableBehavior
 {
-    
+
     [SerializeField] Transform _cam;
     [SerializeField] CinemachineCamera _cinemachineCamera;
     [SerializeField] Move _moveScript;
@@ -19,7 +19,7 @@ public class Slide : BuyableBehavior
     [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
     [SerializeField] float _targetFov = 90f;
     private float _initialFov;
-
+    private float _arriveThreshold = 0.98f;
     private Vector3 _camDefaultLocalPos;
     private float _slideTime = 0f;
     private bool _canSlide = true;
@@ -42,7 +42,7 @@ public class Slide : BuyableBehavior
     void FixedUpdate()
     {
         HandleSlide();
-        if(!_moveScript._sliding)
+        if (!_moveScript._sliding)
         {
             _slideTime = 0;
         }
@@ -94,7 +94,7 @@ public class Slide : BuyableBehavior
     {
         // Target in the camera's parent space, so it works wherever _slideCamPos sits in the hierarchy
         Vector3 target;
-        if(_moveScript._sliding)
+        if (_moveScript._sliding)
         {
             // make a smooth FOV transition with a cinemachine camera that ends when the camera move end(smoothly) and start resetting the fov when the camera move is over
             target = _cam.parent.InverseTransformPoint(_slideCamPos.position);
@@ -103,26 +103,32 @@ public class Slide : BuyableBehavior
         {
             target = _camDefaultLocalPos;
         }
-           
+
 
         // Frame-rate independent smoothing
         float t = 1f - Mathf.Exp(-_camSmoothSpeed * Time.deltaTime);
         _cam.localPosition = Vector3.Lerp(_cam.localPosition, target, t);
-
-        UpdateFov(target);
     }
 
-    private void UpdateFov(Vector3 slideLocal)
-    {
-        Vector3 path = slideLocal - _camDefaultLocalPos;
-        float sqrLense = path.sqrMagnitude;
 
-        float progress = 0f;
-        if(sqrLense < 0.0001f)
-        {
-            progress = Vector3.Dot(_cam.localPosition - _camDefaultLocalPos, path) / sqrLense;
-        }
-    }
+    // private void UpdateFov(Vector3 slideLocal)
+    // {
+    //     Vector3 path = slideLocal - _camDefaultLocalPos;
+    //     float sqrLense = path.sqrMagnitude;
+
+    //     float progress = 0f;
+    //     if (sqrLense > 0.0001f)
+    //     {
+    //         progress = Vector3.Dot(_cam.localPosition - _camDefaultLocalPos, path) / sqrLense;
+    //         progress = Mathf.Clamp01(progress / _arriveThreshold);
+    //     }
+
+    //     var lens = _cinemachineCamera.Lens;
+    //     float eased = Mathf.SmoothStep(0f, 1f, progress);
+    //     lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov, eased);
+    //     _cinemachineCamera.Lens = lens;
+    // }
+
 
     private Vector3 GetMoveDirection()
     {

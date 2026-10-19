@@ -4,7 +4,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraDashFX : MonoBehaviour
+public class CameraFX : MonoBehaviour
 {
     private CinemachineCamera _cinemachineCamera;
     [SerializeField] float _targetFov = 90;
@@ -26,31 +26,33 @@ public class CameraDashFX : MonoBehaviour
         if (_moveScript._isDashing && !transitionStarted)
         {
             transitionStarted = true;
-            StartCoroutine(FovTransitionInDash());
+            StartCoroutine(FovTransitionIn());
         }
 
 
     }
 
-    IEnumerator FovTransitionInDash()
+    IEnumerator FovTransitionIn()
     {
-       float time = 0;
-       while(time < _fovEaseInTimer)
-        {
-            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov , time / _fovEaseInTimer);
+        Debug.Log("Transition");
+        float time = 0;
+        while (time < _fovEaseInTimer)
+        {   
+            Debug.Log("current FOV" +   _cinemachineCamera.Lens.FieldOfView);
+            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov, time / _fovEaseInTimer);
             yield return null;
             time += Time.deltaTime;
         }
         // _cinemachineCamera.Lens.FieldOfView = _initialFov;
         transitionStarted = false;
-        StartCoroutine(FovTransitionOutDash());
+        StartCoroutine(FovTransitionOut());
     }
-    IEnumerator FovTransitionOutDash()
+    IEnumerator FovTransitionOut()
     {
-       float time = 0;
-       while(time < _fovEaseOutTimer)
+        float time = 0;
+        while (time < _fovEaseOutTimer)
         {
-            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_targetFov, _initialFov , time / _fovEaseOutTimer);
+            _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_targetFov, _initialFov, time / _fovEaseOutTimer);
             yield return null;
             time += Time.deltaTime;
         }
