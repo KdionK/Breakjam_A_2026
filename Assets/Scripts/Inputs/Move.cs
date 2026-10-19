@@ -55,6 +55,8 @@ public class Move : BuyableBehavior, IDamageable
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
+        
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -212,5 +214,37 @@ public class Move : BuyableBehavior, IDamageable
     public HealthComponent GetHealth()
     {
         return null;
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.Player) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+            case UpgradeCategory.Health:
+                UpgradeHealth();
+                break;
+            case UpgradeCategory.Speed:
+                UpgradeSpeed();
+                break;
+        }
+    }
+
+    public void UpgradeHealth()
+    {
+        
+    }
+    
+    public void UpgradeSpeed()
+    {
+        
     }
 }
