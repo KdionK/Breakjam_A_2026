@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Serialization;
+using UnityEngine.VFX;
 
 public class BaseWeapon : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BaseWeapon : MonoBehaviour
     GameObject Projectile;
     [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned. For a hitscan weapon in a player, put the camera transform")]
     Transform ProjectileSpawnTransform;
+    [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned. For a hitscan weapon in a player, put the camera transform")]
+    Transform MuzzleFlashTransform;
+    [SerializeField] protected VisualEffect MuzzleFlash;
 
     [SerializeField] [Tooltip("The force of the launch")]
     float LaunchForce = 100f;
@@ -136,6 +140,8 @@ public class BaseWeapon : MonoBehaviour
 
         NextFireTime = Time.time + IntervalBetweenShots;
 
+        VFXMuzzleFlash();
+        
         if (bNeedsToReload)
         {
             CurrentAmmo--;
@@ -188,8 +194,12 @@ public class BaseWeapon : MonoBehaviour
         }
 
     }
-    
 
+    protected void VFXMuzzleFlash()
+    {
+        MuzzleFlash.Play();
+    }
+    
     public void StartFiring()
     {
         bTryingToFire = true;
