@@ -766,6 +766,7 @@ GameObject:
   - component: {fileID: 1066159720}
   - component: {fileID: 1066159721}
   - component: {fileID: 1066159722}
+  - component: {fileID: 1066159723}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -794,6 +795,7 @@ MonoBehaviour:
   visualObject: {fileID: 2063320406}
   visualUpgrades:
   - {fileID: 1517804954}
+  moneyOnDeath: 0
 --- !u!195 &1066159718
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -910,6 +912,21 @@ MonoBehaviour:
   bIsAuto: 1
   _maxFireRate: 5
   _maxAIFireRate: 2
+--- !u!114 &1066159723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066159716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a477b16669d7d854aae3d5c06b4da75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  _fullHealth: 100
+  _currentHealth: 100
+  _extraHealth: 0
 --- !u!1 &1366538481
 GameObject:
   m_ObjectHideFlags: 0

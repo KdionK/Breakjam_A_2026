@@ -25,9 +25,13 @@ public class Unit : MonoBehaviour, IDamageable
     [Header("texture")]
     private int textureLevel;
     [SerializeField] private GameObject[] visualUpgrades;
+    
+    [Header("money")]
+    public int moneyOnDeath;
     void Start()
     {
         healthComponent = GetComponent<HealthComponent>();
+        healthComponent.onDeath += Death;
         target = GameObject.FindGameObjectWithTag("Player");
         weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
@@ -109,7 +113,12 @@ public class Unit : MonoBehaviour, IDamageable
         visualUpgrades[i].SetActive(true);
         visualObject = visualUpgrades[i];
     }
-    
+
+    public void Death()
+    {
+        EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
+        Destroy(this.gameObject);
+    }
     private void OnDrawGizmos()
     {
         if(weapon == null)return;
