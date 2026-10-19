@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 281743
   packageName: Robot Humanoid low_poly
   packageVersion: 1.0
-  assetPath: Assets/Quad.Vertex/Materials/robot_mat_green.mat
+  assetPath: Assets/Materials/HumanBotMaterials/robot_mat_green.mat
   uploadId: 655713
