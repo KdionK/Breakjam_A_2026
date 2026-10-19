@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.VFX;
 
@@ -65,6 +66,21 @@ public class BaseProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (bIsExplosive)
+        {
+            Explode();
+            return;
+        }
+        IDamageable damageable = other.GetComponent<Collider>().GetComponent<IDamageable>();
+        if (damageable != null)
+        {
+            damageable.TakeDamage(this.gameObject, ProjectileDamage);
+        }
+        Destroy(gameObject);
     }
 
     protected void Explode()
