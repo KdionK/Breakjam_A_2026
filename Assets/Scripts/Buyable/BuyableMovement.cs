@@ -28,13 +28,14 @@ public class BuyableMovement : MonoBehaviour, IBuyable
             return  false;
 
         System.Type type = movementToAdd.GetClass();
+        Debug.Log("adding movement");
         if (type != null && typeof(BuyableBehavior).IsAssignableFrom(type))
         {
-            BuyableBehavior weapon = GetComponent(type) as BuyableBehavior;
+            BuyableBehavior movement = User.GetComponent(type) as BuyableBehavior;
 
-            if (weapon != null)
+            if (movement != null)
             {
-                weapon.enabled = true;
+                movement.enabled = true;
             }
         }
         isBuyable = true;

@@ -1,6 +1,7 @@
 
 using System.Runtime.InteropServices.WindowsRuntime;
 using NUnit.Framework;
+using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -17,6 +18,7 @@ public class Move : BuyableBehavior, IDamageable
     [Header("base movement")]
     private float _initialSpeed;
     [SerializeField] float _speed = 5;
+    
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
     [SerializeField] private int _maxAirJumps = 0;
@@ -38,10 +40,15 @@ public class Move : BuyableBehavior, IDamageable
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
+    
+    [Header ("Upgrades")]
+    [SerializeField] private float _upgradeSpeedAmount = 2.5f;
+    [SerializeField] private int _upgradeHealthAmount = 30;
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
-
+    private HealthComponent _healthComponent;
+    
     public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
@@ -55,7 +62,7 @@ public class Move : BuyableBehavior, IDamageable
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
-        
+        _healthComponent = GetComponent<HealthComponent>(); 
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
@@ -240,11 +247,14 @@ public class Move : BuyableBehavior, IDamageable
 
     public void UpgradeHealth()
     {
-        
+        _healthComponent.AddHealth(_upgradeHealthAmount);
     }
     
     public void UpgradeSpeed()
     {
-        
+        _speed += _upgradeSpeedAmount;
+        _initialSpeed = _speed;
     }
+    
+    
 }
