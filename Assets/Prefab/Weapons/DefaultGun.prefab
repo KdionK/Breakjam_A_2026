@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2373349215019194016}
   - component: {fileID: 5095745344725937396}
   - component: {fileID: 1278036785569702741}
-  - component: {fileID: 6003472136877212912}
   - component: {fileID: 1902320945252031641}
   m_Layer: 0
   m_Name: DefaultGun
@@ -28,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2381975953570592877}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.004886923, w: 0.9999881}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -36,7 +35,7 @@ Transform:
   - {fileID: 7453870681019352664}
   - {fileID: 2052240330839635058}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.56}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5095745344725937396
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -44,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2381975953570592877}
-  m_Mesh: {fileID: -8211787977035241703, guid: ef40d63eb6bd73e4b89a0a091e7e002c, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &1278036785569702741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -94,27 +93,6 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6003472136877212912
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2381975953570592877}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1902320945252031641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,10 +113,10 @@ MonoBehaviour:
   MuzzleFlash: {fileID: 2784607960475708323}
   bUnlockedMuzzleFlash: 0
   LaunchForce: 100
-  MaxDamage: 10
-  MaxDamageMaxRange: 10
-  MinDamage: 1
+  Damage: 15
+  RangeOfMaxDamage: 10
   DamageMaxRange: 100
+  MinDamage: 1
   MagSize: 20
   CurrentAmmo: 0
   bNeedsToReload: 1
@@ -172,7 +150,7 @@ Transform:
   m_GameObject: {fileID: 6488772677370791841}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.0763, z: 0.539}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -204,11 +182,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3592099691285176336, guid: b88f2229dd1c361438c54eaaff109ff4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.067
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3592099691285176336, guid: b88f2229dd1c361438c54eaaff109ff4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3592099691285176336, guid: b88f2229dd1c361438c54eaaff109ff4, type: 3}
       propertyPath: m_LocalRotation.w

@@ -4,52 +4,52 @@ using UnityEngine.VFX;
 
 public class BaseWeapon : MonoBehaviour
 {
-    //Ai
+    [Header("AI")]
     [SerializeField] [Tooltip("If something else than the player is using this weapon, this must be True")]
     bool bIsAIControlled = false;
     [SerializeField] [Tooltip("The range that the AI can start shooting the player")]
     public float MaxAIRange = 400f;
     
-    //Shoot mode
+    [Header("Shoot Mode")]
     [SerializeField] [Tooltip("If true, will be hitscan instead of shooting a projectile")]
     bool bIsHitscan = false;
+    [Header("Projectile")]
     [SerializeField] [Tooltip("The prefab of the projectile")]
     GameObject Projectile;
     [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned. For a hitscan weapon in a player, put the camera transform")]
     Transform ProjectileSpawnTransform;
+    [SerializeField] [Tooltip("The force of the launch")]
+    float LaunchForce = 100f;
     
-    //Visual Effects
+    [Header("Visual Effects")]
     [SerializeField] protected VisualEffect MuzzleFlash;
     [SerializeField] [Tooltip("If true, will be hitscan instead of shooting a projectile")]
     bool bUnlockedMuzzleFlash = false;
 
-    [SerializeField] [Tooltip("The force of the launch")]
-    float LaunchForce = 100f;
 
-    //Damage + range thresholds for hitscasns
+    [Header("Damage")]
     [FormerlySerializedAs("_damage")] [SerializeField] [Tooltip("Damage when hit target is closer than MaxDamageRange. Will also override projectile damage if projectile weapon")]
-    float MaxDamage = 15f;
-    [SerializeField] [Tooltip("Above this value, damage starts decreasing until it reaches MinDamage")]
-    float MaxDamageMaxRange = 10f;
-    [SerializeField] [Tooltip("Damage when hit target is close to max range")]
-    float MinDamage = 1f;
-    [SerializeField] [Tooltip("Above this value, no damage.")]
+    float Damage = 15f;
+    [Header("Damage Hitscan")]
+    [SerializeField] [Tooltip("Above this range, damage starts decreasing until it reaches MinDamage")]
+    float RangeOfMaxDamage = 10f;
+    [SerializeField] [Tooltip("Above this range, no damage.")]
     float DamageMaxRange = 100f;
+    [SerializeField] [Tooltip("Damage when hit target is just before the max range")]
+    float MinDamage = 1f;
     
-    //Ammo
+    [Header("Ammo and reload")]
+    [SerializeField] [Tooltip("False if continuous fire")]
+    bool bNeedsToReload = true;
     [SerializeField] [Tooltip("The max ammo numb before reloading")]
     int MagSize = 20;
     public int CurrentAmmo;
-
-    //Reload
-    [SerializeField] [Tooltip("False if continuous fire")]
-    bool bNeedsToReload = true;
     [SerializeField] [Tooltip("The reload time in seconds")]
     float ReloadTime = 2f;
     public float CurrentReloadTimer = 0f;
     private bool bReloading = false;
 
-    //Fire rate
+    [Header("Fire Rate")]
     [SerializeField] [Tooltip("Automatic weapon or single fire? Single fire is also capped at" +
                               " Max Fire Rate. AIs ignore this, they are always auto")]
     bool bIsAuto = true;
@@ -159,7 +159,7 @@ public class BaseWeapon : MonoBehaviour
     {
         GameObject p = Instantiate(Projectile, ProjectileSpawnTransform.position, ProjectileSpawnTransform.rotation);
         BaseProjectile pScript = p.GetComponent<BaseProjectile>();
-        pScript.ProjectileDamage = MaxDamage;
+        pScript.ProjectileDamage = Damage;
         p.GetComponent<Rigidbody>().AddForce(ProjectileSpawnTransform.forward * LaunchForce, ForceMode.VelocityChange);
     }
 
@@ -173,8 +173,8 @@ public class BaseWeapon : MonoBehaviour
             IDamageable damageable = hit.collider.gameObject.GetComponent<IDamageable>();
             if (damageable != null)
             {
-                float t = Mathf.InverseLerp(MaxDamageMaxRange, DamageMaxRange, hit.distance);
-                float finalDamage = Mathf.Lerp(MaxDamage, MinDamage, t);
+                float t = Mathf.InverseLerp(RangeOfMaxDamage, DamageMaxRange, hit.distance);
+                float finalDamage = Mathf.Lerp(Damage, MinDamage, t);
                 // float v = Mathf.InverseLerp(DamageMaxRange, MaxDamageMaxRange, hit.distance);
                 // float finalDamage = v * MaxDamage;
                 damageable.TakeDamage(gameObject, finalDamage);
