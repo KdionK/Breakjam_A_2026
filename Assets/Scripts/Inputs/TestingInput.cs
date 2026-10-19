@@ -48,7 +48,7 @@ public class CameraRaycast : MonoBehaviour
                 IBuyable buyable = go.GetComponent<IBuyable>();
                 if (buyable != null && buyable.IsBuyable())
                 {
-                    buyable.BuyThis(null);
+                    buyable.BuyThis(this.gameObject);
                 }
             }
         }

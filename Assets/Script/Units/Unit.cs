@@ -19,14 +19,21 @@ public class Unit : MonoBehaviour, IDamageable
     public BaseWeapon weapon;
 
     public GameObject spawnLocation;
-    public GameObject visualObject;
-
     
-    [Header("texture")]
+
+    private HealthComponent healthComponent;
+    [Header("Visual")]
     private int textureLevel;
+    public GameObject visualObject;
     [SerializeField] private GameObject[] visualUpgrades;
+    public Animator anim;
+    
+    [Header("money")]
+    public int moneyOnDeath;
     void Start()
     {
+        healthComponent = GetComponent<HealthComponent>();
+        healthComponent.OnDeath += Death;
         target = GameObject.FindGameObjectWithTag("Player");
         weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
@@ -47,17 +54,26 @@ public class Unit : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
+        if(target == null)return;
         StateMachine.CurrentState.FrameUpdate();
     }
     
     public virtual void FixedUpdate()
     {
+        if(target == null)return;
         StateMachine.CurrentState.PhysicUpdate();
     }
 
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
-        throw new System.NotImplementedException();
+        DamageInfo damageInfo = new DamageInfo()
+        {
+            finalDamage = damage,
+            Source = source,
+            Target = this.gameObject,
+        };
+        healthComponent.ModifyHealth((int)damage);
+        return damageInfo;
     }
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
@@ -99,7 +115,14 @@ public class Unit : MonoBehaviour, IDamageable
         visualUpgrades[i].SetActive(true);
         visualObject = visualUpgrades[i];
     }
-    
+
+    public void Death()
+    {
+        Debug.Log("meowmeow");
+        EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
+        BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
+        Destroy(this.gameObject);
+    }
     private void OnDrawGizmos()
     {
         if(weapon == null)return;

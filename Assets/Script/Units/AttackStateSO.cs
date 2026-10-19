@@ -7,4 +7,11 @@ public class AttackStateSO : StateScriptableObject
     [SerializeField] public float disengageTimer;
 
     public bool rotateTowardUnit;
+    [Header("Melee attack")]
+    public float ColdownAfterMeleeAttack;
+    public float meleeDamage;
+    public float delayBeforeDamage = 0.4f;
+    public bool isMeleeAttacking;
+    public LayerMask meleeLayer;
+    public float radiusOfMelee;
 }

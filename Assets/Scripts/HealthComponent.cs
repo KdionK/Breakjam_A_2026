@@ -18,6 +18,7 @@ public class HealthComponent : MonoBehaviour
     }
 
     [SerializeField] private int _extraHealth;
+    public event Action onDeath; 
 
     public HealthComponent SetUpHealth(int fullHealth, int extraHealth = 0)
     {
@@ -29,7 +30,6 @@ public class HealthComponent : MonoBehaviour
 
     public int ModifyHealth(int value)
     {
-        Debug.Log("Modifying health");
         _currentHealth -= value;
         if (_currentHealth <= 0)
         {
@@ -41,6 +41,7 @@ public class HealthComponent : MonoBehaviour
     
     private void Death()
     {
+        Debug.Log("Death");
         OnDeath?.Invoke();
     }
 

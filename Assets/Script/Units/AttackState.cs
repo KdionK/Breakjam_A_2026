@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,6 +7,7 @@ public class AttackState : State
     private AttackStateSO config;
     private Quaternion  savedRotation;
     private float timer;
+    private Coroutine attackRoutine;
     public AttackState(Unit unit, IStateMachine stateMachine, AttackStateSO config) : base(unit, stateMachine)
     {
         unit.Agent.speed = config.agentSpeed;
@@ -18,7 +20,16 @@ public class AttackState : State
         savedRotation = unit.visualObject.transform.rotation;
         unit.Agent.stoppingDistance = Mathf.Min(unit.weapon.MaxAIRange, config.stoppingDistance);
         base.EnterState();
-        unit.weapon.StartFiring();
+        //I know it should be done differently but this is the quickest way to work with the current wweapon design
+        if (!config.isMeleeAttacking)
+        {
+            unit.weapon.StartFiring();
+        }
+        else
+        {
+            attackRoutine = unit.StartCoroutine(MeleeAttack());
+        }
+        
     }
 
     public override void FrameUpdate()
@@ -40,7 +51,7 @@ public class AttackState : State
             
             Vector3 directionToTargetSpawnLocation =
                 (unit.target.transform.position - unit.spawnLocation.transform.position).normalized;
-            
+            directionToTargetSpawnLocation.x = 0;
             if (directionToTarget != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(directionToTargetSpawnLocation);
@@ -56,10 +67,31 @@ public class AttackState : State
         CheckTransition();
     }
 
+    public IEnumerator MeleeAttack()
+    {
+        unit.anim.SetTrigger("MeleeAttack");
+        yield return new WaitForSeconds(config.delayBeforeDamage);
+        Collider[] results = Physics.OverlapSphere(unit.transform.position, config.radiusOfMelee, config.meleeLayer);
+        foreach (Collider hit in results)
+        {
+            if (hit.gameObject.CompareTag("Player"))
+            {
+                IDamageable damageable = hit.gameObject.GetComponent<IDamageable>();
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(unit.gameObject, config.meleeDamage);
+                }
+            }
+        }
+        yield return new WaitForSeconds(config.ColdownAfterMeleeAttack);
+        unit.StateMachine.ChangeState(unit.chaseState);
+        yield return null;
+    }
     public override void ExitState()
     {
         unit.visualObject.transform.rotation = savedRotation;
         unit.weapon.StopFiring();
+        unit.StopCoroutine(attackRoutine);
         base.ExitState();
     }
 
@@ -70,5 +102,17 @@ public class AttackState : State
         {
             unit.StateMachine.ChangeState(unit.chaseState);
         }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        if (unit == null || config == null)
+            return;
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(
+            unit.transform.position,
+            config.radiusOfMelee
+        );
     }
 }
