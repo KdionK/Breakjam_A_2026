@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 5191719639022017824}
   - component: {fileID: 7170984225178961009}
   - component: {fileID: 873159604386801645}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -318,6 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Slide
   _cam: {fileID: 1082657311820243534}
+  _cinemachineCamera: {fileID: 0}
   _moveScript: {fileID: 5281099398382661662}
   _slideSpeed: 16
   _slideCamPos: {fileID: 4211970981571765873}
@@ -325,6 +326,7 @@ MonoBehaviour:
   _slideCooldown: 1
   _slideBuy: 1
   _camSmoothSpeed: 20
+  _targetFov: 90
 --- !u!114 &130752072528679702
 MonoBehaviour:
   m_ObjectHideFlags: 0
