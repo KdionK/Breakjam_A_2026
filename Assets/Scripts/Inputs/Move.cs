@@ -89,10 +89,10 @@ public class Move : BuyableBehavior, IDamageable
 
     private void Update()
     {
-        // if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
-        // {
-        //     DeathTest();
-        // }
+        if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            DeathTest();
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
