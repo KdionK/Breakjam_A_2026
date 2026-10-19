@@ -11,8 +11,14 @@ public class UpgradePopUpManager : MonoBehaviour
     private void ChooseUpgradesOnMap()
     {
         List<Transform> tempSpawnerList = new List<Transform>();
-        
-        tempSpawnerList.Add(PopUpSpawners[Random.Range(0, PopUpSpawners.Length)]);
+
+        while (tempSpawnerList.Count < 4)
+        {
+            var temp = PopUpSpawners[Random.Range(0, PopUpSpawners.Length)];
+            if (tempSpawnerList.Contains(temp)) continue;
+            
+            tempSpawnerList.Add(temp);
+        }
         
     }
 }
