@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - SceneTransition
+  - Floor
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Floor
   - Water
   - UI
-  - 
+  - Joueur
   - 
   - 
   - 

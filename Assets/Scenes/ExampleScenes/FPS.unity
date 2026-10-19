@@ -2559,7 +2559,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: e8369cdb-eb0c-4b14-9cdf-6742fe6cbd0a
+  m_DefaultActionMap: Guns
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1519073447}
 --- !u!114 &532990290
@@ -4575,8 +4575,8 @@ Transform:
   m_GameObject: {fileID: 1389518478}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: -0.5}
-  m_LocalPosition: {x: 35.12235, y: -8.074891, z: 12.737352}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 26.99, y: -8.074891, z: 2.01}
+  m_LocalScale: {x: 1, y: 0.2171, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 556698471}
@@ -5114,7 +5114,7 @@ Transform:
   m_GameObject: {fileID: 1583292653}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.780897, y: -8.437191, z: 10.18326}
+  m_LocalPosition: {x: 14.780897, y: -8.437191, z: 24.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5769,8 +5769,8 @@ Transform:
   m_GameObject: {fileID: 1745517988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.168201, y: -11.210577, z: -13.434269}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 22.168201, y: -11.210577, z: -4.85}
+  m_LocalScale: {x: 1, y: 1, z: 2.1422}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 556698471}
@@ -6155,7 +6155,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4410302221187318440, guid: 6663ee75de5af67488487b636e1d1301, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.93
+      value: 22.59
       objectReference: {fileID: 0}
     - target: {fileID: 4410302221187318440, guid: 6663ee75de5af67488487b636e1d1301, type: 3}
       propertyPath: m_LocalPosition.y

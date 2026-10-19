@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267c13d9bccc31d48b88a68573b6f50c, type: 3}
+  m_Name: BossAttackState
+  m_EditorClassIdentifier: Assembly-CSharp::BossAttackStateSO
+  stoppingDistance: 4
+  agentSpeed: 2
+  disengageTimer: 0
+  rotateTowardUnit: 0
+  ColdownAfterMeleeAttack: 2
+  meleeDamage: 5
+  delayBeforeDamage: 0.4
+  isMeleeAttacking: 0
+  meleeLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  radiusOfMelee: 5
+  rangedDuration: 5
+  meleeStoppingDistance: 2
