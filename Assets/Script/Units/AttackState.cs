@@ -51,7 +51,6 @@ public class AttackState : State
             
             Vector3 directionToTargetSpawnLocation =
                 (unit.target.transform.position - unit.spawnLocation.transform.position).normalized;
-            directionToTargetSpawnLocation.x = 0;
             if (directionToTarget != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(directionToTargetSpawnLocation);
@@ -91,7 +90,10 @@ public class AttackState : State
     {
         unit.visualObject.transform.rotation = savedRotation;
         unit.weapon.StopFiring();
-        unit.StopCoroutine(attackRoutine);
+        if (config.isMeleeAttacking)
+        {
+            unit.StopCoroutine(attackRoutine);
+        }
         base.ExitState();
     }
 

@@ -50,6 +50,7 @@ public class Move : BuyableBehavior
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);//BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
         _initialSpeed = _speed;
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
@@ -189,6 +190,36 @@ public class Move : BuyableBehavior
             rb.linearVelocity += Vector3.up * Physics.gravity.y * (_lowJumpMultiplier - 1f) * Time.fixedDeltaTime;
         }
     }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if(action.Type != UnitType.Player) return;
 
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+            case UpgradeCategory.Speed:
+                UpgradeSpeed();
+                break;
+            case UpgradeCategory.Health:
+                UpgradeHealth();
+                break;
+        }
+    }
 
+    public void UpgradeHealth()
+    {
+        
+    }
+
+    public void UpgradeSpeed()
+    {
+        
+    }
 }
