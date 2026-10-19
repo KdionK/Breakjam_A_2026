@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Dash : MonoBehaviour
+public class Dash : BuyableBehavior
 {
     [SerializeField] Transform _cam;
     [SerializeField] Move _moveScript;
@@ -48,8 +48,10 @@ public class Dash : MonoBehaviour
     // }
     private void OnDash(InputAction.CallbackContext context)
     {
+        if (!context.performed) return; // ignore started / canceled (release)
+        
         if (!_dashBuy || !_canDash) return;
-        if(_moveScript._sliding) return;
+        if (_moveScript._sliding) return;
 
         Vector3 dir = GetDashDirection();
         if (dir.sqrMagnitude < 0.01f)

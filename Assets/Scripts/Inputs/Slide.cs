@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class Slide : MonoBehaviour
+public class Slide : BuyableBehavior
 {
+    
     [SerializeField] Transform _cam;
     [SerializeField] Move _moveScript;
     [SerializeField] float _slideSpeed = 10f;
@@ -34,6 +35,10 @@ public class Slide : MonoBehaviour
     void FixedUpdate()
     {
         HandleSlide();
+        if(!_moveScript._sliding)
+        {
+            _slideTime = 0;
+        }
     }
 
     void LateUpdate()
@@ -43,6 +48,8 @@ public class Slide : MonoBehaviour
 
     private void OnSlide(InputAction.CallbackContext context)
     {
+        if (!context.performed) return; // ignore started / canceled (release)
+
         if (!_slideBuy || !_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
 
 

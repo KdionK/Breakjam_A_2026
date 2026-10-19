@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Move : MonoBehaviour
+public class Move : BuyableBehavior
 {
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
@@ -14,6 +14,7 @@ public class Move : MonoBehaviour
 
 
     [Header("base movement")]
+    private float _initialSpeed;
     [SerializeField] float _speed = 5;
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
@@ -24,9 +25,12 @@ public class Move : MonoBehaviour
     [Header("Dash")]
     public bool _isDashing = false;
 
-    [Header("Slide")]
+    [Header("SlideJump/Boost")]
     public bool _sliding = false;
     [SerializeField] float _slideJumpSpeed = 10;
+    [SerializeField] float _slideJumpBoostTime = 0.6f;
+    private Vector3 _boostDir;
+    private float _boostTimer;
 
 
 
@@ -46,6 +50,7 @@ public class Move : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _initialSpeed = _speed;
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
@@ -73,14 +78,13 @@ public class Move : MonoBehaviour
         }
     }
 
-   
+
     // Update is called once per frame
     void FixedUpdate()
     {
         Moving();
         CheckGround();
         HandleJump();
-        // HandleDash();
         ApplyBetterGravity();
     }
 
@@ -103,10 +107,22 @@ public class Move : MonoBehaviour
             return;
         }
 
-        if(_sliding)
+        if (_sliding)
         {
             return;
         }
+
+        if (_boostTimer > 0f)
+        {
+            _boostTimer -= Time.fixedDeltaTime;
+            float t = Mathf.Clamp01(_boostTimer / _slideJumpBoostTime);
+            _speed = Mathf.Lerp(_initialSpeed, _slideJumpSpeed, t);
+        }
+        else
+        {
+            _speed = _initialSpeed;
+        }
+
 
         Vector3 dir = GetMoveDirection();
         rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
@@ -116,6 +132,7 @@ public class Move : MonoBehaviour
     {
         Debug.DrawRay(transform.position, Vector3.down * _rayDownDistance, Color.green);
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, _rayDownDistance, _groundLayer, QueryTriggerInteraction.Ignore);
+        if(_isGrounded) _boostTimer = 0f;
 
         if (_isGrounded && rb.linearVelocity.y <= 0.01f)
         {
@@ -149,6 +166,11 @@ public class Move : MonoBehaviour
 
     private void Jump()
     {
+        if(_sliding)
+        {
+            _boostTimer = _slideJumpBoostTime;
+            _sliding = false;
+        }
         Vector3 v = rb.linearVelocity;
         rb.linearVelocity = new Vector3(v.x, _jumpForce, v.z);
         _jumpBufferTimer = 0f;
