@@ -1330,6 +1330,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b1657f7242812428ab8cf415c1c928, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  PopUpSpawners: []
+  PopUpComponents: []
 --- !u!4 &419644120
 Transform:
   m_ObjectHideFlags: 0
@@ -3908,6 +3910,10 @@ MonoBehaviour:
   _PopUpTitle: {fileID: 8026507731741715116}
   Icon: {fileID: 8026507731741715115}
   PriceTag: {fileID: 8026507731741715114}
+  expirationTime: 22
+  OnExpire:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1680465609 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7640558969779515294, guid: 5fff7ae3e7dafd448a318acd8aa14192, type: 3}
@@ -5040,6 +5046,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1208478768030589597, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1310944503383135305, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -5174,6 +5184,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7307184328715159344, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383506574793224077, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7383506574793224077, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8535009030056508137, guid: 5058b15ef875a6b418f24e19437d09de, type: 3}
