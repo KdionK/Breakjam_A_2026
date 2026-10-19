@@ -12,7 +12,7 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [Header("buyChecks")]
-    [SerializeField] bool _jumpBuy = true;
+    [SerializeField] public bool _jumpBuy = false;
 
 
     [Header("base movement")]
