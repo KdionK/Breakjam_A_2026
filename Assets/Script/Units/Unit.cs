@@ -118,8 +118,7 @@ public class Unit : MonoBehaviour, IDamageable
 
     public void Death()
     {
-        Debug.Log("meowmeow");
-        EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
+        //EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
         BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
         Destroy(this.gameObject);
     }

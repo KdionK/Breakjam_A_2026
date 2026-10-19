@@ -41,7 +41,6 @@ public class HealthComponent : MonoBehaviour
     
     private void Death()
     {
-        Debug.Log("Death");
         OnDeath?.Invoke();
     }
 
