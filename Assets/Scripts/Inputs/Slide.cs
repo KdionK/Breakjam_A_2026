@@ -47,6 +47,8 @@ public class Slide : MonoBehaviour
 
     private void OnSlide(InputAction.CallbackContext context)
     {
+        if (!context.performed) return; // ignore started / canceled (release)
+
         if (!_slideBuy || !_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
 
 
