@@ -244,7 +244,10 @@ public class Move : BuyableBehavior, IDamageable
         DamageInfo dinfo = new DamageInfo();
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
-        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        if (_healthBar != null)
+        {
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        }
         
         
         return dinfo;
