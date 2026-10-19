@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Move : MonoBehaviour
+public class Move : BuyableBehavior
 {
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;

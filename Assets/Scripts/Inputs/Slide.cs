@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class Slide : MonoBehaviour
+public class Slide : BuyableBehavior
 {
+    
     [SerializeField] Transform _cam;
     [SerializeField] Move _moveScript;
     [SerializeField] float _slideSpeed = 10f;

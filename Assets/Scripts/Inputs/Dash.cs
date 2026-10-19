@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Dash : MonoBehaviour
+public class Dash : BuyableBehavior
 {
     [SerializeField] Transform _cam;
     [SerializeField] Move _moveScript;
