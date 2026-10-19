@@ -11,5 +11,5 @@ AssetOrigin:
   productId: 171295
   packageName: Robot Metallic humanoid
   packageVersion: 1.0
-  assetPath: Assets/robot_metallic/material/robot_metallic.mat
+  assetPath: Assets/Materials/SkelebotMaterials/robot_metallic.mat
   uploadId: 374307
