@@ -19,19 +19,21 @@ public class Unit : MonoBehaviour, IDamageable
     public BaseWeapon weapon;
 
     public GameObject spawnLocation;
-    public GameObject visualObject;
+    
 
     private HealthComponent healthComponent;
-    [Header("texture")]
+    [Header("Visual")]
     private int textureLevel;
+    public GameObject visualObject;
     [SerializeField] private GameObject[] visualUpgrades;
+    public Animator anim;
     
     [Header("money")]
     public int moneyOnDeath;
     void Start()
     {
         healthComponent = GetComponent<HealthComponent>();
-        healthComponent.onDeath += Death;
+        healthComponent.OnDeath += Death;
         target = GameObject.FindGameObjectWithTag("Player");
         weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
@@ -116,7 +118,9 @@ public class Unit : MonoBehaviour, IDamageable
 
     public void Death()
     {
+        Debug.Log("meowmeow");
         EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
+        BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
         Destroy(this.gameObject);
     }
     private void OnDrawGizmos()

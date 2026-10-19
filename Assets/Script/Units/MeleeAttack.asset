@@ -22,5 +22,5 @@ MonoBehaviour:
   isMeleeAttacking: 1
   meleeLayer:
     serializedVersion: 2
-    m_Bits: 0
-  radiusOfMelee: 0
+    m_Bits: 64
+  radiusOfMelee: 5

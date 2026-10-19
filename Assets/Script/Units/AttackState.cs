@@ -51,7 +51,7 @@ public class AttackState : State
             
             Vector3 directionToTargetSpawnLocation =
                 (unit.target.transform.position - unit.spawnLocation.transform.position).normalized;
-            
+            directionToTargetSpawnLocation.x = 0;
             if (directionToTarget != Vector3.zero)
             {
                 Quaternion targetRotation = Quaternion.LookRotation(directionToTargetSpawnLocation);
@@ -69,6 +69,7 @@ public class AttackState : State
 
     public IEnumerator MeleeAttack()
     {
+        unit.anim.SetTrigger("MeleeAttack");
         yield return new WaitForSeconds(config.delayBeforeDamage);
         Collider[] results = Physics.OverlapSphere(unit.transform.position, config.radiusOfMelee, config.meleeLayer);
         foreach (Collider hit in results)
@@ -76,10 +77,14 @@ public class AttackState : State
             if (hit.gameObject.CompareTag("Player"))
             {
                 IDamageable damageable = hit.gameObject.GetComponent<IDamageable>();
-                damageable.TakeDamage(unit.gameObject, config.meleeDamage);
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(unit.gameObject, config.meleeDamage);
+                }
             }
         }
         yield return new WaitForSeconds(config.ColdownAfterMeleeAttack);
+        unit.StateMachine.ChangeState(unit.chaseState);
         yield return null;
     }
     public override void ExitState()
