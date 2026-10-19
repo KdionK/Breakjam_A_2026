@@ -5,10 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Move : BuyableBehavior
+public class Move : BuyableBehavior, IDamageable
 {
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
+    [SerializeField] private SceneManagementSystem _sceneManger;
     [Header("buyChecks")]
     [SerializeField] bool _jumpBuy = true;
 
@@ -191,4 +192,25 @@ public class Move : BuyableBehavior
     }
 
 
+    public DamageInfo TakeDamage(GameObject source, float damage)
+    {
+        DamageInfo dinfo = new DamageInfo();
+        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        return dinfo;
+    }
+
+    private void HandleDeath()
+    {
+        
+    }
+
+    public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
+    {
+        return null;
+    }
+
+    public HealthComponent GetHealth()
+    {
+        return null;
+    }
 }
