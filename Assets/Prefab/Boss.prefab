@@ -265,18 +265,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BaseWeapon
   bIsAIControlled: 1
   MaxAIRange: 20
-  _projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
-  _projectileSpawn: {fileID: 8105095143126144988}
-  _launchForce: 100
-  _damage: 15
-  _magSize: 20
-  _currentAmmo: 0
+  bIsHitscan: 0
+  Projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
+  ProjectileSpawnTransform: {fileID: 8105095143126144988}
+  MuzzleFlash: {fileID: 0}
+  bUnlockedMuzzleFlash: 0
+  LaunchForce: 100
+  MaxDamage: 15
+  MaxDamageMaxRange: 10
+  MinDamage: 1
+  DamageMaxRange: 100
+  MagSize: 20
+  CurrentAmmo: 0
   bNeedsToReload: 1
-  _reloadTime: 2
-  _currentReloadTimer: 0
+  ReloadTime: 2
+  CurrentReloadTimer: 0
   bIsAuto: 1
-  _maxFireRate: 5
-  _maxAIFireRate: 2
+  MaxFireRate: 5
+  MaxAIFireRate: 2
 --- !u!65 &7404423645346911182
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -310,20 +316,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bb56ce3c58b1f14a8cc8df61bc87b4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseWeapon
-  bIsAIControlled: 0
+  bIsAIControlled: 1
   MaxAIRange: 20
-  _projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
-  _projectileSpawn: {fileID: 4883235471603870362}
-  _launchForce: 100
-  _damage: 15
-  _magSize: 20
-  _currentAmmo: 0
+  bIsHitscan: 0
+  Projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
+  ProjectileSpawnTransform: {fileID: 4883235471603870362}
+  MuzzleFlash: {fileID: 0}
+  bUnlockedMuzzleFlash: 0
+  LaunchForce: 100
+  MaxDamage: 15
+  MaxDamageMaxRange: 10
+  MinDamage: 1
+  DamageMaxRange: 100
+  MagSize: 20
+  CurrentAmmo: 0
   bNeedsToReload: 1
-  _reloadTime: 2
-  _currentReloadTimer: 0
+  ReloadTime: 2
+  CurrentReloadTimer: 0
   bIsAuto: 1
-  _maxFireRate: 5
-  _maxAIFireRate: 2
+  MaxFireRate: 5
+  MaxAIFireRate: 2
 --- !u!1 &3525600300395212475
 GameObject:
   m_ObjectHideFlags: 0
