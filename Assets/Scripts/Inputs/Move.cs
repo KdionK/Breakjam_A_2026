@@ -204,11 +204,18 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
-        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        HealthComponent _healthCompoent = GetComponent<HealthComponent>();
+        _healthCompoent.ModifyHealth((int)damage);
+        if (_healthComponent.CurrentHealth <= 0)
+        {
+            HandleDeath();
+        }
+        
+        
         return dinfo;
     }
 
-    private void HandleDeath()
+    public void HandleDeath()
     {
         
     }
