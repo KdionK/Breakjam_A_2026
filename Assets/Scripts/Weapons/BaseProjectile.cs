@@ -1,11 +1,17 @@
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class BaseProjectile : MonoBehaviour
 {
+    [SerializeField] public bool bIsExplosive = false;
+    [SerializeField] protected float ExplosionRadius = 20f;
+    protected SphereCollider ExplosionColl;
+    [SerializeField] protected VisualEffect ExplosionVFXref; 
+    
     [SerializeField] protected float _maxLifetime = 5f;
     [SerializeField] public bool bHasGravity = true;
     [SerializeField] protected float _extraGravity = 9.81f;
-    [SerializeField] public bool bCanBounce = true;
+    [SerializeField] public bool bCanBounce = false;
     [SerializeField] protected float _bounceMultiplier = 1.2f;
     public float ProjectileDamage = 15f;
     
@@ -13,13 +19,13 @@ public class BaseProjectile : MonoBehaviour
     protected float _remaingLifetime;
     
     // Update is called once per frame
-    void Start()
+    protected void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _remaingLifetime = _maxLifetime;
     }
     
-    void Update()
+    protected void Update()
     {
         if (bHasGravity)
         {
@@ -30,7 +36,7 @@ public class BaseProjectile : MonoBehaviour
         CheckLifetime();
     }
 
-    void CheckLifetime()
+    protected void CheckLifetime()
     {
         if (_remaingLifetime <= 0)
         {
@@ -38,9 +44,13 @@ public class BaseProjectile : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    protected void OnCollisionEnter(Collision collision)
     {
-        //Do damage here
+        if (bIsExplosive)
+        {
+            Explode();
+            return;
+        }
         IDamageable damageable = collision.collider.GetComponent<IDamageable>();
         if (damageable != null)
         {
@@ -55,5 +65,29 @@ public class BaseProjectile : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    protected void Explode()
+    {
+        Collider[] hits = Physics.OverlapSphere(transform.position, ExplosionRadius);
+
+        foreach (Collider c in hits)
+        {
+            IDamageable damageable = c.GetComponentInParent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(gameObject, ProjectileDamage);
+            }
+        }
+        ExplosionVFX();
+        //TODO needs change
+        Destroy(gameObject);
+    }
+    
+    protected void ExplosionVFX()
+    {
+        Gizmos.color = new Color(1f, 0f, 0f, 1);
+        Gizmos.DrawSphere(transform.position, ExplosionRadius);
+        if (ExplosionVFXref) ExplosionVFXref.Play();
     }
 }

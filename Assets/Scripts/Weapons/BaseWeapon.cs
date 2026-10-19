@@ -17,9 +17,11 @@ public class BaseWeapon : MonoBehaviour
     GameObject Projectile;
     [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned. For a hitscan weapon in a player, put the camera transform")]
     Transform ProjectileSpawnTransform;
-    [SerializeField] [Tooltip("The position and rotation where the projectile will be spawned. For a hitscan weapon in a player, put the camera transform")]
-    Transform MuzzleFlashTransform;
+    
+    //Visual Effects
     [SerializeField] protected VisualEffect MuzzleFlash;
+    [SerializeField] [Tooltip("If true, will be hitscan instead of shooting a projectile")]
+    bool bUnlockedMuzzleFlash = false;
 
     [SerializeField] [Tooltip("The force of the launch")]
     float LaunchForce = 100f;
@@ -140,7 +142,7 @@ public class BaseWeapon : MonoBehaviour
 
         NextFireTime = Time.time + IntervalBetweenShots;
 
-        VFXMuzzleFlash();
+        if (bUnlockedMuzzleFlash) VFXMuzzleFlash();
         
         if (bNeedsToReload)
         {

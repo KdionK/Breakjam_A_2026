@@ -152,18 +152,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Launcher
   bIsAIControlled: 1
   MaxAIRange: 10
-  _projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
-  _projectileSpawn: {fileID: 1207297726694104411}
-  _launchForce: 100
-  _damage: 10
-  _magSize: 20
-  _currentAmmo: 0
+  bIsHitscan: 0
+  Projectile: {fileID: 0}
+  ProjectileSpawnTransform: {fileID: 0}
+  MuzzleFlash: {fileID: 0}
+  bUnlockedMuzzleFlash: 0
+  LaunchForce: 100
+  MaxDamage: 10
+  MaxDamageMaxRange: 10
+  MinDamage: 1
+  DamageMaxRange: 100
+  MagSize: 20
+  CurrentAmmo: 0
   bNeedsToReload: 1
-  _reloadTime: 2
-  _currentReloadTimer: 0
+  ReloadTime: 2
+  CurrentReloadTimer: 0
   bIsAuto: 1
-  _maxFireRate: 5
-  _maxAIFireRate: 2
+  MaxFireRate: 5
+  MaxAIFireRate: 2
 --- !u!114 &5905979842875298555
 MonoBehaviour:
   m_ObjectHideFlags: 0
