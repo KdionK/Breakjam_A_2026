@@ -1,16 +1,6 @@
 using UnityEngine;
 
-public class Boss : MonoBehaviour
+public class Boss : Unit
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected override AttackState CreateAttackState() => new BossAttackState(this, StateMachine, (BossAttackStateSO)attackStateSO);
 }

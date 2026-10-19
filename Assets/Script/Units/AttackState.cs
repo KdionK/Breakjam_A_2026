@@ -19,6 +19,7 @@ public class AttackState : State
         timer = config.disengageTimer;
         savedRotation = unit.visualObject.transform.rotation;
         unit.Agent.stoppingDistance = Mathf.Min(unit.weapon.MaxAIRange, config.stoppingDistance);
+        unit.Agent.ResetPath();
         base.EnterState();
         //I know it should be done differently but this is the quickest way to work with the current wweapon design
         if (!config.isMeleeAttacking)
@@ -34,6 +35,7 @@ public class AttackState : State
 
     public override void FrameUpdate()
     {
+        unit.Agent.SetDestination(unit.target.transform.position);
         if (config.rotateTowardUnit)
         {
             Vector3 directionToTarget =

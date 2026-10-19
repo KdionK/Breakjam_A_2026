@@ -10,8 +10,8 @@ public class Unit : MonoBehaviour, IDamageable
     public ChaseState chaseState;
     public AttackState attackState;
     [Header("State Configs")]
-    [SerializeField] private ChaseStateSO chaseStateSO;
-    [SerializeField] private AttackStateSO attackStateSO;
+    [SerializeField] protected ChaseStateSO chaseStateSO;
+    [SerializeField] protected AttackStateSO attackStateSO;
     
     [Header("targetting")]
     [HideInInspector] public GameObject target;
@@ -39,8 +39,8 @@ public class Unit : MonoBehaviour, IDamageable
         Agent = gameObject.GetComponent<NavMeshAgent>();
         StateMachine = new StateMachine<State>();
         
-        chaseState = new ChaseState(this, StateMachine, chaseStateSO);
-        attackState = new AttackState(this, StateMachine, attackStateSO);
+        chaseState = CreateChaseState();
+        attackState = CreateAttackState();
         
         StateMachine.Init(chaseState);
         
@@ -50,6 +50,9 @@ public class Unit : MonoBehaviour, IDamageable
         
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
+    
+    protected virtual ChaseState CreateChaseState() => new ChaseState(this, StateMachine, chaseStateSO);
+    protected virtual AttackState CreateAttackState() => new AttackState(this, StateMachine, attackStateSO);
 
     // Update is called once per frame
     void Update()
@@ -66,6 +69,7 @@ public class Unit : MonoBehaviour, IDamageable
 
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
+        Debug.Log("unit take damage");
         DamageInfo damageInfo = new DamageInfo()
         {
             finalDamage = damage,

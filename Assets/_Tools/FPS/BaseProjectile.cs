@@ -41,7 +41,7 @@ public class BaseProjectile : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         //Do damage here
-        IDamageable damageable = collision.gameObject.GetComponent<IDamageable>();
+        IDamageable damageable = collision.collider.GetComponent<IDamageable>();
         if (damageable != null)
         {
             damageable.TakeDamage(this.gameObject, ProjectileDamage);
