@@ -1,6 +1,5 @@
 
-using System.Runtime.InteropServices.WindowsRuntime;
-using NUnit.Framework;
+using System.Collections;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -34,6 +33,13 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] float _slideJumpBoostTime = 0.6f;
     private Vector3 _boostDir;
     private float _boostTimer;
+    
+    [Header("Death/Respawn")]
+    [SerializeField] Transform _respawnPoint;
+    [SerializeField] float _respawnTime = 0.2f;
+    bool _isRespawning = false;
+    
+    
 
 
 
@@ -217,7 +223,32 @@ public class Move : BuyableBehavior, IDamageable
 
     public void HandleDeath()
     {
-        
+        if (_isRespawning) return; 
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        _isRespawning = true;
+        Debug.Log("HandleDeath");
+
+        // Zero velocity BEFORE going kinematic (setting it on a kinematic body is ignored/warns)
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+
+        rb.position = _respawnPoint.position;
+        rb.rotation = _respawnPoint.rotation;
+        transform.SetPositionAndRotation(_respawnPoint.position, _respawnPoint.rotation);
+
+        _jumpHeld = false;
+
+        // Hold here (fade, death animation, sound, etc. would go in this window)
+        yield return new WaitForSeconds(_respawnTime);
+
+        rb.isKinematic = false;
+        _isRespawning = false;
+    
     }
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
