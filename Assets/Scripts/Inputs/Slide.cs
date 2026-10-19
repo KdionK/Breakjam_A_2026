@@ -34,6 +34,10 @@ public class Slide : MonoBehaviour
     void FixedUpdate()
     {
         HandleSlide();
+        if(!_moveScript._sliding)
+        {
+            _slideTime = 0;
+        }
     }
 
     void LateUpdate()
