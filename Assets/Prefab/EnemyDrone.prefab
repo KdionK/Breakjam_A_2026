@@ -78,11 +78,12 @@ MonoBehaviour:
   chaseStateSO: {fileID: 11400000, guid: 19afbcf24e193c04ca907ee87926c944, type: 2}
   attackStateSO: {fileID: 11400000, guid: fd465fce4859887488a662bc6a986844, type: 2}
   target: {fileID: 0}
-  weapon: {fileID: 0}
+  weapon: {fileID: 8060867264709533368}
   spawnLocation: {fileID: 8969181117203655662}
   visualObject: {fileID: 7505279768783481019}
   visualUpgrades:
   - {fileID: 8253769455529708370}
+  anim: {fileID: 0}
   moneyOnDeath: 0
 --- !u!54 &4037631878963908007
 Rigidbody:

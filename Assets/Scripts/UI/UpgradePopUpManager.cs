@@ -1,16 +1,24 @@
+using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 
 public class UpgradePopUpManager : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Transform[] PopUpSpawners;
+    
+    [SerializeField] private SO_PopUpComponent[] PopUpComponents;
 
-    // Update is called once per frame
-    void Update()
+    private void ChooseUpgradesOnMap()
     {
+        List<Transform> tempSpawnerList = new List<Transform>();
+
+        while (tempSpawnerList.Count < 4)
+        {
+            var temp = PopUpSpawners[Random.Range(0, PopUpSpawners.Length)];
+            if (tempSpawnerList.Contains(temp)) continue;
+            
+            tempSpawnerList.Add(temp);
+        }
         
     }
 }

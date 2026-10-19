@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class BuyableMovement : MonoBehaviour, IBuyable
 {
-    [SerializeField] private MonoScript movementToAdd;
+    [SerializeField] public MonoScript movementToAdd;
 
     public bool isBuyable = false;
     void Start()
