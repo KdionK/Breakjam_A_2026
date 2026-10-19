@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 
 public class Move : BuyableBehavior, IDamageable
 {
+    public bool killing = false;
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
@@ -72,6 +73,11 @@ public class Move : BuyableBehavior, IDamageable
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
+    private void DeathTest()
+    {
+        _healthComponent.ModifyHealth(1000);
+    }
+
     private void OnMove(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
@@ -102,6 +108,11 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
+        if (killing)
+        { 
+            DeathTest();
+        }
+      
     }
 
     private Vector3 GetMoveDirection()
