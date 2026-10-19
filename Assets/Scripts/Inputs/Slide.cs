@@ -1,3 +1,4 @@
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,13 +7,18 @@ public class Slide : BuyableBehavior
 {
     
     [SerializeField] Transform _cam;
+    [SerializeField] CinemachineCamera _cinemachineCamera;
     [SerializeField] Move _moveScript;
     [SerializeField] float _slideSpeed = 10f;
     [SerializeField] Transform _slideCamPos;
     [SerializeField] float _slideDuration = 0.3f;
     [SerializeField] float _slideCooldown = 1f;
     [SerializeField] bool _slideBuy = true;
+
+    [Header("Camera")]
     [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
+    [SerializeField] float _targetFov = 90f;
+    private float _initialFov;
 
     private Vector3 _camDefaultLocalPos;
     private float _slideTime = 0f;
@@ -27,6 +33,7 @@ public class Slide : BuyableBehavior
     void Start()
     {
         _camDefaultLocalPos = _cam.position;
+        _initialFov = _cinemachineCamera.Lens.FieldOfView;
         InputListener.onSlideEvent += OnSlide;
         rb = GetComponent<Rigidbody>();
     }
@@ -89,6 +96,7 @@ public class Slide : BuyableBehavior
         Vector3 target;
         if(_moveScript._sliding)
         {
+            // make a smooth FOV transition with a cinemachine camera that ends when the camera move end(smoothly) and start resetting the fov when the camera move is over
             target = _cam.parent.InverseTransformPoint(_slideCamPos.position);
         }
         else
@@ -100,6 +108,20 @@ public class Slide : BuyableBehavior
         // Frame-rate independent smoothing
         float t = 1f - Mathf.Exp(-_camSmoothSpeed * Time.deltaTime);
         _cam.localPosition = Vector3.Lerp(_cam.localPosition, target, t);
+
+        UpdateFov(target);
+    }
+
+    private void UpdateFov(Vector3 slideLocal)
+    {
+        Vector3 path = slideLocal - _camDefaultLocalPos;
+        float sqrLense = path.sqrMagnitude;
+
+        float progress = 0f;
+        if(sqrLense < 0.0001f)
+        {
+            progress = Vector3.Dot(_cam.localPosition - _camDefaultLocalPos, path) / sqrLense;
+        }
     }
 
     private Vector3 GetMoveDirection()

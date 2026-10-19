@@ -4,7 +4,7 @@ using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class CameraFX : MonoBehaviour
+public class CameraDashFX : MonoBehaviour
 {
     private CinemachineCamera _cinemachineCamera;
     [SerializeField] float _targetFov = 90;
@@ -26,11 +26,13 @@ public class CameraFX : MonoBehaviour
         if (_moveScript._isDashing && !transitionStarted)
         {
             transitionStarted = true;
-            StartCoroutine(FovTransitionIn());
+            StartCoroutine(FovTransitionInDash());
         }
+
+
     }
 
-    IEnumerator FovTransitionIn()
+    IEnumerator FovTransitionInDash()
     {
        float time = 0;
        while(time < _fovEaseInTimer)
@@ -41,9 +43,9 @@ public class CameraFX : MonoBehaviour
         }
         // _cinemachineCamera.Lens.FieldOfView = _initialFov;
         transitionStarted = false;
-        StartCoroutine(FovTransitionOut());
+        StartCoroutine(FovTransitionOutDash());
     }
-    IEnumerator FovTransitionOut()
+    IEnumerator FovTransitionOutDash()
     {
        float time = 0;
        while(time < _fovEaseOutTimer)
