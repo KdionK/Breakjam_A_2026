@@ -87,15 +87,15 @@ public class HealthBar : MonoBehaviour
         ResetHealthBar();
     }
 
-    private void SpawnNumberPopUp(int healthLoss)
-    {
-        _numberPopUpSpawner.SpawnNumberPopUp(healthLoss);
-    }
+    // private void SpawnNumberPopUp(int healthLoss)
+    // {
+    //     _numberPopUpSpawner.SpawnNumberPopUp(healthLoss);
+    // }
 
     public void SetVisualHealth(int newHealth)
     {
 
-        SpawnNumberPopUp(_healthComponent.CurrentHealth - newHealth);
+        // SpawnNumberPopUp(_healthComponent.CurrentHealth - newHealth);
         float newWidth = _healthComponent.CurrentHealth * _baseWidth / _healthComponent.FullHealth;
         _healthRectTransform.sizeDelta = new(newWidth, _baseHealthHeight);
         StartCoroutine(COShakeHealthBar());

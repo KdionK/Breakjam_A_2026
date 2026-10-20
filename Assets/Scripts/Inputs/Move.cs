@@ -1,6 +1,6 @@
 
-using System.Runtime.InteropServices.WindowsRuntime;
-using NUnit.Framework;
+using System;
+using System.Collections;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,14 +11,23 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
+    [SerializeField] HealthBar _healthBar;
+    [SerializeField] Animator _doorAnimator;
+    [Header("Audio")]
+    private AudioSource _audioSource;
+    [SerializeField] AudioClip _playerJump;
+    [SerializeField] AudioClip _playerDeath;
+    [SerializeField] AudioClip _playerHit;
+    [SerializeField] AudioClip _playerLand;
     [Header("buyChecks")]
-    [SerializeField] bool _jumpBuy = true;
+
+    [SerializeField] public bool _jumpBuy = false;
 
 
     [Header("base movement")]
     private float _initialSpeed;
     [SerializeField] float _speed = 5;
-    
+
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
     [SerializeField] private int _maxAirJumps = 0;
@@ -35,20 +44,42 @@ public class Move : BuyableBehavior, IDamageable
     private Vector3 _boostDir;
     private float _boostTimer;
 
+    [Header("Death/Respawn")]
+    [SerializeField] Transform _respawnPoint;
+    [SerializeField] float _respawnTime = 0.2f;
+    private bool _killed;
+    private bool _murder;
 
+    bool _isRespawning = false;
+    [Header("Regen")]
+    [SerializeField] float _timeBeforeRgen = 3f;
+    [SerializeField] int _regenAmount = 5;
+    [SerializeField] float _tickWait = 0.3f;
+    private Coroutine _regenRoutine;
+    private bool _hitRecently = false;
+    private float _regenTimer = 0;
 
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
-    
-    [Header ("Upgrades")]
+
+    [Header("Upgrades")]
     [SerializeField] private float _upgradeSpeedAmount = 2.5f;
     [SerializeField] private int _upgradeHealthAmount = 30;
+
+    [Header("IFrames")]
+    [SerializeField] private float _frameTime = 0.1f;
+
+ 
+
+    private bool _invincible = false;
+    private bool _dashInvincible = false;
+
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
     private HealthComponent _healthComponent;
-    
+
     public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
@@ -59,25 +90,43 @@ public class Move : BuyableBehavior, IDamageable
     void Start()
     {
         _initialSpeed = _speed;
+        _audioSource = GetComponent<AudioSource>();
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
-        _healthComponent = GetComponent<HealthComponent>(); 
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+        _healthComponent = GetComponent<HealthComponent>();
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
+
+    private void DeathTest()
+    {
+        _healthComponent.ModifyHealth(20);
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        // HandleDeath();
+    }
+
 
     private void OnMove(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
     }
 
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            DeathTest();
+            
+        }
+    }
+
     private void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
         if (_jumpBuy == true)
         {
             if (context.started)
             {
+                if (SoundManagerMino.Instance) SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource, 0.3f );
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
@@ -96,6 +145,25 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
+        Regen();
+
+        if (_isDashing)
+        {
+            _dashInvincible = true;
+
+        }
+        else
+        {
+            _dashInvincible = false;
+
+        }
+        
+
+        if (_healthComponent.CurrentHealth <= 0)
+        {
+            HandleDeath();
+        }
+
     }
 
     private Vector3 GetMoveDirection()
@@ -135,14 +203,17 @@ public class Move : BuyableBehavior, IDamageable
 
 
         Vector3 dir = GetMoveDirection();
-        rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        if (!rb.isKinematic)
+        {
+            rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        }
     }
 
     private void CheckGround()
     {
         Debug.DrawRay(transform.position, Vector3.down * _rayDownDistance, Color.green);
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, _rayDownDistance, _groundLayer, QueryTriggerInteraction.Ignore);
-        if(_isGrounded) _boostTimer = 0f;
+        if (_isGrounded) _boostTimer = 0f;
 
         if (_isGrounded && rb.linearVelocity.y <= 0.01f)
         {
@@ -176,7 +247,7 @@ public class Move : BuyableBehavior, IDamageable
 
     private void Jump()
     {
-        if(_sliding)
+        if (_sliding)
         {
             _boostTimer = _slideJumpBoostTime;
             _sliding = false;
@@ -204,14 +275,112 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
-        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        if (_invincible || _isRespawning || _dashInvincible) return dinfo;
+        SoundManagerMino.Instance.PlaySound(_playerHit, _audioSource);
+        HealthComponent _healthCompoent = GetComponent<HealthComponent>();
+        _healthCompoent.ModifyHealth((int)damage);
+        if (_healthBar != null)
+        {
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        }
+        if (_regenRoutine != null) StopCoroutine(_regenRoutine);
+
+        _regenRoutine = StartCoroutine(Regen());
+        StartCoroutine(IFrames());
+
         return dinfo;
     }
 
-    private void HandleDeath()
+    // private void Regen()
+    // {
+    //     if(_healthComponent.CurrentHealth >= _healthComponent.FullHealth)
+    //     {
+    //         _regenTimer = 0;
+    //         return;
+    //     }
+    //     _regenTimer += Time.deltaTime;
+
+    //     if(_regenTimer >= _timeBeforeRgen)
+    //     {
+    //         _healthComponent.RegenHealth(_regenAmount);
+    //         _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+    //     }
+    // }
+
+    IEnumerator Regen()
     {
+        yield return new WaitForSeconds(_timeBeforeRgen);
+        while (_healthComponent.CurrentHealth < _healthComponent.FullHealth)
+        {
+            _healthComponent.RegenHealth(_regenAmount);
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+
+            // Delay between each tick
+            yield return new WaitForSeconds(_tickWait);
+        }
+    }
+
+    public void HandleDeath()
+    {
+        Debug.Log("Handle Death");
+        if (_isRespawning) return;
+        SoundManagerMino.Instance.PlaySound(_playerDeath, _audioSource);
+        StartCoroutine(Respawn());
+    }
+
+    IEnumerator Respawn()
+    {
+        _doorAnimator.SetTrigger("Open");
+        ResetEnnemies();
+        _isRespawning = true;
+        _killed = true;
+        Debug.Log("HandleDeath");
+        _killed = true;
+        // Zero velocity BEFORE going kinematic (setting it on a kinematic body is ignored/warns)
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+
+        _isDashing = false;
+        _sliding = false;
+
+        rb.position = _respawnPoint.position;
+        rb.rotation = _respawnPoint.rotation;
+        transform.SetPositionAndRotation(_respawnPoint.position, _respawnPoint.rotation);
+
+        _jumpHeld = false;
+
+        // Hold here (fade, death animation, sound, etc. would go in this window)
+        _healthComponent.SetHealth();
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        yield return new WaitForSeconds(_respawnTime);
+        _killed = false;
+        rb.isKinematic = false;
+        _isRespawning = false;
+    }
+
+    IEnumerator IFrames()
+    {
+        _invincible = true;
+        // Debug.Log("IFrames starting");
+        yield return new WaitForSeconds(_frameTime);
+        _invincible = false;
+        // Debug.Log("IFrames finished");
+    }
+
+    void ResetEnnemies()
+    {
+        GameObject[] Ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach (GameObject ennemy in Ennemies)
+        {
+            Destroy(ennemy);
+        }
+        
         
     }
+
+
+
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
@@ -222,11 +391,11 @@ public class Move : BuyableBehavior, IDamageable
     {
         return null;
     }
-    
+
     private void OnBoughtEvent(BuyAction action)
     {
         Debug.Log($"Bought: {action}");
-        if(action.Type != UnitType.Player) return;
+        if (action.Type != UnitType.Player) return;
 
         switch (action.Category)
         {
@@ -235,6 +404,8 @@ public class Move : BuyableBehavior, IDamageable
             case UpgradeCategory.Mesh:
                 break;
             case UpgradeCategory.Sound:
+                Debug.Log("buying player sound");
+                SoundManagerMino.Instance.SetPlayer(15);
                 break;
             case UpgradeCategory.Health:
                 UpgradeHealth();
@@ -247,14 +418,14 @@ public class Move : BuyableBehavior, IDamageable
 
     public void UpgradeHealth()
     {
-        _healthComponent.AddHealth(_upgradeHealthAmount);
+        _healthComponent.AddHealth(_upgradeHealthAmount, true);
     }
-    
+
     public void UpgradeSpeed()
     {
         _speed += _upgradeSpeedAmount;
         _initialSpeed = _speed;
     }
-    
-    
+
+
 }

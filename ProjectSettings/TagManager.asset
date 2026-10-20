@@ -6,6 +6,9 @@ TagManager:
   tags:
   - SceneTransition
   - Floor
+  - DeathPlane
+  - Ennemy
+  - Turret
   layers:
   - Default
   - TransparentFX
