@@ -52,12 +52,6 @@ public class Move : BuyableBehavior, IDamageable
     private bool _hitRecently = false;
     private float _regenTimer = 0;
 
-
-
-
-
-
-
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
@@ -68,6 +62,9 @@ public class Move : BuyableBehavior, IDamageable
 
     [Header("IFrames")]
     [SerializeField] private float _frameTime = 0.1f;
+
+    [Header("Audio")]
+
     private bool _invincible = false;
     private bool _dashInvincible = false;
 
@@ -117,7 +114,6 @@ public class Move : BuyableBehavior, IDamageable
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
         if (_jumpBuy == true)
         {
             if (context.started)
@@ -145,12 +141,12 @@ public class Move : BuyableBehavior, IDamageable
         if (_isDashing)
         {
             _dashInvincible = true;
-            Debug.Log("dashInvincible" + _dashInvincible);
+
         }
         else
         {
             _dashInvincible = false;
-            Debug.Log("dashInvincible" + _dashInvincible);
+
         }
 
         if (_healthComponent.CurrentHealth <= 0)
@@ -277,7 +273,7 @@ public class Move : BuyableBehavior, IDamageable
         {
             _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         }
-        if(_regenRoutine != null) StopCoroutine(_regenRoutine);
+        if (_regenRoutine != null) StopCoroutine(_regenRoutine);
 
         _regenRoutine = StartCoroutine(Regen());
         StartCoroutine(IFrames());
@@ -386,6 +382,8 @@ public class Move : BuyableBehavior, IDamageable
             case UpgradeCategory.Mesh:
                 break;
             case UpgradeCategory.Sound:
+                Debug.Log("buying player sound");
+                SoundManagerMino.Instance.SetPlayer(0);
                 break;
             case UpgradeCategory.Health:
                 UpgradeHealth();
