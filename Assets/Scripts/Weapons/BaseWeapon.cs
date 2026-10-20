@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.VFX;
 
-public class BaseWeapon : MonoBehaviour
+public class BaseWeapon : BuyableBehavior
 {
     [Header("AI")]
     [SerializeField] [Tooltip("If something else than the player is using this weapon, this must be True")]
@@ -50,8 +50,8 @@ public class BaseWeapon : MonoBehaviour
     private bool bReloading = false;
 
     [Header("Fire Rate")]
-    [SerializeField] [Tooltip("Automatic weapon or single fire? Single fire is also capped at" +
-                              " Max Fire Rate. AIs ignore this, they are always auto")]
+    [Tooltip("Automatic weapon or single fire? Single fire is also capped at" +
+             " Max Fire Rate. AIs ignore this, they are always auto")]
     bool bIsAuto = true;
     [SerializeField] [Tooltip("Max number of shots per second")]
     float MaxFireRate = 5f;
@@ -62,6 +62,11 @@ public class BaseWeapon : MonoBehaviour
 
     private bool bTryingToFire = false;
     
+    [Header("Mino stuff")]
+    [SerializeField] private bool _playerWeapon = false;
+    [SerializeField] private GameObject[] visualUpgrades; // added by mino
+    protected int textureLevel;
+    public GameObject visualObject;
     
     private void Start()
     {
@@ -74,6 +79,9 @@ public class BaseWeapon : MonoBehaviour
         {
             IntervalBetweenShots = 1 / MaxAIFireRate;
         }
+        textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
+        UpgradeTexture();
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     protected void Update()
@@ -213,5 +221,39 @@ public class BaseWeapon : MonoBehaviour
     {
         bTryingToFire = false;
         NextFireTime = 0f;
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if (action.Type != UnitType.Player) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                if (_playerWeapon)
+                {
+                    textureLevel++;
+                    UpgradeTexture();
+                }
+                break;
+            case UpgradeCategory.Mesh:
+                break;
+            case UpgradeCategory.Sound:
+                break;
+            case UpgradeCategory.Health:
+                break;
+            case UpgradeCategory.Speed:
+                break;
+        }
+    }
+    
+    protected void UpgradeTexture()
+    {
+        if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
+        int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
+        visualObject.SetActive(false);
+        visualUpgrades[i].SetActive(true);
+        visualObject = visualUpgrades[i];
     }
 }

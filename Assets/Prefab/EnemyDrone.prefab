@@ -84,7 +84,7 @@ MonoBehaviour:
   visualUpgrades:
   - {fileID: 8253769455529708370}
   anim: {fileID: 0}
-  moneyOnDeath: 0
+  moneyOnDeath: 100
 --- !u!54 &4037631878963908007
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -155,7 +155,7 @@ MonoBehaviour:
   LaunchForce: 100
   MuzzleFlash: {fileID: 0}
   bUnlockedMuzzleFlash: 0
-  Damage: 15
+  Damage: 20
   RangeOfMaxDamage: 10
   DamageMaxRange: 100
   MinDamage: 1
