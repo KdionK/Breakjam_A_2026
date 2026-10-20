@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-
 public class MapPopUp : MonoBehaviour
 {
    [SerializeField] private TextMeshProUGUI _PopUpTitle;

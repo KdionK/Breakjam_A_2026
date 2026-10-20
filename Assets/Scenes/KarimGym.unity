@@ -1048,6 +1048,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 16.254204, y: 3.7764814, z: 0.93106085}
   m_Center: {x: 0, y: 0.044077158, z: 0}
+--- !u!114 &169790405 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9117896076625923566, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+  m_PrefabInstance: {fileID: 7683558247112940436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &231689070
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3827,6 +3838,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 9.996916, y: 3.7764814, z: 0.93106085}
   m_Center: {x: 0, y: 0.044077158, z: 0}
+--- !u!114 &1217858442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3942473549674953072, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+  m_PrefabInstance: {fileID: 7683558247112940436}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1001 &1241420198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6429,6 +6451,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -40
       objectReference: {fileID: 0}
+    - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _ammoCount
+      value: 
+      objectReference: {fileID: 1217858442}
+    - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _fullMagAmmo
+      value: 
+      objectReference: {fileID: 169790405}
     - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
       propertyPath: _secondesEntreUpdateAnimation
       value: 0.001
