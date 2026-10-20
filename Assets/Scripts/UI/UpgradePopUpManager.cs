@@ -28,25 +28,29 @@ public class UpgradePopUpManager : MonoBehaviour
         ChooseInitialUpgradesOnMap();
     }
 
-    private void ChooseInitialUpgradesOnMap(int amount = 4)
+    private void ChooseInitialUpgradesOnMap()
     {
         List<PopUpSpawner> tempSpawnerList = PopUpSpawners.Where(x => x.HasPopUpOn == false).ToList();
 
         protoCompos = PopUpComponents.Where(x => x.Importance == GameImportance.Proto).ToList();
         goodGameCompos = PopUpComponents.Where(x => x.Importance == GameImportance.GoodGame).ToList();
         
-        for (int i = 0; i < protoCompos.Count; i++)
+        for (int i = 0; i < _protoAmount; i++)
         {
             var x = protoCompos[Random.Range(0, protoCompos.Count)];
-            var MPU = MapPopUp.CreatePopUp(tempSpawnerList[Random.Range(0, tempSpawnerList.Count)], x);
+            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+            var MPU = MapPopUp.CreatePopUp(Spawner, x);
+            tempSpawnerList.Remove(Spawner);
             currentMapPopUps.Add(MPU);
             MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
         }
 
-        for (int i = 0; i < goodGameCompos.Count; i++)
+        for (int i = 0; i < _goodGameAmount; i++)
         {
-            var x = protoCompos[Random.Range(0, protoCompos.Count)];
-            var MPU = MapPopUp.CreatePopUp(tempSpawnerList[Random.Range(0, tempSpawnerList.Count)], x);
+            var x = goodGameCompos[Random.Range(0, goodGameCompos.Count)];
+            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+            var MPU = MapPopUp.CreatePopUp(Spawner, x);
+            tempSpawnerList.Remove(Spawner);
             currentMapPopUps.Add(MPU);
             MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
         }
