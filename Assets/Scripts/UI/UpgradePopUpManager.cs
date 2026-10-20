@@ -30,30 +30,30 @@ public class UpgradePopUpManager : MonoBehaviour
 
     private void ChooseInitialUpgradesOnMap()
     {
-        List<PopUpSpawner> tempSpawnerList = PopUpSpawners.Where(x => x.HasPopUpOn == false).ToList();
+        // List<PopUpSpawner> tempSpawnerList = PopUpSpawners.Where(x => x.HasPopUpOn == false).ToList();
 
-        protoCompos = PopUpComponents.Where(x => x.Importance == GameImportance.Proto).ToList();
-        goodGameCompos = PopUpComponents.Where(x => x.Importance == GameImportance.GoodGame).ToList();
+        // protoCompos = PopUpComponents.Where(x => x.Importance == GameImportance.Proto).ToList();
+        // goodGameCompos = PopUpComponents.Where(x => x.Importance == GameImportance.GoodGame).ToList();
         
-        for (int i = 0; i < _protoAmount; i++)
-        {
-            var x = protoCompos[Random.Range(0, protoCompos.Count)];
-            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
-            var MPU = MapPopUp.CreatePopUp(Spawner, x);
-            tempSpawnerList.Remove(Spawner);
-            currentMapPopUps.Add(MPU);
-            MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
-        }
+        // for (int i = 0; i < _protoAmount; i++)
+        // {
+        //     var x = protoCompos[Random.Range(0, protoCompos.Count)];
+        //     var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+        //     // var MPU = MapPopUp.CreatePopUp(Spawner, x);
+        //     tempSpawnerList.Remove(Spawner);
+        //     // currentMapPopUps.Add(MPU);
+        //     MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
+        // }
 
-        for (int i = 0; i < _goodGameAmount; i++)
-        {
-            var x = goodGameCompos[Random.Range(0, goodGameCompos.Count)];
-            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
-            var MPU = MapPopUp.CreatePopUp(Spawner, x);
-            tempSpawnerList.Remove(Spawner);
-            currentMapPopUps.Add(MPU);
-            MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
-        }
+        // for (int i = 0; i < _goodGameAmount; i++)
+        // {
+        //     var x = goodGameCompos[Random.Range(0, goodGameCompos.Count)];
+        //     var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+        //     // var MPU = MapPopUp.CreatePopUp(Spawner, x);
+        //     tempSpawnerList.Remove(Spawner);
+        //     currentMapPopUps.Add(MPU);
+        //     MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
+        // }
     }
 
     private void AddMapPopUp(MapPopUp expiredPopUp)
@@ -84,9 +84,9 @@ public class UpgradePopUpManager : MonoBehaviour
 
 
     // Create the replacement popup
-    MapPopUp newPopUp = MapPopUp.CreatePopUp(newSpawner, newComponent);
+    // MapPopUp newPopUp = MapPopUp.CreatePopUp(newSpawner, newComponent);
 
-    currentMapPopUps.Add(newPopUp);
-    newPopUp.OnExpire.AddListener(() => AddMapPopUp(newPopUp));
+    // currentMapPopUps.Add(newPopUp);
+    // newPopUp.OnExpire.AddListener(() => AddMapPopUp(newPopUp));
 }
 }

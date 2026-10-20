@@ -16,5 +16,5 @@ MonoBehaviour:
   icon: {fileID: 0}
   price: 400
   unitType: 0
-  categoryType: 1
+  categoryType: 9
   gameImportance: 2

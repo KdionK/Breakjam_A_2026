@@ -11,6 +11,7 @@ public class MapPopUp : MonoBehaviour
    [SerializeField] private TextMeshProUGUI PriceTag;
    [SerializeField] private Slider expirationSlider;
    [SerializeField] [Range(10, 30)] private int expirationTime = 22;
+   [SerializeField] SO_PopUpComponent _PopUpComponent;
 
    private PopUpSpawner _parentSpawner;
    private GameImportance _importance;
@@ -26,32 +27,34 @@ public class MapPopUp : MonoBehaviour
    
    private void Awake()
    {
-       expirationTime = Random.Range(20, 30);
-       _expirationCoroutine = StartCoroutine(SetExpirationSlider());
-       OnExpire.AddListener(DestroyPopUp);
+    //    expirationTime = Random.Range(20, 30);
+    //    _expirationCoroutine = StartCoroutine(SetExpirationSlider());
+    //    OnExpire.AddListener(DestroyPopUp);
+    SetPopUp(_component);
+
    }
 
-   public void SetPopUp(SO_PopUpComponent component, PopUpSpawner parentSpawner)
+   public void SetPopUp(SO_PopUpComponent component)
    {
        _PopUpTitle.text = component.Title;
        if (component.Icon != null)
         Icon.sprite = component.Icon;
 
        PriceTag.text = string.Format(_PriceTagFormat, component.Price);
-       _parentSpawner = parentSpawner;
+    //    _parentSpawner = parentSpawner;
        _component = component;
    }
 
 
-    public static MapPopUp CreatePopUp(PopUpSpawner parent, SO_PopUpComponent popUpcomponent)
-    {
-        var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
-        var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
-        popUpInstance.SetPopUp(popUpcomponent, parent);
-       popUpInstance._importance  = popUpcomponent.Importance;
-        parent.HasPopUpOn = true;
-        return popUpInstance;
-    }
+    // public static MapPopUp CreatePopUp(PopUpSpawner parent, SO_PopUpComponent popUpcomponent)
+    // {
+    //     var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
+    //     var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
+    //     popUpInstance.SetPopUp(popUpcomponent, parent);
+
+    //     parent.HasPopUpOn = true;
+    //     return popUpInstance;
+    // }
 
     private IEnumerator SetExpirationSlider()
 {

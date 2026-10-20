@@ -6,7 +6,7 @@ public class BuyableGeneric : MonoBehaviour, IBuyable
     public UpgradeCategory category;
     [SerializeField] private int _price = 10;
     MapPopUp mapPopUp;
-    public bool _isDynamic;
+    public bool _isDynamic = true;
 
     private bool _alreadyBought = false;
     void Start()
@@ -14,8 +14,9 @@ public class BuyableGeneric : MonoBehaviour, IBuyable
         mapPopUp = GetComponentInParent<MapPopUp>();
         if (_isDynamic)
         {
-        type = mapPopUp._component.UnitType;
-        category = mapPopUp._component.CategoryType;
+            type = mapPopUp._component.UnitType;
+            category = mapPopUp._component.CategoryType;
+            _price = mapPopUp._component.Price;
         }
         // !_isDynamic is for static upgrades like door opens;
     }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07632f20734c48249a15e56ed8f8f8f8, type: 3}
   m_Name: PopupEnnemyModel1
   m_EditorClassIdentifier: Assembly-CSharp::SO_PopUpComponent
-  title: An Ennemy Model
+  title: Better Ennemy Model
   icon: {fileID: 0}
   price: 300
   unitType: 1
-  categoryType: 1
+  categoryType: 0
   gameImportance: 2
