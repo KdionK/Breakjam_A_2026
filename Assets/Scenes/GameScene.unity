@@ -3491,6 +3491,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: bUnlockedMuzzleFlash
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4887,6 +4891,14 @@ PrefabInstance:
       propertyPath: _currency
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _fullMagAmmo
+      value: 
+      objectReference: {fileID: 1142913483}
+    - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: currentAmmoText
+      value: 
+      objectReference: {fileID: 682589376}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7574,6 +7586,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 33.16998, y: 3.2034788, z: 13.374193}
   m_Center: {x: -0.0000076293945, y: 0, z: 0}
+--- !u!114 &682589376 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3942473549674953072, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+  m_PrefabInstance: {fileID: 524047613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!43 &697776619
 Mesh:
   m_ObjectHideFlags: 0
@@ -14104,6 +14127,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1486485465530770469, guid: 79f8f1028d320cb41aed01ae05e3751f, type: 3}
   m_PrefabInstance: {fileID: 1084127598}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1142913483 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9117896076625923566, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+  m_PrefabInstance: {fileID: 524047613}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
 --- !u!1 &1142938413 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2874765826992384646, guid: 473a4868659252248b5ae73a630c8638, type: 3}
