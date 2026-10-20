@@ -22,7 +22,7 @@ public class Unit : MonoBehaviour, IDamageable
 
     private HealthComponent healthComponent;
     [Header("Visual")]
-    private int textureLevel;
+    protected int textureLevel;
     public GameObject visualObject;
     [SerializeField] private GameObject[] visualUpgrades;
     public Animator anim;
@@ -93,7 +93,7 @@ public class Unit : MonoBehaviour, IDamageable
     {
         throw new System.NotImplementedException();
     }
-    private void OnBoughtEvent(BuyAction action)
+    protected virtual void OnBoughtEvent(BuyAction action)
     {
         Debug.Log($"Bought: {action}");
         if (action.Type != UnitType.CommonEnemy) return;
@@ -107,10 +107,11 @@ public class Unit : MonoBehaviour, IDamageable
             case UpgradeCategory.Mesh:
                 break;
             case UpgradeCategory.Sound:
+                SoundManagerMino.Instance.SetEnnemi(0);
                 break;
         }
     }
-    private void UpgradeTexture()
+    protected void UpgradeTexture()
     {
         if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
         int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
