@@ -693,8 +693,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5296775242216146304}
   - component: {fileID: 3962422355493584918}
-  - component: {fileID: 8202321241882875670}
-  - component: {fileID: 2190327885023681116}
   - component: {fileID: 2294171949597700537}
   m_Layer: 0
   m_Name: Collision
@@ -743,39 +741,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.91, y: 0.73, z: 0.4}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8202321241882875670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4322916515317310730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e76e25e5852c62c46b2e8d39a3684aba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuyableGeneric
-  type: 1
-  category: 0
-  _price: 10
-  _isDynamic: 0
---- !u!114 &2190327885023681116
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4322916515317310730}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13f1199a9f10d404aaa09e89844102a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BuyableMovement
-  movementToAdd: {fileID: 0}
-  buyableMovement: {fileID: 0}
-  _price: 0
-  isBuyable: 0
-  _isDynamic: 1
 --- !u!114 &2294171949597700537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,9 +1713,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1855000594707301854}
-    - targetCorrespondingSourceObject: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6910138842293064124}
   m_SourcePrefab: {fileID: 100100000, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
 --- !u!1 &5466708576782009578 stripped
 GameObject:
@@ -1781,18 +1743,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   _component: {fileID: 0}
---- !u!114 &6910138842293064124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5466708576782009578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e010c88d49ae44b4ba334197040d2f48, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoChecker
 --- !u!224 &5516473463956941007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}

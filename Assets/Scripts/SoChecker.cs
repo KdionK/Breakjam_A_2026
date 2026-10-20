@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoChecker : MonoBehaviour
@@ -6,15 +8,22 @@ public class SoChecker : MonoBehaviour
     BuyableGeneric _buyableGeneric;
     MapPopUp mapPopUp;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+
     void Start()
     {
         mapPopUp = GetComponentInParent<MapPopUp>();
-        _buyableMovement = GetComponent<BuyableMovement>();
-        _buyableGeneric = GetComponent<BuyableGeneric>();
+        Debug.Log("buyable movement" + _buyableMovement);
+        Debug.Log("buyable generic" + _buyableGeneric);
         if (mapPopUp._component.Title == "A Dash" || mapPopUp._component.Title == "A Slide")
         {
-            _buyableGeneric.enabled = false;
-            _buyableMovement.enabled = true;
+           _buyableMovement = new BuyableMovement();
+           this.gameObject.AddComponent<BuyableMovement>();
+        }
+        else
+        {
+            _buyableGeneric = new BuyableGeneric();
+            _buyableGeneric.AddComponent<BuyableGeneric>();
         }
     }
 
