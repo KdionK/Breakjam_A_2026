@@ -47,7 +47,9 @@ public class Move : BuyableBehavior, IDamageable
     [Header("Regen")]
     [SerializeField] bool _regen = false;
     [SerializeField] float _timeBeforeRgen = 3f;
-    [SerializeField] float _regenAmount = 2.5f;
+    [SerializeField] int _regenAmount = 5;
+    private bool _hitRecently = false;
+    private float _regenTimer = 0;
     
     
     
@@ -65,7 +67,8 @@ public class Move : BuyableBehavior, IDamageable
     
     [Header("IFrames")]
     [SerializeField] private float _frameTime = 0.1f;
-    private bool _invincible;
+    private bool _invincible = false;
+    private bool _dashInvincible = false;
     
 
     private Vector2 _moveDirection;
@@ -107,6 +110,7 @@ public class Move : BuyableBehavior, IDamageable
         if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
         {
             DeathTest();
+
         }
     }
 
@@ -135,8 +139,19 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
+        Regen();
         
-        
+        if(_isDashing)
+        {
+            _dashInvincible = true;
+            Debug.Log("dashInvincible" + _dashInvincible);
+        }
+        else
+        {
+            _dashInvincible = false;
+            Debug.Log("dashInvincible" + _dashInvincible);
+        }
+
         if (_healthComponent.CurrentHealth <= 0)
         {
             HandleDeath();
@@ -253,17 +268,29 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
-        if (_invincible || _isRespawning) return dinfo;
+        if (_invincible || _isRespawning || _dashInvincible) return dinfo;
+        
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
         if (_healthBar != null)
         {
             _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         }
-
+        _regenTimer = 0;
         StartCoroutine(IFrames());
         
         return dinfo;
+    }
+
+    private void Regen()
+    {
+        _regenTimer += Time.deltaTime;
+        
+        if(_regenTimer >= _timeBeforeRgen && _healthComponent.CurrentHealth < _healthComponent.FullHealth)
+        {
+            _healthComponent.RegenHealth(_regenAmount);
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        }
     }
 
     public void HandleDeath()
@@ -305,16 +332,12 @@ public class Move : BuyableBehavior, IDamageable
     IEnumerator IFrames()
     {
         _invincible = true;
-        Debug.Log("IFrames starting");
+        // Debug.Log("IFrames starting");
         yield return new WaitForSeconds(_frameTime);
         _invincible = false;
-        Debug.Log("IFrames finished");
+        // Debug.Log("IFrames finished");
     }
 
-    IEnumerator Regen()
-    {
-        yield return null;
-    }
     
     
     

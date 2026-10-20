@@ -50,6 +50,13 @@ public class HealthComponent : MonoBehaviour
         return _currentHealth;
     }
 
+    public int RegenHealth(int value)
+    {
+        
+        _currentHealth += value;
+        return _currentHealth;
+    }
+
     public void SetHealth()
     {
         _currentHealth = _fullHealth;
