@@ -211,6 +211,7 @@ public class BaseWeapon : BuyableBehavior
 
     protected void VFXMuzzleFlash()
     {
+        MuzzleFlash.Reinit();
         MuzzleFlash.Play();
     }
     
