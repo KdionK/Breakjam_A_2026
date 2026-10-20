@@ -44,6 +44,12 @@ public class Move : BuyableBehavior, IDamageable
     private bool _murder;
 
     bool _isRespawning = false;
+    [Header("Regen")]
+    [SerializeField] bool _regen = false;
+    [SerializeField] float _timeBeforeRgen = 3f;
+    [SerializeField] float _regenAmount = 2.5f;
+    
+    
     
     
 
@@ -304,6 +310,15 @@ public class Move : BuyableBehavior, IDamageable
         _invincible = false;
         Debug.Log("IFrames finished");
     }
+
+    IEnumerator Regen()
+    {
+        yield return null;
+    }
+    
+    
+    
+   
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
