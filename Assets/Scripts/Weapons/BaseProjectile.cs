@@ -85,7 +85,7 @@ public class BaseProjectile : MonoBehaviour
 
     protected void Explode()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, ExplosionRadius);
+        Collider[] hits = Physics.OverlapSphere(transform.position, ExplosionRadius); //TODO add layer mask
 
         foreach (Collider c in hits)
         {

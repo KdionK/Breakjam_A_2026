@@ -151,6 +151,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.192
       objectReference: {fileID: 0}
+    - target: {fileID: 6112357460298437750, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: LaunchForce
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6504992817216575190, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_Name
       value: Player
@@ -337,10 +341,14 @@ MonoBehaviour:
   _slideJumpBoostTime: 0.6
   _respawnPoint: {fileID: 0}
   _respawnTime: 0.2
+  _regen: 0
+  _timeBeforeRgen: 3
+  _regenAmount: 5
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
   _upgradeSpeedAmount: 2.5
   _upgradeHealthAmount: 30
+  _frameTime: 0.1
   _isGrounded: 0
 --- !u!114 &824429061
 MonoBehaviour:
@@ -778,7 +786,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 100}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

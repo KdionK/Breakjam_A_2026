@@ -6,27 +6,27 @@ public class Unit : MonoBehaviour, IDamageable
     public StateMachine<State> StateMachine;
     [HideInInspector]
     public NavMeshAgent Agent;
-    
+
     public ChaseState chaseState;
     public AttackState attackState;
     [Header("State Configs")]
     [SerializeField] protected ChaseStateSO chaseStateSO;
     [SerializeField] protected AttackStateSO attackStateSO;
-    
+
     [Header("targetting")]
     [HideInInspector] public GameObject target;
     public BaseWeapon weapon;
 
     public GameObject spawnLocation;
-    
+
 
     private HealthComponent healthComponent;
     [Header("Visual")]
-    private int textureLevel;
+    protected int textureLevel;
     public GameObject visualObject;
     [SerializeField] private GameObject[] visualUpgrades;
     public Animator anim;
-    
+
     [Header("money")]
     public int moneyOnDeath;
     void Start()
@@ -37,32 +37,32 @@ public class Unit : MonoBehaviour, IDamageable
         //weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
         StateMachine = new StateMachine<State>();
-        
+
         chaseState = CreateChaseState();
         attackState = CreateAttackState();
-        
+
         StateMachine.Init(chaseState);
-        
+
         textureLevel = BuyHistory.Instance.GetLevel(UnitType.CommonEnemy, UpgradeCategory.Texture);
-        
+
         UpgradeTexture();
-        
+
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
-    
+
     protected virtual ChaseState CreateChaseState() => new ChaseState(this, StateMachine, chaseStateSO);
     protected virtual AttackState CreateAttackState() => new AttackState(this, StateMachine, attackStateSO);
 
     // Update is called once per frame
     void Update()
     {
-        if(target == null)return;
+        if (target == null) return;
         StateMachine.CurrentState.FrameUpdate();
     }
-    
+
     public virtual void FixedUpdate()
     {
-        if(target == null)return;
+        if (target == null) return;
         StateMachine.CurrentState.PhysicUpdate();
     }
 
@@ -93,10 +93,10 @@ public class Unit : MonoBehaviour, IDamageable
     {
         throw new System.NotImplementedException();
     }
-    private void OnBoughtEvent(BuyAction action)
+    protected virtual void OnBoughtEvent(BuyAction action)
     {
         Debug.Log($"Bought: {action}");
-        if(action.Type != UnitType.CommonEnemy) return;
+        if (action.Type != UnitType.CommonEnemy) return;
 
         switch (action.Category)
         {
@@ -107,10 +107,11 @@ public class Unit : MonoBehaviour, IDamageable
             case UpgradeCategory.Mesh:
                 break;
             case UpgradeCategory.Sound:
+                SoundManagerMino.Instance.SetEnnemi(0);
                 break;
         }
     }
-    private void UpgradeTexture()
+    protected void UpgradeTexture()
     {
         if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
         int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
@@ -127,7 +128,7 @@ public class Unit : MonoBehaviour, IDamageable
     }
     private void OnDrawGizmos()
     {
-        if(weapon == null)return;
+        if (weapon == null) return;
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, weapon.MaxAIRange);
     }

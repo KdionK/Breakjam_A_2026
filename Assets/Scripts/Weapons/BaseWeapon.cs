@@ -133,12 +133,12 @@ public class BaseWeapon : MonoBehaviour
     {
         if (bIsHitscan)
         {
-            Debug.Log("ShootRaycast");
+            //Debug.Log("ShootRaycast");
             SpawnRaycast();
         }
         else
         {
-            Debug.Log("ShootProjectile");
+            //Debug.Log("ShootProjectile");
             SpawnProjectile();
         }
 

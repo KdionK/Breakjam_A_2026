@@ -12,15 +12,21 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [SerializeField] HealthBar _healthBar;
+    [Header("Audio")]
+    private AudioSource _audioSource;
+    [SerializeField] AudioClip _playerJump;
+    [SerializeField] AudioClip _playerDeath;
+    [SerializeField] AudioClip _playerHit;
+    [SerializeField] AudioClip _playerLand;
     [Header("buyChecks")]
-    
+
     [SerializeField] public bool _jumpBuy = false;
 
 
     [Header("base movement")]
     private float _initialSpeed;
     [SerializeField] float _speed = 5;
-    
+
     [Header("Jump")]
     [SerializeField] float _jumpForce = 3;
     [SerializeField] private int _maxAirJumps = 0;
@@ -36,7 +42,7 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] float _slideJumpBoostTime = 0.6f;
     private Vector3 _boostDir;
     private float _boostTimer;
-    
+
     [Header("Death/Respawn")]
     [SerializeField] Transform _respawnPoint;
     [SerializeField] float _respawnTime = 0.2f;
@@ -45,33 +51,34 @@ public class Move : BuyableBehavior, IDamageable
 
     bool _isRespawning = false;
     [Header("Regen")]
-    [SerializeField] bool _regen = false;
     [SerializeField] float _timeBeforeRgen = 3f;
-    [SerializeField] float _regenAmount = 2.5f;
-    
-    
-    
-    
-
-
+    [SerializeField] int _regenAmount = 5;
+    [SerializeField] float _tickWait = 0.3f;
+    private Coroutine _regenRoutine;
+    private bool _hitRecently = false;
+    private float _regenTimer = 0;
 
     [Header("Gravité")]
     [SerializeField] private float _fallMultiplier = 2.5f;     // chute plus rapide
     [SerializeField] private float _lowJumpMultiplier = 2f;    // saut plus court si on relâche la touche
-    
-    [Header ("Upgrades")]
+
+    [Header("Upgrades")]
     [SerializeField] private float _upgradeSpeedAmount = 2.5f;
     [SerializeField] private int _upgradeHealthAmount = 30;
-    
+
     [Header("IFrames")]
     [SerializeField] private float _frameTime = 0.1f;
-    private bool _invincible;
-    
+
+ 
+
+    private bool _invincible = false;
+    private bool _dashInvincible = false;
+
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
     private HealthComponent _healthComponent;
-    
+
     public bool _isGrounded;
     private bool _jumpHeld;
     private int _airJumpsLeft;
@@ -82,10 +89,11 @@ public class Move : BuyableBehavior, IDamageable
     void Start()
     {
         _initialSpeed = _speed;
+        _audioSource = GetComponent<AudioSource>();
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
-        _healthComponent = GetComponent<HealthComponent>(); 
+        _healthComponent = GetComponent<HealthComponent>();
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
@@ -95,7 +103,7 @@ public class Move : BuyableBehavior, IDamageable
         _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         // HandleDeath();
     }
-    
+
 
     private void OnMove(InputAction.CallbackContext context)
     {
@@ -107,16 +115,17 @@ public class Move : BuyableBehavior, IDamageable
         if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
         {
             DeathTest();
+
         }
     }
 
     private void OnJump(InputAction.CallbackContext context)
     {
-        Debug.Log(context.phase);
         if (_jumpBuy == true)
         {
             if (context.started)
             {
+                SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource);
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
@@ -135,17 +144,28 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
-        
-        
+        Regen();
+
+        if (_isDashing)
+        {
+            _dashInvincible = true;
+
+        }
+        else
+        {
+            _dashInvincible = false;
+
+        }
+
         if (_healthComponent.CurrentHealth <= 0)
         {
             HandleDeath();
         }
-      
+
     }
 
     private Vector3 GetMoveDirection()
-    { 
+    {
         Vector3 forward = _cam.forward;
         Vector3 right = _cam.right;
         forward.y = 0f;
@@ -191,7 +211,7 @@ public class Move : BuyableBehavior, IDamageable
     {
         Debug.DrawRay(transform.position, Vector3.down * _rayDownDistance, Color.green);
         _isGrounded = Physics.Raycast(transform.position, Vector3.down, out RaycastHit hit, _rayDownDistance, _groundLayer, QueryTriggerInteraction.Ignore);
-        if(_isGrounded) _boostTimer = 0f;
+        if (_isGrounded) _boostTimer = 0f;
 
         if (_isGrounded && rb.linearVelocity.y <= 0.01f)
         {
@@ -225,7 +245,7 @@ public class Move : BuyableBehavior, IDamageable
 
     private void Jump()
     {
-        if(_sliding)
+        if (_sliding)
         {
             _boostTimer = _slideJumpBoostTime;
             _sliding = false;
@@ -253,23 +273,56 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
-        if (_invincible || _isRespawning) return dinfo;
+        if (_invincible || _isRespawning || _dashInvincible) return dinfo;
+        SoundManagerMino.Instance.PlaySound(_playerHit, _audioSource);
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
         if (_healthBar != null)
         {
             _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         }
+        if (_regenRoutine != null) StopCoroutine(_regenRoutine);
 
+        _regenRoutine = StartCoroutine(Regen());
         StartCoroutine(IFrames());
-        
+
         return dinfo;
+    }
+
+    // private void Regen()
+    // {
+    //     if(_healthComponent.CurrentHealth >= _healthComponent.FullHealth)
+    //     {
+    //         _regenTimer = 0;
+    //         return;
+    //     }
+    //     _regenTimer += Time.deltaTime;
+
+    //     if(_regenTimer >= _timeBeforeRgen)
+    //     {
+    //         _healthComponent.RegenHealth(_regenAmount);
+    //         _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+    //     }
+    // }
+
+    IEnumerator Regen()
+    {
+        yield return new WaitForSeconds(_timeBeforeRgen);
+        while (_healthComponent.CurrentHealth < _healthComponent.FullHealth)
+        {
+            _healthComponent.RegenHealth(_regenAmount);
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+
+            // Delay between each tick
+            yield return new WaitForSeconds(_tickWait);
+        }
     }
 
     public void HandleDeath()
     {
         Debug.Log("Handle Death");
-        if (_isRespawning) return; 
+        if (_isRespawning) return;
+        SoundManagerMino.Instance.PlaySound(_playerDeath, _audioSource);
         StartCoroutine(Respawn());
     }
 
@@ -283,7 +336,7 @@ public class Move : BuyableBehavior, IDamageable
         rb.linearVelocity = Vector3.zero;
         rb.angularVelocity = Vector3.zero;
         rb.isKinematic = true;
-        
+
         _isDashing = false;
         _sliding = false;
 
@@ -305,20 +358,16 @@ public class Move : BuyableBehavior, IDamageable
     IEnumerator IFrames()
     {
         _invincible = true;
-        Debug.Log("IFrames starting");
+        // Debug.Log("IFrames starting");
         yield return new WaitForSeconds(_frameTime);
         _invincible = false;
-        Debug.Log("IFrames finished");
+        // Debug.Log("IFrames finished");
     }
 
-    IEnumerator Regen()
-    {
-        yield return null;
-    }
-    
-    
-    
-   
+
+
+
+
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
@@ -329,11 +378,11 @@ public class Move : BuyableBehavior, IDamageable
     {
         return null;
     }
-    
+
     private void OnBoughtEvent(BuyAction action)
     {
         Debug.Log($"Bought: {action}");
-        if(action.Type != UnitType.Player) return;
+        if (action.Type != UnitType.Player) return;
 
         switch (action.Category)
         {
@@ -342,6 +391,8 @@ public class Move : BuyableBehavior, IDamageable
             case UpgradeCategory.Mesh:
                 break;
             case UpgradeCategory.Sound:
+                Debug.Log("buying player sound");
+                SoundManagerMino.Instance.SetPlayer(0);
                 break;
             case UpgradeCategory.Health:
                 UpgradeHealth();
@@ -354,14 +405,14 @@ public class Move : BuyableBehavior, IDamageable
 
     public void UpgradeHealth()
     {
-        _healthComponent.AddHealth(_upgradeHealthAmount,true);
+        _healthComponent.AddHealth(_upgradeHealthAmount, true);
     }
-    
+
     public void UpgradeSpeed()
     {
         _speed += _upgradeSpeedAmount;
         _initialSpeed = _speed;
     }
-    
-    
+
+
 }
