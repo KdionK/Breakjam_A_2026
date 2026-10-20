@@ -1204,6 +1204,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1229,7 +1237,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207679041}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1846,6 +1854,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1871,7 +1887,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 258859857}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1950,6 +1966,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1975,7 +1999,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 262884151}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2053,6 +2077,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2078,7 +2110,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 273719538}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2156,6 +2188,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2181,7 +2221,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275657531}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2463,6 +2503,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_4
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2488,7 +2536,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313197485}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3221,6 +3269,7 @@ MonoBehaviour:
   type: 0
   category: 3
   _price: 10
+  _isDynamic: 0
 --- !u!4 &342882542
 Transform:
   m_ObjectHideFlags: 0
@@ -3327,6 +3376,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3352,7 +3409,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 346576343}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3490,6 +3547,14 @@ PrefabInstance:
     - target: {fileID: 6685516370085358819, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: bUnlockedVFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: DamageMaxRange
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: bUnlockedMuzzleFlash
@@ -3768,6 +3833,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3793,7 +3866,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387177858}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4748,6 +4821,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4773,7 +4854,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514249935}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4795,6 +4876,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 462455228864669505, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 462455228864669505, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 462455228864669505, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 647299699713902286, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 647299699713902286, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 647299699713902286, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 671084642529267648, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5754717
+      objectReference: {fileID: 0}
+    - target: {fileID: 671084642529267648, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.g
+      value: 0.10586509
+      objectReference: {fileID: 0}
+    - target: {fileID: 671084642529267648, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.r
+      value: 0.21423581
+      objectReference: {fileID: 0}
     - target: {fileID: 725992085713336081, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -4879,14 +4996,174 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameUI
       objectReference: {fileID: 0}
+    - target: {fileID: 982528799279677374, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2988608
+      objectReference: {fileID: 0}
+    - target: {fileID: 982528799279677374, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.g
+      value: 0.32026523
+      objectReference: {fileID: 0}
+    - target: {fileID: 982528799279677374, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Color.r
+      value: 0.8679245
+      objectReference: {fileID: 0}
     - target: {fileID: 2354322904421578851, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
       propertyPath: m_text
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2354322904421578851, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 2354322904421578851, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 2354322904421578851, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335480124365583323, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _blinkColor.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335480124365583323, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _blinkColor.b
+      value: 0.23740657
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335480124365583323, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _blinkColor.g
+      value: 0.88034207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335480124365583323, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: _blinkColor.r
+      value: 0.9150943
       objectReference: {fileID: 0}
     - target: {fileID: 3335480124365583323, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
       propertyPath: _healthComponent
       value: 
       objectReference: {fileID: 1807281988}
+    - target: {fileID: 3468647968573894583, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Name
+      value: Deco
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643980357011124302, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643980357011124302, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643980357011124302, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3643980357011124302, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3736282627097739862, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 3736282627097739862, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 3736282627097739862, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892249645219006310, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3942473549674953072, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 3942473549674953072, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 3942473549674953072, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604491484058811792, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604491484058811792, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604491484058811792, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4604491484058811792, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926678344395313675, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926678344395313675, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926678344395313675, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4926678344395313675, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7418140120131170411, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 7418140120131170411, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 7418140120131170411, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7604470056183804322, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
       propertyPath: _currency
       value: 200
@@ -4899,6 +5176,34 @@ PrefabInstance:
       propertyPath: currentAmmoText
       value: 
       objectReference: {fileID: 682589376}
+    - target: {fileID: 8242244517387357831, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 8242244517387357831, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 8242244517387357831, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474229809191931270, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9117896076625923566, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 9117896076625923566, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 6019725101082321383, guid: 459513c9b759daa418ab398dacda828d, type: 2}
+    - target: {fileID: 9117896076625923566, guid: b73389b70a5fda84f9a03b95118c1156, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5177,6 +5482,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5202,7 +5515,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527277938}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5784,6 +6097,7 @@ MonoBehaviour:
   type: 1
   category: 2
   _price: 10
+  _isDynamic: 0
 --- !u!4 &559625078
 Transform:
   m_ObjectHideFlags: 0
@@ -6128,6 +6442,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6153,7 +6475,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 596633371}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6409,6 +6731,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6434,7 +6764,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 615784137}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7463,6 +7793,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7488,7 +7826,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 661567416}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8132,6 +8470,7 @@ MonoBehaviour:
   type: 2
   category: 2
   _price: 10
+  _isDynamic: 0
 --- !u!4 &699852168
 Transform:
   m_ObjectHideFlags: 0
@@ -8211,6 +8550,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8236,7 +8583,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702557975}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8258,6 +8605,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1741022137}
     m_Modifications:
+    - target: {fileID: 811532987407230726, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611389940502526176, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486686022875626674, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2834542569793648467, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -8310,9 +8669,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818306588932540712, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5182243951127264225, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
       propertyPath: m_Name
       value: Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182243951127264225, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064581861944824853, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9214,6 +9585,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9239,7 +9618,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778187969}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10055,6 +10434,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10080,7 +10467,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 784785527}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10451,6 +10838,7 @@ MonoBehaviour:
   type: 2
   category: 6
   _price: 10
+  _isDynamic: 0
 --- !u!4 &790066348
 Transform:
   m_ObjectHideFlags: 0
@@ -10530,6 +10918,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10555,7 +10951,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 806747712}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10633,6 +11029,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10658,7 +11062,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 807585345}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -10762,6 +11166,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10787,7 +11199,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 816162574}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -11795,6 +12207,7 @@ MonoBehaviour:
   type: 1
   category: 0
   _price: 10
+  _isDynamic: 0
 --- !u!1001 &920273006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12088,6 +12501,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12113,7 +12534,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976989656}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -13181,6 +13602,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13206,7 +13635,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059307762}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14057,6 +14486,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14082,7 +14519,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1100036592}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14254,6 +14691,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14279,7 +14724,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148645656}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14713,6 +15158,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14738,7 +15191,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1168534831}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14766,7 +15219,7 @@ GameObject:
   - component: {fileID: 1178635250}
   m_Layer: 3
   m_Name: Cube.002 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14793,7 +15246,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1178635248}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -14928,6 +15381,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14953,7 +15414,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1184594067}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -15695,6 +16156,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15720,7 +16189,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1215706861}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -16474,6 +16943,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16499,7 +16976,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359309050}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -16870,6 +17347,7 @@ MonoBehaviour:
   type: 3
   category: 2
   _price: 10
+  _isDynamic: 0
 --- !u!4 &1379977653
 Transform:
   m_ObjectHideFlags: 0
@@ -18130,6 +18608,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18155,7 +18641,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1456555628}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -18233,6 +18719,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18258,7 +18752,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460701426}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -19245,6 +19739,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19270,7 +19772,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1514341807}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -19350,7 +19852,7 @@ GameObject:
   - component: {fileID: 1526873179}
   m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19377,7 +19879,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526873177}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -19994,6 +20496,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20019,7 +20529,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573604092}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20097,6 +20607,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20122,7 +20640,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1574754248}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20760,6 +21278,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20785,7 +21311,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632022966}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -20998,6 +21524,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21023,7 +21557,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704445144}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -21101,6 +21635,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21126,7 +21668,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1708484303}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -21497,6 +22039,7 @@ MonoBehaviour:
   type: 2
   category: 5
   _price: 10
+  _isDynamic: 0
 --- !u!4 &1709729258
 Transform:
   m_ObjectHideFlags: 0
@@ -22233,9 +22776,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1741022137}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map_FullTexture
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22370,6 +22913,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22395,7 +22946,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1741540913}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -24301,6 +24852,7 @@ MonoBehaviour:
   type: 0
   category: 4
   _price: 10
+  _isDynamic: 0
 --- !u!4 &1816649193
 Transform:
   m_ObjectHideFlags: 0
@@ -24380,6 +24932,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24405,7 +24965,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817060021}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25017,6 +25577,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25042,7 +25610,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857281077}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25120,6 +25688,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25145,7 +25721,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872538441}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25432,6 +26008,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25457,7 +26041,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883721264}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25562,6 +26146,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25587,7 +26179,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896757211}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -25958,6 +26550,7 @@ MonoBehaviour:
   type: 0
   category: 2
   _price: 10
+  _isDynamic: 0
 --- !u!4 &1897806824
 Transform:
   m_ObjectHideFlags: 0
@@ -27177,6 +27770,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27202,7 +27803,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1999658971}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27484,6 +28085,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27509,7 +28118,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052662685}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27587,6 +28196,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27612,7 +28229,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2053030246}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27690,6 +28307,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27715,7 +28340,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2065416661}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27819,6 +28444,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 026c9e2e497f0af45a3f7b72dbeb413e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 026c9e2e497f0af45a3f7b72dbeb413e, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27844,7 +28477,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068864162}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -27923,6 +28556,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27948,7 +28589,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2080667387}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28031,6 +28672,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28056,7 +28705,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2093696347}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28344,7 +28993,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5245845728440222194}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28426,6 +29075,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28451,7 +29108,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3109897264350634392}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28532,6 +29189,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
       propertyPath: m_Name
       value: LegoKit_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28619,6 +29284,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28705,7 +29378,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6906376099917746002}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28726,7 +29399,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1745286177684951602}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28747,7 +29420,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3006185167407028528}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28768,7 +29441,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 118905716705259308}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -28849,6 +29522,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
       propertyPath: m_Name
       value: LegoKit_5 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29022,6 +29703,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29047,7 +29736,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1699083406802697215}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29068,7 +29757,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3432071630976868247}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29089,7 +29778,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8518955279706794569}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29170,6 +29859,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
       propertyPath: m_Name
       value: LegoKit_2 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29257,6 +29954,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29343,6 +30048,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29368,7 +30081,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5696265569962889058}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29389,7 +30102,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5653003834167687574}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29471,6 +30184,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29496,7 +30217,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3761745082077328163}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29517,7 +30238,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201612127172208746}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29600,6 +30321,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29625,7 +30354,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6249422180857329346}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29706,6 +30435,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
       propertyPath: m_Name
       value: LegoKit_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29821,6 +30558,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29846,7 +30591,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874646857888905188}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -29927,6 +30672,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
       propertyPath: m_Name
       value: LegoKit_2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30014,6 +30767,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30039,7 +30800,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4025700902787952881}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30121,6 +30882,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_3
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 026c9e2e497f0af45a3f7b72dbeb413e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 026c9e2e497f0af45a3f7b72dbeb413e, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30146,7 +30915,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8272595235925282227}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30228,6 +30997,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30253,7 +31030,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3431496984826801750}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30336,6 +31113,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30361,7 +31146,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2820651879609026458}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30382,7 +31167,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2104444068417481331}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30403,7 +31188,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7973754887113560494}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30424,7 +31209,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3012255307719215734}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30505,6 +31290,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
       propertyPath: m_Name
       value: LegoKit_2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30592,6 +31385,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30677,6 +31478,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
       propertyPath: m_Name
       value: LegoKit_5 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30764,6 +31573,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30789,7 +31606,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064314167732429528}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -30871,6 +31688,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30896,7 +31721,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3552161498437685170}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31044,6 +31869,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31076,7 +31909,7 @@ GameObject:
   - component: {fileID: 2475549261583949268}
   m_Layer: 3
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31148,6 +31981,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
       propertyPath: m_Name
       value: LegoKit_6 (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31235,6 +32076,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31260,7 +32109,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4156163956475559122}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31281,7 +32130,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8732495507458396165}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31408,6 +32257,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31433,7 +32290,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7809228228585511774}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31514,6 +32371,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
       propertyPath: m_Name
       value: LegoKit_6 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31601,6 +32466,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31675,7 +32548,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240134712783159160}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31729,7 +32602,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3371249333745180449}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31750,7 +32623,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2541299371142761206}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31831,6 +32704,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
       propertyPath: m_Name
       value: LegoKit_5 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31918,6 +32799,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31943,7 +32832,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8238953673423656715}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -31964,7 +32853,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2231081529397934017}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32046,6 +32935,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
       propertyPath: m_Name
       value: LegoKit_2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32163,6 +33060,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32262,6 +33167,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_1 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bbc53cdabf8bac442b047568daf8c4bc, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32304,7 +33217,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8006863390239683457}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32325,7 +33238,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 271371557373405819}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32359,7 +33272,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943103940416285737}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32441,6 +33354,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32466,7 +33387,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789336209846636907}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32548,6 +33469,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32573,7 +33502,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983639683345737585}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32655,6 +33584,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32698,6 +33635,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 9023463584992734306}
     m_Modifications:
+    - target: {fileID: 811532987407230726, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1611389940502526176, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2486686022875626674, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 2834542569793648467, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -32750,9 +33699,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3818306588932540712, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5182243951127264225, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
       propertyPath: m_Name
       value: Lighting
+      objectReference: {fileID: 0}
+    - target: {fileID: 5182243951127264225, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7064581861944824853, guid: 31ada9de04305ac47bf2864005a04671, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32832,6 +33793,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32857,7 +33826,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6278400256911229407}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32947,6 +33916,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32972,7 +33949,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2917001399878701157}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -32993,7 +33970,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1023622629929406985}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33075,6 +34052,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33102,9 +34087,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9023463584992734306}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map_NoTexture
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33177,6 +34162,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33202,7 +34195,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6796419408796260862}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33223,7 +34216,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5059136373880144604}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33244,7 +34237,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6994186630953995255}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33334,7 +34327,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6524027936126109915}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33415,6 +34408,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
       propertyPath: m_Name
       value: LegoKit_6 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33530,6 +34531,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33615,6 +34624,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
       propertyPath: m_Name
       value: LegoKit_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b6d98aedb1383004f851912793b4bd68, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33702,6 +34719,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cbe9641436a8c1f41a74d171d23f189a, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33727,7 +34752,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8388907217177790381}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33748,7 +34773,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8102557569511623497}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -33830,6 +34855,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
       propertyPath: m_Name
       value: LegoKit_5 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33917,6 +34950,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_5 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 086e62c6fdf24564785afdfe6c5179f6, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33942,7 +34983,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7217596572250907838}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -34041,6 +35082,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: LegoKit_6 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34066,7 +35115,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015245999504624782}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -34109,7 +35158,7 @@ GameObject:
   - component: {fileID: 930312946481608921}
   m_Layer: 3
   m_Name: Cube.002 (1)
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34211,6 +35260,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
       propertyPath: m_Name
       value: LegoKit_6 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: bc5e5faacef12154c86f2ca462952dd3, type: 3}
+      propertyPath: m_TagString
+      value: Floor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34318,7 +35375,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5007652930707080803}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -34339,7 +35396,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2426951968111733451}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 6c6524b67c997a04786339ab593d66d2, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

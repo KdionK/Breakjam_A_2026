@@ -25,6 +25,7 @@ public class AttackState : State
         if (!config.isMeleeAttacking)
         {
             unit.weapon.StartFiring();
+            SoundManagerMino.Instance.PlaySound(unit.DroneShoot,unit.AudioSource);
         }
         else
         {
@@ -71,6 +72,7 @@ public class AttackState : State
     public IEnumerator MeleeAttack()
     {
         unit.anim.SetTrigger("MeleeAttack");
+        SoundManagerMino.Instance.PlaySound(unit.EnemyDeath,unit.AudioSource);
         yield return new WaitForSeconds(config.delayBeforeDamage);
         Collider[] results = Physics.OverlapSphere(unit.transform.position, config.radiusOfMelee, config.meleeLayer);
         foreach (Collider hit in results)

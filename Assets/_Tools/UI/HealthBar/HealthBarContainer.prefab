@@ -1,80 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &534725722292740792
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8293046915572722514}
-  - component: {fileID: 7943467822025962168}
-  - component: {fileID: 2150720175535102600}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8293046915572722514
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534725722292740792}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 93637343958043241}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &7943467822025962168
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534725722292740792}
-  m_CullTransparentMesh: 1
---- !u!114 &2150720175535102600
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 534725722292740792}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6bd8c6087a6e90541af4a40b8302c8e4, type: 3}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
 --- !u!1 &1347735591832928689
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,7 +295,6 @@ RectTransform:
   - {fileID: 6840682167747731431}
   - {fileID: 2789037287073083636}
   - {fileID: 8712609597808286060}
-  - {fileID: 8293046915572722514}
   - {fileID: 1436737468571309233}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -429,15 +353,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6bb219df0f05954ea1ebcbf88824304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthBar
-  _health: {fileID: 4245208319722533553}
-  _healthDelay: {fileID: 4474481434812383951}
+  _healthComponent: {fileID: 0}
+  _healthImage: {fileID: 4245208319722533553}
+  _healthDelayImage: {fileID: 4474481434812383951}
+  _blinkColor: {r: 0.90196085, g: 0.75294125, b: 0.38823533, a: 0}
   _numberPopUpSpawner: {fileID: 1695194242463372966}
   _shakeAmount: 6
   _shakeAnimationDuration: 0.3
   _shakesSpeed: 20
   _currentText: {fileID: 5889056742423280996}
   _fullText: {fileID: 4590027153345989569}
-  _blinkColor: {r: 0.90196085, g: 0.75294125, b: 0.38823533, a: 0}
 --- !u!1 &4814952568936890505
 GameObject:
   m_ObjectHideFlags: 0
