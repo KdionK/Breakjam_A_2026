@@ -77,9 +77,13 @@ public class BaseWeapon : BuyableBehavior
         {
             IntervalBetweenShots = 1 / MaxAIFireRate;
         }
-        textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
-        UpgradeTexture();
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+
+        if (BuyHistory.Instance)
+        {
+            textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
+            UpgradeTexture();
+        }
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     protected void Update()
@@ -132,7 +136,7 @@ public class BaseWeapon : BuyableBehavior
     {
         CurrentAmmo = MagSize;
         CurrentReloadTimer = 0;
-        EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
+        if (EconomyManager.Instance) EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
         bReloading = false;
     }
 
@@ -156,7 +160,7 @@ public class BaseWeapon : BuyableBehavior
         if (bNeedsToReload)
         {
             CurrentAmmo--;
-            EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
+            if (EconomyManager.Instance) EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
             //Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
             if (CurrentAmmo <= 0)
             {

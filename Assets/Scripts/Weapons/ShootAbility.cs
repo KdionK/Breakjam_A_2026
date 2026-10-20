@@ -26,10 +26,13 @@ public class ShootAbility : BuyableBehavior
         InputListener.onScrollUpEvent += OnScrollUp;
         InputListener.onScrollDownEvent += OnScrollDown;
         InputListener.onPressEscEvent += OnPressEsc;
-        
-        EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
-        EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+
+        if (EconomyManager.Instance)
+        {
+            EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
+            EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
+        }
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
     
     private void OnBoughtEvent(BuyAction action)
@@ -83,8 +86,11 @@ public class ShootAbility : BuyableBehavior
         else if (NewEquippedIndex < 0) NewEquippedIndex = OwnedGuns.Length - 1;
         BaseWeapon newWeapon = OwnedGuns[NewEquippedIndex];
 
-        EconomyManager.Instance.FullMagText.text = newWeapon.CurrentAmmo.ToString();
-        EconomyManager.Instance.FullMagText.text = newWeapon.MagSize.ToString();
+        if (EconomyManager.Instance)
+        {
+            EconomyManager.Instance.FullMagText.text = newWeapon.CurrentAmmo.ToString();
+            EconomyManager.Instance.FullMagText.text = newWeapon.MagSize.ToString();
+        }
         
         EquippedGun.gameObject.SetActive(false);
         EquippedGun = newWeapon;
