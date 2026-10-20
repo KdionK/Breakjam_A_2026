@@ -694,6 +694,8 @@ GameObject:
   - component: {fileID: 5296775242216146304}
   - component: {fileID: 3962422355493584918}
   - component: {fileID: 8202321241882875670}
+  - component: {fileID: 2190327885023681116}
+  - component: {fileID: 2294171949597700537}
   m_Layer: 0
   m_Name: Collision
   m_TagString: Untagged
@@ -757,6 +759,35 @@ MonoBehaviour:
   category: 0
   _price: 10
   _isDynamic: 0
+--- !u!114 &2190327885023681116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322916515317310730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13f1199a9f10d404aaa09e89844102a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BuyableMovement
+  movementToAdd: {fileID: 0}
+  buyableMovement: {fileID: 0}
+  _price: 0
+  isBuyable: 0
+  _isDynamic: 1
+--- !u!114 &2294171949597700537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322916515317310730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e010c88d49ae44b4ba334197040d2f48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoChecker
 --- !u!1 &4505097209290751562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,7 +1685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 45.289032
+      value: 4.567122
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1674,11 +1705,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 14.34
+      value: -32.402245
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.3
+      value: -1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
