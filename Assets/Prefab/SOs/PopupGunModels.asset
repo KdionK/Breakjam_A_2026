@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07632f20734c48249a15e56ed8f8f8f8, type: 3}
   m_Name: PopupGunModels
   m_EditorClassIdentifier: Assembly-CSharp::SO_PopUpComponent
-  title: A Gun
+  title: Gun Textures
   icon: {fileID: 0}
-  price: 200
+  price: 50
   unitType: 0
   categoryType: 1
-  gameImportance: 0
+  gameImportance: 1
