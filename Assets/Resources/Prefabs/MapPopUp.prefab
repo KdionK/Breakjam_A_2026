@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1638241264220160415}
   - component: {fileID: 244670955798357584}
   - component: {fileID: 7521702170526250735}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: TitlePanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 1134915111945224657}
   - component: {fileID: 2888195591238133382}
   - component: {fileID: 1039359245824977647}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ContentPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,10 +134,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 402464718836733515}
   - {fileID: 2070400630822053389}
   - {fileID: 5013108261772490336}
   - {fileID: 5877772202570915899}
-  - {fileID: 402464718836733515}
   m_Father: {fileID: 2067051164195502077}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 1310944503383135305}
   - component: {fileID: 4363240518089831032}
   - component: {fileID: 2825240686894045340}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PopUpPriceValue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 402464718836733515}
   - component: {fileID: 1208478768030589597}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Slider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 5269816342506772175}
   - component: {fileID: 2499388865793183559}
   - component: {fileID: 387626908656554643}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PopUpTitleText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,7 +557,7 @@ GameObject:
   - component: {fileID: 7307184328715159344}
   - component: {fileID: 8729707106477133172}
   - component: {fileID: 2675484970863660852}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PopUpPriceText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -683,6 +683,63 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4322916515317310730
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5296775242216146304}
+  - component: {fileID: 3962422355493584918}
+  m_Layer: 0
+  m_Name: Collision
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5296775242216146304
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322916515317310730}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5516473463956941007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 1.341, y: -2.69}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!65 &3962422355493584918
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4322916515317310730}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.91, y: 0.73, z: 0.4}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4505097209290751562
 GameObject:
   m_ObjectHideFlags: 0
@@ -694,7 +751,7 @@ GameObject:
   - component: {fileID: 2070400630822053389}
   - component: {fileID: 7666743780338737009}
   - component: {fileID: 6570407453654108002}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -769,7 +826,7 @@ GameObject:
   - component: {fileID: 2067051164195502077}
   - component: {fileID: 6582231644775828108}
   - component: {fileID: 7628069259901029258}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Pop-UpPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -818,7 +875,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -846,7 +903,7 @@ GameObject:
   - component: {fileID: 287488473305031800}
   - component: {fileID: 6854385547572397758}
   - component: {fileID: 1000471735599458334}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -984,7 +1041,7 @@ GameObject:
   - component: {fileID: 2669480314958024459}
   - component: {fileID: 2820664078260262138}
   - component: {fileID: 2713431256969730099}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ContentPanel (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1087,7 +1144,7 @@ GameObject:
   - component: {fileID: 7383506574793224077}
   - component: {fileID: 3353258303608039260}
   - component: {fileID: 8603469069859967791}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,7 +1219,7 @@ GameObject:
   - component: {fileID: 6852931814311121945}
   - component: {fileID: 7093681104327447750}
   - component: {fileID: 7948398869099392868}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1238,7 +1295,7 @@ GameObject:
   - component: {fileID: 6320441501674469980}
   - component: {fileID: 4861600395715168736}
   - component: {fileID: 3464663940133182139}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: ContentPanel (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1338,7 +1395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1565051076161733237}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1376,7 +1433,7 @@ GameObject:
   - component: {fileID: 8535009030056508137}
   - component: {fileID: 2093069202912445400}
   - component: {fileID: 6698097406683072223}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: PopUpUpgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1522,6 +1579,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1576,11 +1637,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1588,7 +1649,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1600,7 +1661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 17.48
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1608,7 +1669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1632,6 +1693,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067051164195502077}
+    - targetCorrespondingSourceObject: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5296775242216146304}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       insertIndex: -1

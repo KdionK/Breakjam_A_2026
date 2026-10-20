@@ -44,7 +44,7 @@ public class MapPopUp : MonoBehaviour
     public static MapPopUp CreatePopUp(PopUpSpawner parent, SO_PopUpComponent popUpcomponent)
     {
         var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
-        var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,Quaternion.identity,parent.transform);
+        var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
         popUpInstance.SetPopUp(popUpcomponent.Title, popUpcomponent.Icon, popUpcomponent.Price, parent);
 
         parent.HasPopUpOn = true;
