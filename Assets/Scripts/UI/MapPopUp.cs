@@ -21,6 +21,8 @@ public class MapPopUp : MonoBehaviour
    public UnityEvent OnExpire;
    public UnityEvent OnBuy;
    
+   public SO_PopUpComponent _component;
+   
    
    private void Awake()
    {
@@ -29,14 +31,15 @@ public class MapPopUp : MonoBehaviour
        OnExpire.AddListener(DestroyPopUp);
    }
 
-   public void SetPopUp(string title, Sprite icon, int price, PopUpSpawner parentSpawner)
+   public void SetPopUp(SO_PopUpComponent component, PopUpSpawner parentSpawner)
    {
-       _PopUpTitle.text = title;
-       if (icon != null)
-        Icon.sprite = icon;
+       _PopUpTitle.text = component.Title;
+       if (component.Icon != null)
+        Icon.sprite = component.Icon;
 
-       PriceTag.text = string.Format(_PriceTagFormat, price);
+       PriceTag.text = string.Format(_PriceTagFormat, component.Price);
        _parentSpawner = parentSpawner;
+       _component = component;
    }
 
 
@@ -44,7 +47,7 @@ public class MapPopUp : MonoBehaviour
     {
         var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
         var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
-        popUpInstance.SetPopUp(popUpcomponent.Title, popUpcomponent.Icon, popUpcomponent.Price, parent);
+        popUpInstance.SetPopUp(popUpcomponent, parent);
 
         parent.HasPopUpOn = true;
         return popUpInstance;
