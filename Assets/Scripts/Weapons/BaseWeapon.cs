@@ -64,7 +64,7 @@ public class BaseWeapon : BuyableBehavior
     [SerializeField] private GameObject[] visualUpgrades; // added by mino
     protected int textureLevel = 0;
     public GameObject visualObject;
-    public bool bUnlockedMuzzleFlash = false;
+    [FormerlySerializedAs("bUnlockedMuzzleFlash")] public bool bUnlockedVFX = false;
     
     private void Start()
     {
@@ -155,7 +155,10 @@ public class BaseWeapon : BuyableBehavior
         
         NextFireTime = Time.time + IntervalBetweenShots;
 
-        if (bUnlockedMuzzleFlash) VFXMuzzleFlash();
+        if (bUnlockedVFX)
+        {
+            VFXMuzzleFlash();
+        }
         
         if (bNeedsToReload)
         {
@@ -248,7 +251,7 @@ public class BaseWeapon : BuyableBehavior
 
     protected void ActivateWeaponVFX()
     {
-        bUnlockedMuzzleFlash = true;
+        bUnlockedVFX = true;
     }
     protected void UpgradeTexture()
     {
