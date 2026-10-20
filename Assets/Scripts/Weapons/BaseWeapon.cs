@@ -40,9 +40,9 @@ public class BaseWeapon : MonoBehaviour
     
     [Header("Ammo and reload")]
     [SerializeField] [Tooltip("False if continuous fire")]
-    bool bNeedsToReload = true;
+    public bool bNeedsToReload = true;
     [SerializeField] [Tooltip("The max ammo numb before reloading")]
-    int MagSize = 20;
+    public int MagSize = 20;
     public int CurrentAmmo;
     [SerializeField] [Tooltip("The reload time in seconds")]
     float ReloadTime = 2f;
@@ -133,10 +133,12 @@ public class BaseWeapon : MonoBehaviour
     {
         if (bIsHitscan)
         {
+            Debug.Log("ShootRaycast");
             SpawnRaycast();
         }
         else
         {
+            Debug.Log("ShootProjectile");
             SpawnProjectile();
         }
 

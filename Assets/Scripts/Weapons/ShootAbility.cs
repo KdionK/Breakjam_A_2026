@@ -6,6 +6,7 @@ public class ShootAbility : MonoBehaviour
     [SerializeField] public BaseWeapon EquippedGun;
     [SerializeField] public BaseWeapon[] OwnedGuns;
 
+    protected int CurrentEquippedIndex = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,9 +20,6 @@ public class ShootAbility : MonoBehaviour
         InputListener.onScrollUpEvent += OnScrollUp;
         InputListener.onScrollDownEvent += OnScrollDown;
         InputListener.onPressEscEvent += OnPressEsc;
-        
-        //InputListener.onLeftClickEvent += OnLeftClick;
-        //InputListener.onLeftClickEvent += OnLeftClick;
     }
 
     protected void OnLeftClick(InputAction.CallbackContext context)
@@ -30,6 +28,7 @@ public class ShootAbility : MonoBehaviour
         
         if (context.performed)
         {
+            Debug.Log("Shoot1");
             EquippedGun.StartFiring();
         }
         else if (context.canceled)
@@ -37,20 +36,36 @@ public class ShootAbility : MonoBehaviour
             EquippedGun.StopFiring();
         }
     }
+
+    protected void EquipWeapon(int NewEquippedIndex)
+    {
+        if (OwnedGuns[NewEquippedIndex] == EquippedGun) return;
+        
+        //TODO play switch anim
+        if (NewEquippedIndex > OwnedGuns.Length) NewEquippedIndex = 0;
+        else if (NewEquippedIndex < 0) NewEquippedIndex = OwnedGuns.Length - 1;
+        BaseWeapon newWeapon = OwnedGuns[NewEquippedIndex];
+        EquippedGun.enabled = false;
+        EquippedGun = newWeapon;
+        EquippedGun.enabled = true;
+    }
     
     protected void OnPress1(InputAction.CallbackContext context)
     {
-
+        CurrentEquippedIndex = 0;
+        EquipWeapon(CurrentEquippedIndex);
     }
 
     protected void OnPress2(InputAction.CallbackContext context)
     {
-
+        CurrentEquippedIndex = 1;
+        EquipWeapon(CurrentEquippedIndex);
     }
 
     protected void OnPress3(InputAction.CallbackContext context)
     {
-
+        CurrentEquippedIndex = 2;
+        EquipWeapon(CurrentEquippedIndex);
     }
 
     protected void OnPress4(InputAction.CallbackContext context)
@@ -60,12 +75,12 @@ public class ShootAbility : MonoBehaviour
 
     protected void OnPressQ(InputAction.CallbackContext context)
     {
-
+        
     }
 
     protected void OnPressR(InputAction.CallbackContext context)
     {
-
+        if (EquippedGun.bNeedsToReload && EquippedGun.CurrentAmmo < EquippedGun.MagSize) EquippedGun.StartReload();
     }
 
     protected void OnScrollUp(InputAction.CallbackContext context)
