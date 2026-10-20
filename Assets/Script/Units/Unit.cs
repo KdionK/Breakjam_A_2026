@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -29,6 +30,22 @@ public class Unit : MonoBehaviour, IDamageable
 
     [Header("money")]
     public int moneyOnDeath;
+
+
+    [Header("Sounds")]
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip droneShoot;
+    [SerializeField] private AudioClip enemySpawn;
+    [SerializeField] private AudioClip enemyDeath;
+    [SerializeField] private AudioClip enemyPunch;
+
+    public AudioSource AudioSource => _audioSource;
+    public AudioClip DroneShoot => droneShoot;
+    public AudioClip EnemySpawn => enemySpawn;
+    public AudioClip EnemyDeath => enemyDeath;
+    public AudioClip EnemyPunch => enemyPunch;
+
+
     void Start()
     {
         healthComponent = GetComponent<HealthComponent>();
@@ -124,6 +141,7 @@ public class Unit : MonoBehaviour, IDamageable
     {
         EconomyManager.Instance.ChangeCurrency(moneyOnDeath);
         BattleStats.Instance.Unsubscribe<BuyAction>(OnBoughtEvent);
+        SoundManagerMino.Instance.PlaySound(enemyDeath, _audioSource);
         Destroy(this.gameObject);
     }
     private void OnDrawGizmos()

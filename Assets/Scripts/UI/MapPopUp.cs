@@ -48,7 +48,7 @@ public class MapPopUp : MonoBehaviour
         var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
         var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
         popUpInstance.SetPopUp(popUpcomponent, parent);
-
+       popUpInstance._importance  = popUpcomponent.Importance;
         parent.HasPopUpOn = true;
         return popUpInstance;
     }
