@@ -4,6 +4,7 @@ using UnityEngine;
 public class BuyableMovement : MonoBehaviour, IBuyable
 {
     [SerializeField] public MonoScript movementToAdd;
+    [SerializeField] private int _price;
 
     public bool isBuyable = false;
     void Start()
@@ -26,18 +27,22 @@ public class BuyableMovement : MonoBehaviour, IBuyable
     {
         if (movementToAdd == null)
             return  false;
-
-        System.Type type = movementToAdd.GetClass();
-        Debug.Log("adding movement");
-        if (type != null && typeof(BuyableBehavior).IsAssignableFrom(type))
+        if (EconomyManager.Instance.Currency >= _price)
         {
-            BuyableBehavior movement = User.GetComponent(type) as BuyableBehavior;
-
-            if (movement != null)
+            EconomyManager.Instance.ChangeCurrency(-_price);
+            System.Type type = movementToAdd.GetClass();
+            Debug.Log("adding movement");
+            if (type != null && typeof(BuyableBehavior).IsAssignableFrom(type))
             {
-                movement.enabled = true;
+                BuyableBehavior movement = User.GetComponent(type) as BuyableBehavior;
+
+                if (movement != null)
+                {
+                    movement.enabled = true;
+                }
             }
         }
+
         isBuyable = true;
         return true;
     }

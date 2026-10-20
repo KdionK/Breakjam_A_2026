@@ -4,6 +4,7 @@ public class BuyableGeneric : MonoBehaviour, IBuyable
 {
     public UnitType type;
     public UpgradeCategory category;
+    [SerializeField] private int _price = 10;
 
     private bool _alreadyBought = false;
     void Start()
@@ -24,15 +25,22 @@ public class BuyableGeneric : MonoBehaviour, IBuyable
 
     public bool BuyThis(GameObject User)
     {
-        BuyAction newBuy = new BuyAction
+        if (EconomyManager.Instance.Currency >= _price)
         {
+            EconomyManager.Instance.ChangeCurrency(-_price);
+            BuyAction newBuy = new BuyAction
+             {
             Actor = User,
             BoughtItem = this,
             Type = type,
             Category = category,
-        };
+             };
         
         BattleStats.Instance.Broadcast(newBuy);
         return true;
+            
+        }
+
+        return false;
     }
 }
