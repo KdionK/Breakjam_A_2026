@@ -76,7 +76,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79963b9902e804541acc7e1fc108e7c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnTimer
-  spawnInterval: 15
+  spawnInterval: 7.5
   spawnPoint: {fileID: 4178452805631388130}
   enemyPrefab: {fileID: 2046254567796842436, guid: be9db59340e49a7409f033a0c66a20fe, type: 3}
   timer: 0
