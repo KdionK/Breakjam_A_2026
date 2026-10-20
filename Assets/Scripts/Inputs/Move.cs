@@ -12,6 +12,12 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [SerializeField] HealthBar _healthBar;
+    [Header("Audio")]
+    private AudioSource _audioSource;
+    [SerializeField] AudioClip _playerJump;
+    [SerializeField] AudioClip _playerDeath;
+    [SerializeField] AudioClip _playerHit;
+    [SerializeField] AudioClip _playerLand;
     [Header("buyChecks")]
 
     [SerializeField] public bool _jumpBuy = false;
@@ -63,7 +69,7 @@ public class Move : BuyableBehavior, IDamageable
     [Header("IFrames")]
     [SerializeField] private float _frameTime = 0.1f;
 
-    [Header("Audio")]
+ 
 
     private bool _invincible = false;
     private bool _dashInvincible = false;
@@ -83,6 +89,7 @@ public class Move : BuyableBehavior, IDamageable
     void Start()
     {
         _initialSpeed = _speed;
+        _audioSource = GetComponent<AudioSource>();
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
@@ -118,6 +125,7 @@ public class Move : BuyableBehavior, IDamageable
         {
             if (context.started)
             {
+                SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource);
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
@@ -266,7 +274,7 @@ public class Move : BuyableBehavior, IDamageable
     {
         DamageInfo dinfo = new DamageInfo();
         if (_invincible || _isRespawning || _dashInvincible) return dinfo;
-
+        SoundManagerMino.Instance.PlaySound(_playerHit, _audioSource);
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
         if (_healthBar != null)
@@ -314,6 +322,7 @@ public class Move : BuyableBehavior, IDamageable
     {
         Debug.Log("Handle Death");
         if (_isRespawning) return;
+        SoundManagerMino.Instance.PlaySound(_playerDeath, _audioSource);
         StartCoroutine(Respawn());
     }
 

@@ -18,7 +18,8 @@ public class SoundManagerMino : BuyableBehavior
     public void SetPlayer(float value) => SetVolume(PlayerParam, value);
     public void SetBoss(float value) => SetVolume(BossParam, value);
     public void SetEnnemi(float value) => SetVolume(EnnemiParam, value);
-
+    
+    
 
     private void SetVolume(string param, float value)
     {
@@ -86,6 +87,11 @@ public class SoundManagerMino : BuyableBehavior
     {
         _audioSource.clip = clip;
         _audioSource.Play();
+    }
+
+    public void PlaySound(AudioClip clip, AudioSource source)
+    {
+        source.PlayOneShot(clip);
     }
 
     public void StopMusic()
