@@ -64,7 +64,7 @@ public class BaseWeapon : BuyableBehavior
     [SerializeField] private GameObject[] visualUpgrades; // added by mino
     protected int textureLevel = 0;
     public GameObject visualObject;
-    bool bUnlockedMuzzleFlash = false;
+    public bool bUnlockedMuzzleFlash = false;
     
     private void Start()
     {
