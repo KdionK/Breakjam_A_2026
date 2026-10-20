@@ -331,6 +331,7 @@ public class Move : BuyableBehavior, IDamageable
     IEnumerator Respawn()
     {
         _doorAnimator.SetTrigger("Open");
+        ResetEnnemies();
         _isRespawning = true;
         _killed = true;
         Debug.Log("HandleDeath");
@@ -367,7 +368,16 @@ public class Move : BuyableBehavior, IDamageable
         // Debug.Log("IFrames finished");
     }
 
-
+    void ResetEnnemies()
+    {
+        GameObject[] Ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach (GameObject ennemy in Ennemies)
+        {
+            Destroy(ennemy);
+        }
+        
+        
+    }
 
 
 
