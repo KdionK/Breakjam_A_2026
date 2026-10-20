@@ -48,6 +48,9 @@ public class HealthBar : MonoBehaviour
 
         _baseWidth = _healthRectTransform.rect.width;
         _backHealthColor = _healthDelayImage.color;
+        
+        _currentText.text = _healthComponent.CurrentHealth.ToString();
+        _fullText.text = _healthComponent.FullHealth.ToString();
     }
 
     public void SetTempHealthLoss(int lowerHpBy)
