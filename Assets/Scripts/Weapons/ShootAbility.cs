@@ -26,6 +26,9 @@ public class ShootAbility : MonoBehaviour
         InputListener.onScrollUpEvent += OnScrollUp;
         InputListener.onScrollDownEvent += OnScrollDown;
         InputListener.onPressEscEvent += OnPressEsc;
+        
+        EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
+        EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
     }
 
     protected void OnLeftClick(InputAction.CallbackContext context)
@@ -54,6 +57,10 @@ public class ShootAbility : MonoBehaviour
         if (NewEquippedIndex > OwnedGuns.Length) NewEquippedIndex = 0;
         else if (NewEquippedIndex < 0) NewEquippedIndex = OwnedGuns.Length - 1;
         BaseWeapon newWeapon = OwnedGuns[NewEquippedIndex];
+
+        EconomyManager.Instance.FullMagText.text = newWeapon.CurrentAmmo.ToString();
+        EconomyManager.Instance.FullMagText.text = newWeapon.MagSize.ToString();
+        
         EquippedGun.gameObject.SetActive(false);
         EquippedGun = newWeapon;
         EquippedGun.gameObject.SetActive(true);

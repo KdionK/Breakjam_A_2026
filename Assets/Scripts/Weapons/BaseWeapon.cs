@@ -134,6 +134,7 @@ public class BaseWeapon : BuyableBehavior
     {
         CurrentAmmo = MagSize;
         CurrentReloadTimer = 0;
+        EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
         bReloading = false;
     }
 
@@ -149,7 +150,7 @@ public class BaseWeapon : BuyableBehavior
             //Debug.Log("ShootProjectile");
             SpawnProjectile();
         }
-
+        
         NextFireTime = Time.time + IntervalBetweenShots;
 
         if (bUnlockedMuzzleFlash) VFXMuzzleFlash();
@@ -157,6 +158,7 @@ public class BaseWeapon : BuyableBehavior
         if (bNeedsToReload)
         {
             CurrentAmmo--;
+            EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
             //Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
             if (CurrentAmmo <= 0)
             {
