@@ -466,6 +466,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2587706585290170855, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.21867
@@ -2346,7 +2350,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046254567796842436, guid: be9db59340e49a7409f033a0c66a20fe, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4037631878963908007, guid: be9db59340e49a7409f033a0c66a20fe, type: 3}
       propertyPath: m_IsKinematic
@@ -2496,6 +2500,10 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1032201957}
+    - target: {fileID: 4245707325235285276, guid: 77e840f31f7ea4e4f9da5e1e60ac0655, type: 3}
+      propertyPath: _price
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8025878684519820259, guid: 77e840f31f7ea4e4f9da5e1e60ac0655, type: 3}
       propertyPath: m_Name
       value: Ennemy Buyable
