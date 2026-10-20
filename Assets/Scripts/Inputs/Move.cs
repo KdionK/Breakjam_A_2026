@@ -12,6 +12,7 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [SerializeField] HealthBar _healthBar;
+    [SerializeField] Animator _doorAnimator;
     [Header("Audio")]
     private AudioSource _audioSource;
     [SerializeField] AudioClip _playerJump;
@@ -329,6 +330,7 @@ public class Move : BuyableBehavior, IDamageable
 
     IEnumerator Respawn()
     {
+        _doorAnimator.SetTrigger("Open");
         _isRespawning = true;
         _killed = true;
         Debug.Log("HandleDeath");
