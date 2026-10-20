@@ -9196,6 +9196,74 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.123201, y: 2.1579032, z: 2.0031562}
   m_Center: {x: 0.005008161, y: -0.008958878, z: 0.0015788082}
+--- !u!1 &953441788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953441791}
+  - component: {fileID: 953441790}
+  - component: {fileID: 953441789}
+  m_Layer: 0
+  m_Name: SpawnBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &953441789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953441788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3076250274eb1e845a5abfc4e719da35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnBossTriger
+  activated: 0
+  boss: {fileID: 1284441699}
+--- !u!65 &953441790
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953441788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &953441791
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953441788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.69, y: 6.88, z: -56.41}
+  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &955575674
 GameObject:
   m_ObjectHideFlags: 0
@@ -12328,6 +12396,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Door
   animatorDoor1: {fileID: 1248081043}
   animatorDoor2: {fileID: 150719837}
+--- !u!1 &1284441699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2587706585290170855, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+  m_PrefabInstance: {fileID: 1464490708}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1317863621
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14054,6 +14127,67 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!1001 &1464490708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2587706585290170855, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_Name
+      value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 2587706585290170855, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4.3427215
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -117.20136
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8028093442254009388, guid: c73ee16b787a3a049899a64222b87181, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c73ee16b787a3a049899a64222b87181, type: 3}
 --- !u!43 &1470860829
 Mesh:
   m_ObjectHideFlags: 0
@@ -17194,6 +17328,70 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 33.16996, y: 3.203475, z: 13.374189}
   m_Center: {x: 0, y: 0.0000076293945, z: 0}
+--- !u!1 &1754324367
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1754324369}
+  - component: {fileID: 1754324368}
+  m_Layer: 0
+  m_Name: NavMesh Surface
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1754324368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754324367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.AI.Navigation::Unity.AI.Navigation.NavMeshSurface
+  m_SerializedVersion: 0
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.33333334
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: 33f7492430c416d40b1273b125fed052, type: 2}
+  m_BuildHeightMesh: 0
+--- !u!4 &1754324369
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754324367}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.73493, y: -4.60673, z: -3.59567}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1766640902
 Mesh:
   m_ObjectHideFlags: 0
@@ -21188,3 +21386,6 @@ SceneRoots:
   - {fileID: 1317863621}
   - {fileID: 1693847287}
   - {fileID: 348405683}
+  - {fileID: 953441791}
+  - {fileID: 1464490708}
+  - {fileID: 1754324369}
