@@ -44,6 +44,12 @@ public class Move : BuyableBehavior, IDamageable
     private bool _murder;
 
     bool _isRespawning = false;
+    [Header("Regen")]
+    [SerializeField] bool _regen = false;
+    [SerializeField] float _timeBeforeRgen = 3f;
+    [SerializeField] float _regenAmount = 2.5f;
+    
+    
     
     
 
@@ -56,6 +62,11 @@ public class Move : BuyableBehavior, IDamageable
     [Header ("Upgrades")]
     [SerializeField] private float _upgradeSpeedAmount = 2.5f;
     [SerializeField] private int _upgradeHealthAmount = 30;
+    
+    [Header("IFrames")]
+    [SerializeField] private float _frameTime = 0.1f;
+    private bool _invincible;
+    
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
@@ -242,13 +253,15 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
+        if (_invincible || _isRespawning) return dinfo;
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
         if (_healthBar != null)
         {
             _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
         }
-        
+
+        StartCoroutine(IFrames());
         
         return dinfo;
     }
@@ -287,8 +300,25 @@ public class Move : BuyableBehavior, IDamageable
         _killed = false;
         rb.isKinematic = false;
         _isRespawning = false;
-    
     }
+
+    IEnumerator IFrames()
+    {
+        _invincible = true;
+        Debug.Log("IFrames starting");
+        yield return new WaitForSeconds(_frameTime);
+        _invincible = false;
+        Debug.Log("IFrames finished");
+    }
+
+    IEnumerator Regen()
+    {
+        yield return null;
+    }
+    
+    
+    
+   
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
