@@ -1681,7 +1681,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154045253837643703, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5154045253837643703, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_ReferencePixelsPerUnit
