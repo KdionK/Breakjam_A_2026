@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 6854385547572397758}
   - component: {fileID: 1000471735599458334}
   m_Layer: 5
-  m_Name: PopUpPriceText
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1620,7 +1620,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5154045253837643703, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5154045253837643703, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       propertyPath: m_ReferencePixelsPerUnit
@@ -1632,8 +1632,39 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2067051164195502077}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1855000594707301854}
   m_SourcePrefab: {fileID: 100100000, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
+--- !u!1 &5466708576782009578 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4720780835748506237, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
+  m_PrefabInstance: {fileID: 747091024344428183}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1855000594707301854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5466708576782009578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36fa27fbfb72a6f4e9475fffad3ad466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MapPopUp
+  _PopUpTitle: {fileID: 6698097406683072223}
+  Icon: {fileID: 6570407453654108002}
+  PriceTag: {fileID: 2825240686894045340}
+  expirationSlider: {fileID: 1208478768030589597}
+  expirationTime: 22
+  OnExpire:
+    m_PersistentCalls:
+      m_Calls: []
+  OnBuy:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!224 &5516473463956941007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5102648983867295320, guid: 9312c1865727ccb4cbfe50d02c9dacb9, type: 3}
