@@ -8,7 +8,9 @@ public class Dash : BuyableBehavior
     private Rigidbody rb;
     [SerializeField] float _dashForce = 20f;
     [SerializeField] float _dashDuration = 0.15f;
-    [SerializeField] float _dashCooldown = 4f;
+    [SerializeField] float _dashCooldown = 4f; 
+    private AudioSource _playerAudio;
+    [SerializeField] AudioClip _dashSound;
     
     private float _dashTime = 0f;
     private bool _canDash = true;
@@ -19,6 +21,7 @@ public class Dash : BuyableBehavior
     void Start()
     {
         InputListener.onDashEvent += OnDash;
+        _playerAudio = GetComponent<AudioSource>();
         rb = GetComponent<Rigidbody>();
     }
 
@@ -52,6 +55,7 @@ public class Dash : BuyableBehavior
         
         if (!_canDash) return;
         if (_moveScript._sliding) return;
+        SoundManagerMino.Instance.PlaySound(_dashSound,_playerAudio);
 
         Vector3 dir = GetDashDirection();
         if (dir.sqrMagnitude < 0.01f)
@@ -65,7 +69,6 @@ public class Dash : BuyableBehavior
         _dashTimer = _dashDuration;
         _dashTime = _dashCooldown;
         _canDash = false;
-
     }
 
     private void HandleDash()

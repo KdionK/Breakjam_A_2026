@@ -115,7 +115,7 @@ public class Move : BuyableBehavior, IDamageable
         if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
         {
             DeathTest();
-
+            
         }
     }
 
@@ -125,7 +125,7 @@ public class Move : BuyableBehavior, IDamageable
         {
             if (context.started)
             {
-                SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource);
+                SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource, 0.3f );
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
@@ -156,6 +156,7 @@ public class Move : BuyableBehavior, IDamageable
             _dashInvincible = false;
 
         }
+        
 
         if (_healthComponent.CurrentHealth <= 0)
         {
@@ -392,7 +393,7 @@ public class Move : BuyableBehavior, IDamageable
                 break;
             case UpgradeCategory.Sound:
                 Debug.Log("buying player sound");
-                SoundManagerMino.Instance.SetPlayer(0);
+                SoundManagerMino.Instance.SetPlayer(15);
                 break;
             case UpgradeCategory.Health:
                 UpgradeHealth();

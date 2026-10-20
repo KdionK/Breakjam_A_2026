@@ -89,9 +89,20 @@ public class SoundManagerMino : BuyableBehavior
         _audioSource.Play();
     }
 
-    public void PlaySound(AudioClip clip, AudioSource source)
+    // public void assignAndPlayClip(AudioClip clip, AudioSource audioSource)
+    // {
+    //     audioSource.clip = clip;
+    //     audioSource.Play();
+    // }
+    //
+    // public void stopAudioSource(AudioSource audioSource)
+    // {
+    //     audioSource.Stop();
+    // }
+
+    public void PlaySound(AudioClip clip, AudioSource source ,float volume =1)
     {
-        source.PlayOneShot(clip);
+        source.PlayOneShot(clip,volume);
     }
 
     public void StopMusic()
