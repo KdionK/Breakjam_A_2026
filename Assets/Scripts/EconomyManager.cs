@@ -61,7 +61,7 @@ public class EconomyManager : MonoBehaviour
             {
                 //ajout d'un point
                 CountToShow--;
-                _numberText.transform.localScale += 0.1f * Vector3.one;//ajouter à l'échelle
+                // _numberText.transform.localScale += 0.1f * Vector3.one;//ajouter à l'échelle
 
                 _numberText.text = CountToShow.ToString();
                 yield return new WaitForSeconds(_secondesEntreUpdateAnimation*amountToChangeBy);//attente entre chaque mise à jour
@@ -73,7 +73,7 @@ public class EconomyManager : MonoBehaviour
             {
                 //ajout d'un point
                 CountToShow++;
-                _numberText.transform.localScale += 0.05f * Vector3.one;//ajouter à l'échelle
+                // _numberText.transform.localScale += 0.05f * Vector3.one;//ajouter à l'échelle
 
                 _numberText.text = CountToShow.ToString(); ;//mise à jour du texte
                 yield return new WaitForSeconds(_secondesEntreUpdateAnimation*amountToChangeBy);//attente entre chaque mise à jour

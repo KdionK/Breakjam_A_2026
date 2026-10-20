@@ -3549,6 +3549,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: bUnlockedVFX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
+      propertyPath: DamageMaxRange
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 7264902050098100186, guid: c17aa28adae52ec46a26f56e6fb96a33, type: 3}
       propertyPath: bUnlockedMuzzleFlash
       value: 1
       objectReference: {fileID: 0}
