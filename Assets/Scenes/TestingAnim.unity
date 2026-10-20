@@ -1091,29 +1091,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1427762278}
     m_Modifications:
-    - target: {fileID: 7964857434273204088, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 5c7407d2adf955d45bf09a96518e5856, type: 2}
     - target: {fileID: 8155533566875335504, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
       propertyPath: m_Name
       value: SkelebotPrefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 8155533566875335504, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8155533566875756210, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.39531955
-      objectReference: {fileID: 0}
-    - target: {fileID: 8155533566875756210, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.39531955
-      objectReference: {fileID: 0}
-    - target: {fileID: 8155533566875756210, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.39531955
       objectReference: {fileID: 0}
     - target: {fileID: 8155533566875756210, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1155,14 +1135,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8155533566884809010, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 9ca753ae390217143a4ae3ac667e6ae5, type: 3}
-    - target: {fileID: 8155533566884809010, guid: 7db4fdf40e93e1f46bfd95dd54089326, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 2f7310c47f7ee86418e68b96b6c9476d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1182,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2046254567796842436, guid: acf77bcc01bdd9a4faca037e4ac89a7c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2059013079734751114, guid: acf77bcc01bdd9a4faca037e4ac89a7c, type: 3}
       propertyPath: m_Enabled
