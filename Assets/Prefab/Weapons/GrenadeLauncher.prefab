@@ -88,7 +88,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1902320945252031641, guid: 3f62be9a96c6e9c4a8c5d35f5363f46a, type: 3}
       propertyPath: LaunchForce
-      value: 50
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1902320945252031641, guid: 3f62be9a96c6e9c4a8c5d35f5363f46a, type: 3}
       propertyPath: MaxFireRate
@@ -148,7 +148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2381975953570592877, guid: 3f62be9a96c6e9c4a8c5d35f5363f46a, type: 3}
       propertyPath: m_Name
-      value: DefaultGun Variant
+      value: GrenadeLauncher
       objectReference: {fileID: 0}
     - target: {fileID: 7453870681019352664, guid: 3f62be9a96c6e9c4a8c5d35f5363f46a, type: 3}
       propertyPath: m_LocalPosition.y

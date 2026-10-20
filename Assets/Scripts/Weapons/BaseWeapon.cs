@@ -133,12 +133,12 @@ public class BaseWeapon : MonoBehaviour
     {
         if (bIsHitscan)
         {
-            Debug.Log("ShootRaycast");
+            //Debug.Log("ShootRaycast");
             SpawnRaycast();
         }
         else
         {
-            Debug.Log("ShootProjectile");
+            //Debug.Log("ShootProjectile");
             SpawnProjectile();
         }
 
@@ -160,7 +160,7 @@ public class BaseWeapon : MonoBehaviour
     protected void SpawnProjectile()
     {
         GameObject p = Instantiate(Projectile, ProjectileSpawnTransform.position, ProjectileSpawnTransform.rotation);
-        BaseProjectile pScript = p.GetComponentInChildren<BaseProjectile>();
+        BaseProjectile pScript = p.GetComponent<BaseProjectile>();
         pScript.ProjectileDamage = Damage;
         p.GetComponent<Rigidbody>().AddForce(ProjectileSpawnTransform.forward * LaunchForce, ForceMode.VelocityChange);
     }

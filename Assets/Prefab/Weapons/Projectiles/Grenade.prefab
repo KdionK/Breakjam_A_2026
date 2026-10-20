@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2211141634079988238, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
       propertyPath: ExplosionRadius
-      value: 30
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2211141634079988238, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
       propertyPath: ProjectileDamage
