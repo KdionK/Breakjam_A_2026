@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5905979842875298555}
   m_Layer: 0
   m_Name: EnemyDrone
-  m_TagString: Untagged
+  m_TagString: Ennemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,7 +84,7 @@ MonoBehaviour:
   visualUpgrades:
   - {fileID: 8253769455529708370}
   anim: {fileID: 0}
-  moneyOnDeath: 0
+  moneyOnDeath: 100
 --- !u!54 &4037631878963908007
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -152,16 +152,16 @@ MonoBehaviour:
   bIsHitscan: 0
   Projectile: {fileID: 133602697445270715, guid: ff36bdcfb90e85d49b37d7e0a3c230ec, type: 3}
   ProjectileSpawnTransform: {fileID: 1207297726694104411}
+  LaunchForce: 100
   MuzzleFlash: {fileID: 0}
   bUnlockedMuzzleFlash: 0
-  LaunchForce: 100
-  MaxDamage: 10
-  MaxDamageMaxRange: 10
-  MinDamage: 1
+  Damage: 20
+  RangeOfMaxDamage: 10
   DamageMaxRange: 100
+  MinDamage: 1
+  bNeedsToReload: 1
   MagSize: 20
   CurrentAmmo: 0
-  bNeedsToReload: 1
   ReloadTime: 2
   CurrentReloadTimer: 0
   bIsAuto: 1

@@ -12,6 +12,7 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [SerializeField] HealthBar _healthBar;
+    [SerializeField] Animator _doorAnimator;
     [Header("Audio")]
     private AudioSource _audioSource;
     [SerializeField] AudioClip _playerJump;
@@ -329,6 +330,8 @@ public class Move : BuyableBehavior, IDamageable
 
     IEnumerator Respawn()
     {
+        _doorAnimator.SetTrigger("Open");
+        ResetEnnemies();
         _isRespawning = true;
         _killed = true;
         Debug.Log("HandleDeath");
@@ -365,7 +368,16 @@ public class Move : BuyableBehavior, IDamageable
         // Debug.Log("IFrames finished");
     }
 
-
+    void ResetEnnemies()
+    {
+        GameObject[] Ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach (GameObject ennemy in Ennemies)
+        {
+            Destroy(ennemy);
+        }
+        
+        
+    }
 
 
 
