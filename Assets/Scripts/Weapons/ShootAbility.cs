@@ -27,11 +27,11 @@ public class ShootAbility : BuyableBehavior
         InputListener.onScrollDownEvent += OnScrollDown;
         InputListener.onPressEscEvent += OnPressEsc;
 
-        if (EconomyManager.Instance)
-        {
-            EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
-            EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
-        }
+        // if (EconomyManager.Instance)
+        // {
+        //     EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
+        //     EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
+        // }
         if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
     

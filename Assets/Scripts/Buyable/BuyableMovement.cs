@@ -14,17 +14,17 @@ public class BuyableMovement : MonoBehaviour, IBuyable
     public bool _isDynamic = true;
     void Start()
     {
-        mapPopUp = GetComponentInParent<MapPopUp>();
-        if (_isDynamic)
-        {
-            _price = mapPopUp._component.Price;
-            GameObject player = GameObject.FindWithTag("Player");
+        // mapPopUp = GetComponentInParent<MapPopUp>();
+        // if (_isDynamic)
+        // {
+        //     _price = mapPopUp._component.Price;
+        //     GameObject player = GameObject.FindWithTag("Player");
 
-            if (mapPopUp._component.Title == "A Dash")
-                buyableMovement = player.GetComponent<Dash>();
-            else if (mapPopUp._component.Title == "A Slide")
-                buyableMovement = player.GetComponent<Slide>();
-        }
+        //     if (mapPopUp._component.Title == "A Dash")
+        //         buyableMovement = player.GetComponent<Dash>();
+        //     else if (mapPopUp._component.Title == "A Slide")
+        //         buyableMovement = player.GetComponent<Slide>();
+        // }
     }
 
     // Update is called once per frame
@@ -46,23 +46,23 @@ public class BuyableMovement : MonoBehaviour, IBuyable
         {
             EconomyManager.Instance.ChangeCurrency(-_price);
             buyableMovement.enabled = true;
-            isBuyable = true;
-            return true;
-            // System.Type type = movementToAdd.GetClass();
-            // Debug.Log("adding movement");
-            // if (type != null && typeof(BuyableBehavior).IsAssignableFrom(type))
-            // {
-            //     BuyableBehavior movement = User.GetComponent(type) as BuyableBehavior;
-            //
-            //     if (movement != null)
-            //     {
-            //         movement.enabled = true;
-            //     }
-            // }
+            // isBuyable = true;
+            // return true;
+            System.Type type = movementToAdd.GetClass();
+            Debug.Log("adding movement");
+            if (type != null && typeof(BuyableBehavior).IsAssignableFrom(type))
+            {
+                BuyableBehavior movement = User.GetComponent(type) as BuyableBehavior;
+            
+                if (movement != null)
+                {
+                    movement.enabled = true;
+                }
+            }
         }
-        return false;
+        // return false;
         bool IsBuyable() => !isBuyable;
-        // isBuyable = true;
-        // return true;
+        isBuyable = true;
+        return true;
     }
 }
