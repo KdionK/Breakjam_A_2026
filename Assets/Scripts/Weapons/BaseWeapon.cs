@@ -160,7 +160,7 @@ public class BaseWeapon : MonoBehaviour
     protected void SpawnProjectile()
     {
         GameObject p = Instantiate(Projectile, ProjectileSpawnTransform.position, ProjectileSpawnTransform.rotation);
-        BaseProjectile pScript = p.GetComponent<BaseProjectile>();
+        BaseProjectile pScript = p.GetComponentInChildren<BaseProjectile>();
         pScript.ProjectileDamage = Damage;
         p.GetComponent<Rigidbody>().AddForce(ProjectileSpawnTransform.forward * LaunchForce, ForceMode.VelocityChange);
     }

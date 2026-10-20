@@ -144,12 +144,12 @@ public class Move : BuyableBehavior, IDamageable
         if(_isDashing)
         {
             _dashInvincible = true;
-            Debug.Log("dashInvincible" + _dashInvincible);
+            //Debug.Log("dashInvincible" + _dashInvincible);
         }
         else
         {
             _dashInvincible = false;
-            Debug.Log("dashInvincible" + _dashInvincible);
+            //Debug.Log("dashInvincible" + _dashInvincible);
         }
 
         if (_healthComponent.CurrentHealth <= 0)

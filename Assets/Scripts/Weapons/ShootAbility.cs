@@ -45,25 +45,28 @@ public class ShootAbility : MonoBehaviour
         if (NewEquippedIndex > OwnedGuns.Length) NewEquippedIndex = 0;
         else if (NewEquippedIndex < 0) NewEquippedIndex = OwnedGuns.Length - 1;
         BaseWeapon newWeapon = OwnedGuns[NewEquippedIndex];
-        EquippedGun.enabled = false;
+        EquippedGun.gameObject.transform.parent.gameObject.SetActive(false);
         EquippedGun = newWeapon;
-        EquippedGun.enabled = true;
+        EquippedGun.gameObject.transform.parent.gameObject.SetActive(true);
     }
     
     protected void OnPress1(InputAction.CallbackContext context)
     {
+        Debug.Log("Press1");
         CurrentEquippedIndex = 0;
         EquipWeapon(CurrentEquippedIndex);
     }
 
     protected void OnPress2(InputAction.CallbackContext context)
     {
+        Debug.Log("Press2");
         CurrentEquippedIndex = 1;
         EquipWeapon(CurrentEquippedIndex);
     }
 
     protected void OnPress3(InputAction.CallbackContext context)
     {
+        Debug.Log("Press3");
         CurrentEquippedIndex = 2;
         EquipWeapon(CurrentEquippedIndex);
     }
