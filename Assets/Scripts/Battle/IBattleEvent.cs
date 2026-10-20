@@ -50,6 +50,12 @@ public enum UpgradeCategory
     Health,
     Speed,
     Door1,
-    Door2
+    Door2,
+    Unlock1,
+    Unlock2,
+    Unlock3,
+    Level,
+    Light,
+    Vfx
 }
 
