@@ -838,8 +838,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShootAbility
   bCanShoot: 1
   bUnlockedGun0: 1
-  bUnlockedGun1: 1
-  bUnlockedGun2: 1
+  bUnlockedGun1: 0
+  bUnlockedGun2: 0
   EquippedGun: {fileID: 7264902050098100186}
   OwnedGuns:
   - {fileID: 7264902050098100186}
