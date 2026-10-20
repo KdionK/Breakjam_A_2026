@@ -1,6 +1,4 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "New PopUp Component", menuName = "ScriptableObjects/PopUpComponent", order = 1)]
 public class SO_PopUpComponent : ScriptableObject
@@ -17,10 +15,14 @@ public class SO_PopUpComponent : ScriptableObject
     public string Title => title;
     public Sprite Icon => icon;
     public int Price => price;
+    public UnitType UnitType => unitType;
+    public UpgradeCategory CategoryType => categoryType;
+    public GameImportance Importance => gameImportance;
 }
 
-enum GameImportance
+public enum GameImportance
 {
+    Null,
     Base,
     Proto,
     GoodGame
