@@ -38,7 +38,6 @@ public class CameraFX : MonoBehaviour
         float time = 0;
         while (time < _fovEaseInTimer)
         {   
-            Debug.Log("current FOV" +   _cinemachineCamera.Lens.FieldOfView);
             _cinemachineCamera.Lens.FieldOfView = Mathf.Lerp(_initialFov, _targetFov, time / _fovEaseInTimer);
             yield return null;
             time += Time.deltaTime;
