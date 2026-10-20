@@ -2,12 +2,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class ShootAbility : MonoBehaviour
+public class ShootAbility : BuyableBehavior
 {
     public bool bCanShoot = true;
     public bool bUnlockedGun0 = true;
-    public bool bUnlockedGun1 = true;
-    public bool bUnlockedGun2 = true;
+    public bool bUnlockedGun1 = false;
+    public bool bUnlockedGun2 = false;
     [SerializeField] public BaseWeapon EquippedGun;
     [SerializeField] public BaseWeapon[] OwnedGuns;
 
@@ -29,6 +29,30 @@ public class ShootAbility : MonoBehaviour
         
         EconomyManager.Instance.CurrentAmmoText.text = EquippedGun.CurrentAmmo.ToString();
         EconomyManager.Instance.FullMagText.text = EquippedGun.MagSize.ToString();
+        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if (action.Type != UnitType.Player) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Unlock1:
+                bCanShoot = true;
+                bUnlockedGun0 = true;
+                EquippedGun.gameObject.SetActive(true);
+                break;
+            case UpgradeCategory.Unlock2:
+                bUnlockedGun1 = true;
+                EquipWeapon(1);
+                break;
+            case UpgradeCategory.Unlock3:
+                bUnlockedGun2 =  true;
+                EquipWeapon(2);
+                break;
+        }
     }
 
     protected void OnLeftClick(InputAction.CallbackContext context)
@@ -48,6 +72,7 @@ public class ShootAbility : MonoBehaviour
 
     protected void EquipWeapon(int NewEquippedIndex)
     {
+        if (!bCanShoot) return;
         if ((!bUnlockedGun0 && NewEquippedIndex == 0) ||
             (!bUnlockedGun1 && NewEquippedIndex == 1) ||
             (!bUnlockedGun2 && NewEquippedIndex == 2)) return;
@@ -69,25 +94,34 @@ public class ShootAbility : MonoBehaviour
     protected void OnPress1(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun0) return;
-        LastEquippedIndex = CurrentEquippedIndex;
-        CurrentEquippedIndex = 0;
-        EquipWeapon(CurrentEquippedIndex);
+        if (context.performed)
+        {
+            LastEquippedIndex = CurrentEquippedIndex;
+            CurrentEquippedIndex = 0;
+            EquipWeapon(CurrentEquippedIndex);
+        }
     }
 
     protected void OnPress2(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun1) return;
-        LastEquippedIndex = CurrentEquippedIndex;
-        CurrentEquippedIndex = 1;
-        EquipWeapon(CurrentEquippedIndex);
+        if (context.performed)
+        {
+            LastEquippedIndex = CurrentEquippedIndex;
+            CurrentEquippedIndex = 1;
+            EquipWeapon(CurrentEquippedIndex);
+        }
     }
 
     protected void OnPress3(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun2) return;
-        LastEquippedIndex = CurrentEquippedIndex;
-        CurrentEquippedIndex = 2;
-        EquipWeapon(CurrentEquippedIndex);
+        if (context.performed)
+        {
+            LastEquippedIndex = CurrentEquippedIndex;
+            CurrentEquippedIndex = 2;
+            EquipWeapon(CurrentEquippedIndex);
+        }
     }
 
     protected void OnPress4(InputAction.CallbackContext context)
@@ -97,37 +131,52 @@ public class ShootAbility : MonoBehaviour
     protected void OnPressQ(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun0) return;
-        EquipWeapon(LastEquippedIndex);
-        (CurrentEquippedIndex, LastEquippedIndex) = (LastEquippedIndex, CurrentEquippedIndex);
+        if (context.performed)
+        {
+            EquipWeapon(LastEquippedIndex);
+            (CurrentEquippedIndex, LastEquippedIndex) = (LastEquippedIndex, CurrentEquippedIndex);
+        }
     }
 
     protected void OnPressR(InputAction.CallbackContext context)
     {
         if (!EquippedGun || !bUnlockedGun0) return;
-        if (EquippedGun.bNeedsToReload && EquippedGun.CurrentAmmo < EquippedGun.MagSize) EquippedGun.StartReload();
+        if (context.performed)
+        {
+            if (EquippedGun.bNeedsToReload && EquippedGun.CurrentAmmo < EquippedGun.MagSize) EquippedGun.StartReload();
+        }
     }
 
     protected void OnScrollUp(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun2) return; //TODO better check
-        LastEquippedIndex = CurrentEquippedIndex;
-        CurrentEquippedIndex++;
-        if (CurrentEquippedIndex >= OwnedGuns.Length) CurrentEquippedIndex = 0;
-        EquipWeapon(CurrentEquippedIndex);
+        if (context.performed)
+        {
+            LastEquippedIndex = CurrentEquippedIndex;
+            CurrentEquippedIndex++;
+            if (CurrentEquippedIndex >= OwnedGuns.Length) CurrentEquippedIndex = 0;
+            EquipWeapon(CurrentEquippedIndex);
+        }
     }
 
     protected void OnScrollDown(InputAction.CallbackContext context)
     {
         if (!bUnlockedGun2) return; //TODO better check
-        LastEquippedIndex = CurrentEquippedIndex;
-        CurrentEquippedIndex--;
-        if (CurrentEquippedIndex < 0) CurrentEquippedIndex = OwnedGuns.Length - 1;
-        EquipWeapon(CurrentEquippedIndex);
+        if (context.performed)
+        {
+            LastEquippedIndex = CurrentEquippedIndex;
+            CurrentEquippedIndex--;
+            if (CurrentEquippedIndex < 0) CurrentEquippedIndex = OwnedGuns.Length - 1;
+            EquipWeapon(CurrentEquippedIndex);
+        }
     }
 
     protected void OnPressEsc(InputAction.CallbackContext context)
     {
-        Debug.Log("Pause game");
+        if (context.performed)
+        {
+            Debug.Log("Pause game");
+        }
     }
 }
 
