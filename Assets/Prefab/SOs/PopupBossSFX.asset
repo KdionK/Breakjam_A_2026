@@ -17,4 +17,4 @@ MonoBehaviour:
   price: 50
   unitType: 2
   categoryType: 2
-  gameImportance: 2
+  gameImportance: 3

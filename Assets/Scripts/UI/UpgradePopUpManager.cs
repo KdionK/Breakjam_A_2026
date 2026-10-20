@@ -14,7 +14,7 @@ public class UpgradePopUpManager : MonoBehaviour
     private List<SO_PopUpComponent> protoCompos;
     private List<SO_PopUpComponent> goodGameCompos;
     
-    private List<MapPopUp> currentMapPopUps;
+    private List<MapPopUp> currentMapPopUps = new List<MapPopUp>();
 
     private int _popUpAmount = 4;
     private int _protoAmount = 3;
@@ -28,32 +28,65 @@ public class UpgradePopUpManager : MonoBehaviour
         ChooseInitialUpgradesOnMap();
     }
 
-    private void ChooseInitialUpgradesOnMap(int amount = 4)
+    private void ChooseInitialUpgradesOnMap()
     {
         List<PopUpSpawner> tempSpawnerList = PopUpSpawners.Where(x => x.HasPopUpOn == false).ToList();
 
         protoCompos = PopUpComponents.Where(x => x.Importance == GameImportance.Proto).ToList();
         goodGameCompos = PopUpComponents.Where(x => x.Importance == GameImportance.GoodGame).ToList();
         
-        for (int i = 0; i < protoCompos.Count; i++)
+        for (int i = 0; i < _protoAmount; i++)
         {
             var x = protoCompos[Random.Range(0, protoCompos.Count)];
-            var MPU = MapPopUp.CreatePopUp(tempSpawnerList[Random.Range(0, tempSpawnerList.Count)], x);
+            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+            var MPU = MapPopUp.CreatePopUp(Spawner, x);
+            tempSpawnerList.Remove(Spawner);
             currentMapPopUps.Add(MPU);
-            MPU.OnExpire.AddListener(AddMapPopUp);
+            MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
         }
 
-        for (int i = 0; i < goodGameCompos.Count; i++)
+        for (int i = 0; i < _goodGameAmount; i++)
         {
-            var x = protoCompos[Random.Range(0, protoCompos.Count)];
-            var MPU = MapPopUp.CreatePopUp(tempSpawnerList[Random.Range(0, tempSpawnerList.Count)], x);
+            var x = goodGameCompos[Random.Range(0, goodGameCompos.Count)];
+            var Spawner = tempSpawnerList[Random.Range(0, tempSpawnerList.Count)];
+            var MPU = MapPopUp.CreatePopUp(Spawner, x);
+            tempSpawnerList.Remove(Spawner);
             currentMapPopUps.Add(MPU);
-            MPU.OnExpire.AddListener(AddMapPopUp);
+            MPU.OnExpire.AddListener(() => AddMapPopUp(MPU));
         }
     }
 
-    private void AddMapPopUp()
-    {
-        
-    }
+    private void AddMapPopUp(MapPopUp expiredPopUp)
+{
+    // Get the importance of the expired popup
+    GameImportance importance = expiredPopUp.Importance;
+
+    // Find components with the same importance
+    List<SO_PopUpComponent> possibleComponents =
+        PopUpComponents.Where(x => x.Importance == importance).ToList();
+
+    if (possibleComponents.Count == 0)
+        importance += 1; // If no components of the same importance, try the next level of importance
+
+    // Pick a random component with the same importance
+    SO_PopUpComponent newComponent =
+        possibleComponents[Random.Range(0, possibleComponents.Count)];
+
+    // Find a spawner that currently has no popup
+    List<PopUpSpawner> availableSpawners =
+        PopUpSpawners.Where(x => !x.HasPopUpOn).ToList();
+
+    if (availableSpawners.Count == 0)
+        return;
+
+    PopUpSpawner newSpawner =
+        availableSpawners[Random.Range(0, availableSpawners.Count)];
+
+
+    // Create the replacement popup
+    MapPopUp newPopUp = MapPopUp.CreatePopUp(newSpawner, newComponent);
+
+    currentMapPopUps.Add(newPopUp);
+    newPopUp.OnExpire.AddListener(() => AddMapPopUp(newPopUp));
+}
 }
