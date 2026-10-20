@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SceneTransition
   - Floor
+  - DeathPlane
   layers:
   - Default
   - TransparentFX

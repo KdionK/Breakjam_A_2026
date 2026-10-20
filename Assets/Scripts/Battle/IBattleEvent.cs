@@ -38,6 +38,7 @@ public enum UnitType
 {
     Player,
     CommonEnemy,
+    Npc,
     Boss
 }
 
@@ -47,6 +48,8 @@ public enum UpgradeCategory
     Mesh,
     Sound,
     Health,
-    Speed
+    Speed,
+    Door1,
+    Door2
 }
 

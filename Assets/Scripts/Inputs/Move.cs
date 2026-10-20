@@ -1,6 +1,6 @@
 
-using System.Runtime.InteropServices.WindowsRuntime;
-using NUnit.Framework;
+using System;
+using System.Collections;
 using Unity.Cinemachine;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -11,8 +11,10 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] Transform _cam;
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
+    [SerializeField] HealthBar _healthBar;
     [Header("buyChecks")]
-    [SerializeField] bool _jumpBuy = true;
+    
+    [SerializeField] public bool _jumpBuy = false;
 
 
     [Header("base movement")]
@@ -34,6 +36,22 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] float _slideJumpBoostTime = 0.6f;
     private Vector3 _boostDir;
     private float _boostTimer;
+    
+    [Header("Death/Respawn")]
+    [SerializeField] Transform _respawnPoint;
+    [SerializeField] float _respawnTime = 0.2f;
+    private bool _killed;
+    private bool _murder;
+
+    bool _isRespawning = false;
+    [Header("Regen")]
+    [SerializeField] bool _regen = false;
+    [SerializeField] float _timeBeforeRgen = 3f;
+    [SerializeField] float _regenAmount = 2.5f;
+    
+    
+    
+    
 
 
 
@@ -44,6 +62,11 @@ public class Move : BuyableBehavior, IDamageable
     [Header ("Upgrades")]
     [SerializeField] private float _upgradeSpeedAmount = 2.5f;
     [SerializeField] private int _upgradeHealthAmount = 30;
+    
+    [Header("IFrames")]
+    [SerializeField] private float _frameTime = 0.1f;
+    private bool _invincible;
+    
 
     private Vector2 _moveDirection;
     private Rigidbody rb;
@@ -66,9 +89,25 @@ public class Move : BuyableBehavior, IDamageable
         BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
+    private void DeathTest()
+    {
+        _healthComponent.ModifyHealth(20);
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        // HandleDeath();
+    }
+    
+
     private void OnMove(InputAction.CallbackContext context)
     {
         _moveDirection = context.ReadValue<Vector2>();
+    }
+
+    private void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
+        {
+            DeathTest();
+        }
     }
 
     private void OnJump(InputAction.CallbackContext context)
@@ -96,10 +135,17 @@ public class Move : BuyableBehavior, IDamageable
         CheckGround();
         HandleJump();
         ApplyBetterGravity();
+        
+        
+        if (_healthComponent.CurrentHealth <= 0)
+        {
+            HandleDeath();
+        }
+      
     }
 
     private Vector3 GetMoveDirection()
-    {
+    { 
         Vector3 forward = _cam.forward;
         Vector3 right = _cam.right;
         forward.y = 0f;
@@ -135,7 +181,10 @@ public class Move : BuyableBehavior, IDamageable
 
 
         Vector3 dir = GetMoveDirection();
-        rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        if (!rb.isKinematic)
+        {
+            rb.linearVelocity = new Vector3(dir.x * _speed, rb.linearVelocity.y, dir.z * _speed);
+        }
     }
 
     private void CheckGround()
@@ -204,14 +253,72 @@ public class Move : BuyableBehavior, IDamageable
     public DamageInfo TakeDamage(GameObject source, float damage)
     {
         DamageInfo dinfo = new DamageInfo();
-        GetComponent<HealthComponent>().ModifyHealth((int)damage);
+        if (_invincible || _isRespawning) return dinfo;
+        HealthComponent _healthCompoent = GetComponent<HealthComponent>();
+        _healthCompoent.ModifyHealth((int)damage);
+        if (_healthBar != null)
+        {
+            _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        }
+
+        StartCoroutine(IFrames());
+        
         return dinfo;
     }
 
-    private void HandleDeath()
+    public void HandleDeath()
     {
-        
+        Debug.Log("Handle Death");
+        if (_isRespawning) return; 
+        StartCoroutine(Respawn());
     }
+
+    IEnumerator Respawn()
+    {
+        _isRespawning = true;
+        _killed = true;
+        Debug.Log("HandleDeath");
+        _killed = true;
+        // Zero velocity BEFORE going kinematic (setting it on a kinematic body is ignored/warns)
+        rb.linearVelocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.isKinematic = true;
+        
+        _isDashing = false;
+        _sliding = false;
+
+        rb.position = _respawnPoint.position;
+        rb.rotation = _respawnPoint.rotation;
+        transform.SetPositionAndRotation(_respawnPoint.position, _respawnPoint.rotation);
+
+        _jumpHeld = false;
+
+        // Hold here (fade, death animation, sound, etc. would go in this window)
+        _healthComponent.SetHealth();
+        _healthBar.SetVisualHealth(_healthComponent.CurrentHealth);
+        yield return new WaitForSeconds(_respawnTime);
+        _killed = false;
+        rb.isKinematic = false;
+        _isRespawning = false;
+    }
+
+    IEnumerator IFrames()
+    {
+        _invincible = true;
+        Debug.Log("IFrames starting");
+        yield return new WaitForSeconds(_frameTime);
+        _invincible = false;
+        Debug.Log("IFrames finished");
+    }
+
+    IEnumerator Regen()
+    {
+        yield return null;
+    }
+    
+    
+    
+   
 
     public DamageProposalContext ModifyOutgoingDamage(DamageProposalContext ctx)
     {
@@ -247,7 +354,7 @@ public class Move : BuyableBehavior, IDamageable
 
     public void UpgradeHealth()
     {
-        _healthComponent.AddHealth(_upgradeHealthAmount);
+        _healthComponent.AddHealth(_upgradeHealthAmount,true);
     }
     
     public void UpgradeSpeed()
