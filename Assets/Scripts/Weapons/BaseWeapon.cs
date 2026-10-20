@@ -57,6 +57,17 @@ public class BaseWeapon : BuyableBehavior
     float MaxAIFireRate = 2f;
     private float IntervalBetweenShots;
     private float NextFireTime = 0f;
+    
+    [Header("Animation (player only)")]
+    [SerializeField] float RecoilDistance = 0.1f;
+    [SerializeField, Range(0.1f, 1f)] [Tooltip("Fraction of the interval between shots used to return to default position")]
+    float RecoilReturnFraction = 0.8f;
+    [SerializeField] Vector3 ReloadOffset = new Vector3(0f, -0.3f, 0f);
+    [SerializeField] Vector3 ReloadRotation = new Vector3(40f, 0f, 0f);
+
+    private Vector3 _defaultLocalPos;
+    private Quaternion _defaultLocalRot;
+    private float _recoilOffset;
 
     private bool bTryingToFire = false;
     
@@ -68,6 +79,8 @@ public class BaseWeapon : BuyableBehavior
     
     private void Start()
     {
+        _defaultLocalPos = transform.localPosition;
+        _defaultLocalRot = transform.localRotation;
         CurrentAmmo = MagSize;
         if (!bIsAIControlled)
         {
@@ -88,7 +101,42 @@ public class BaseWeapon : BuyableBehavior
 
     protected void Update()
     {
+        if (bUnlockedVFX) UpdateAnimation();
         TryFire();
+    }
+    
+    private void UpdateAnimation()
+    {
+        if (!bUnlockedVFX) return;
+        if (bIsAIControlled) return;
+
+        // Recoil returns before the next shot is allowed
+        float returnTime = Mathf.Max(IntervalBetweenShots * RecoilReturnFraction, 0.02f);
+        _recoilOffset = Mathf.MoveTowards(_recoilOffset, 0f, (RecoilDistance / returnTime) * Time.deltaTime);
+
+        // Reload: goes down and comes back up over ReloadTime
+        float reloadBlend = 0f;
+        if (bReloading && ReloadTime > 0f)
+        {
+            float t = Mathf.Clamp01(CurrentReloadTimer / ReloadTime);
+            reloadBlend = Mathf.Sin(t * Mathf.PI);
+        }
+
+        transform.localPosition = _defaultLocalPos
+                                  + new Vector3(0f, 0f, -_recoilOffset)
+                                  + ReloadOffset * reloadBlend;
+        transform.localRotation = _defaultLocalRot * Quaternion.Euler(ReloadRotation * reloadBlend);
+    }
+    
+    private void OnDisable()
+    {
+        // reset pose so the gun isn't stuck mid-animation when switching weapons
+        _recoilOffset = 0f;
+        if (!bIsAIControlled)
+        {
+            transform.localPosition = _defaultLocalPos;
+            transform.localRotation = _defaultLocalRot;
+        }
     }
 
     protected void TryFire()
@@ -154,7 +202,8 @@ public class BaseWeapon : BuyableBehavior
         }
         
         NextFireTime = Time.time + IntervalBetweenShots;
-
+        if (!bIsAIControlled) _recoilOffset = RecoilDistance;
+        
         if (bUnlockedVFX)
         {
             VFXMuzzleFlash();
