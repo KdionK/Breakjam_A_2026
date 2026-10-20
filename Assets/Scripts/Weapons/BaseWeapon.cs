@@ -23,8 +23,6 @@ public class BaseWeapon : BuyableBehavior
     
     [Header("Visual Effects")]
     [SerializeField] protected VisualEffect MuzzleFlash;
-    [SerializeField] [Tooltip("If true, will be hitscan instead of shooting a projectile")]
-    bool bUnlockedMuzzleFlash = false;
 
 
     [Header("Damage")]
@@ -62,11 +60,11 @@ public class BaseWeapon : BuyableBehavior
 
     private bool bTryingToFire = false;
     
-    [Header("Mino stuff")]
-    [SerializeField] private bool _playerWeapon = false;
+    [Header("Upgrades")]
     [SerializeField] private GameObject[] visualUpgrades; // added by mino
-    protected int textureLevel;
+    protected int textureLevel = 0;
     public GameObject visualObject;
+    bool bUnlockedMuzzleFlash = false;
     
     private void Start()
     {
@@ -79,9 +77,13 @@ public class BaseWeapon : BuyableBehavior
         {
             IntervalBetweenShots = 1 / MaxAIFireRate;
         }
-        textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
-        UpgradeTexture();
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+
+        if (BuyHistory.Instance)
+        {
+            textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
+            UpgradeTexture();
+        }
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     protected void Update()
@@ -134,7 +136,7 @@ public class BaseWeapon : BuyableBehavior
     {
         CurrentAmmo = MagSize;
         CurrentReloadTimer = 0;
-        EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
+        if (EconomyManager.Instance) EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
         bReloading = false;
     }
 
@@ -158,7 +160,7 @@ public class BaseWeapon : BuyableBehavior
         if (bNeedsToReload)
         {
             CurrentAmmo--;
-            EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
+            if (EconomyManager.Instance) EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
             //Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
             if (CurrentAmmo <= 0)
             {
@@ -211,6 +213,7 @@ public class BaseWeapon : BuyableBehavior
 
     protected void VFXMuzzleFlash()
     {
+        MuzzleFlash.Reinit();
         MuzzleFlash.Play();
     }
     
@@ -229,27 +232,24 @@ public class BaseWeapon : BuyableBehavior
     {
         Debug.Log($"Bought: {action}");
         if (action.Type != UnitType.Player) return;
+        if (bIsAIControlled) return;
 
         switch (action.Category)
         {
             case UpgradeCategory.Texture:
-                if (_playerWeapon)
-                {
-                    textureLevel++;
-                    UpgradeTexture();
-                }
+                textureLevel++;
+                UpgradeTexture();
                 break;
-            case UpgradeCategory.Mesh:
-                break;
-            case UpgradeCategory.Sound:
-                break;
-            case UpgradeCategory.Health:
-                break;
-            case UpgradeCategory.Speed:
+            case UpgradeCategory.Vfx:
+                ActivateWeaponVFX();
                 break;
         }
     }
-    
+
+    protected void ActivateWeaponVFX()
+    {
+        bUnlockedMuzzleFlash = true;
+    }
     protected void UpgradeTexture()
     {
         if (textureLevel <= 0 || visualUpgrades.Length == 0) return;

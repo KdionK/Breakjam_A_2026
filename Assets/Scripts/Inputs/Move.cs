@@ -95,7 +95,7 @@ public class Move : BuyableBehavior, IDamageable
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
         _healthComponent = GetComponent<HealthComponent>();
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     private void DeathTest()
@@ -126,7 +126,7 @@ public class Move : BuyableBehavior, IDamageable
         {
             if (context.started)
             {
-                SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource, 0.3f );
+                if (SoundManagerMino.Instance) SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource, 0.3f );
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
