@@ -15,7 +15,6 @@ public class Unit : MonoBehaviour, IDamageable
     
     [Header("targetting")]
     [HideInInspector] public GameObject target;
-    [HideInInspector]
     public BaseWeapon weapon;
 
     public GameObject spawnLocation;
@@ -35,7 +34,7 @@ public class Unit : MonoBehaviour, IDamageable
         healthComponent = GetComponent<HealthComponent>();
         healthComponent.OnDeath += Death;
         target = GameObject.FindGameObjectWithTag("Player");
-        weapon = GetComponent<BaseWeapon>();
+        //weapon = GetComponent<BaseWeapon>();
         Agent = gameObject.GetComponent<NavMeshAgent>();
         StateMachine = new StateMachine<State>();
         

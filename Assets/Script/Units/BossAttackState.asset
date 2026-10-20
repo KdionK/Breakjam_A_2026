@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267c13d9bccc31d48b88a68573b6f50c, type: 3}
   m_Name: BossAttackState
   m_EditorClassIdentifier: Assembly-CSharp::BossAttackStateSO
-  stoppingDistance: 4
+  stoppingDistance: 15
   agentSpeed: 2
   disengageTimer: 0
   rotateTowardUnit: 0
@@ -23,6 +23,6 @@ MonoBehaviour:
   meleeLayer:
     serializedVersion: 2
     m_Bits: 64
-  radiusOfMelee: 5
+  radiusOfMelee: 10
   rangedDuration: 5
-  meleeStoppingDistance: 2
+  meleeStoppingDistance: 8

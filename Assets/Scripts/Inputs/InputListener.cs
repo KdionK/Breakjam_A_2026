@@ -53,5 +53,59 @@ public class InputListener : MonoBehaviour
     {
         onSlideEvent?.Invoke(context);
     }
+    
+    public static event Action<InputAction.CallbackContext> onPress1Event;
+    public void onPress1(InputAction.CallbackContext context)
+    {
+        onPress1Event?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPress2Event;
+    public void onPress2(InputAction.CallbackContext context)
+    {
+        onPress2Event?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPress3Event;
+    public void onPress3(InputAction.CallbackContext context)
+    {
+        onPress3Event?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPress4Event;
+    public void onPress4(InputAction.CallbackContext context)
+    {
+        onPress4Event?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPressQEvent;
+    public void onPressQ(InputAction.CallbackContext context)
+    {
+        onPressQEvent?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPressREvent;
+    public void onPressR(InputAction.CallbackContext context)
+    {
+        onPressREvent?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onScrollUpEvent;
+    public void onScrollUp(InputAction.CallbackContext context)
+    {
+        onScrollUpEvent?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onScrollDownEvent;
+    public void onScrollDown(InputAction.CallbackContext context)
+    {
+        onScrollDownEvent?.Invoke(context);
+    }
+
+    public static event Action<InputAction.CallbackContext> onPressEscEvent;
+    public void onPressEsc(InputAction.CallbackContext context)
+    {
+        onPressEscEvent?.Invoke(context);
+    }
 
 }
