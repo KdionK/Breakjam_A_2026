@@ -491,6 +491,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   _sceneManger: {fileID: 0}
+  _healthBar: {fileID: 0}
   _jumpBuy: 1
   _speed: 5
   _jumpForce: 3
@@ -502,10 +503,16 @@ MonoBehaviour:
   _sliding: 0
   _slideJumpSpeed: 10
   _slideJumpBoostTime: 0.6
+  _respawnPoint: {fileID: 0}
+  _respawnTime: 0.2
+  _timeBeforeRgen: 3
+  _regenAmount: 5
+  _tickWait: 0.3
   _fallMultiplier: 2.5
   _lowJumpMultiplier: 2
   _upgradeSpeedAmount: 2.5
   _upgradeHealthAmount: 30
+  _frameTime: 0.1
   _isGrounded: 0
 --- !u!54 &939763551
 Rigidbody:
@@ -1384,6 +1391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BuyableGeneric
   type: 1
   category: 0
+  _price: 10
 --- !u!65 &1561347384
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1972,6 +1980,10 @@ PrefabInstance:
     - target: {fileID: 4423444625122293140, guid: acf77bcc01bdd9a4faca037e4ac89a7c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611850425574848215, guid: acf77bcc01bdd9a4faca037e4ac89a7c, type: 3}
+      propertyPath: moneyOnDeath
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

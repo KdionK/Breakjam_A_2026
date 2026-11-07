@@ -5,7 +5,7 @@ public class EnemySpawnTimer : MonoBehaviour
 {
     [SerializeField] private float spawnInterval = 3f;
     [SerializeField] private Transform spawnPoint;
-
+    [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private float timer;
 
     private void Start()
@@ -25,7 +25,9 @@ public class EnemySpawnTimer : MonoBehaviour
                 ? spawnPoint.position
                 : transform.position;
 
-            EnemySpawner.Instance.SpawnEnemy(position);
+            // EnemySpawner.Instance.SpawnEnemy(position);
+            
+            Instantiate(enemyPrefab, position, Quaternion.identity);
         }
     }
 }

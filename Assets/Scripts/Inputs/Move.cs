@@ -12,6 +12,13 @@ public class Move : BuyableBehavior, IDamageable
     [SerializeField] private LayerMask _groundLayer;
     [SerializeField] private SceneManagementSystem _sceneManger;
     [SerializeField] HealthBar _healthBar;
+    [SerializeField] Animator _doorAnimator;
+    [Header("Audio")]
+    private AudioSource _audioSource;
+    [SerializeField] AudioClip _playerJump;
+    [SerializeField] AudioClip _playerDeath;
+    [SerializeField] AudioClip _playerHit;
+    [SerializeField] AudioClip _playerLand;
     [Header("buyChecks")]
 
     [SerializeField] public bool _jumpBuy = false;
@@ -63,7 +70,7 @@ public class Move : BuyableBehavior, IDamageable
     [Header("IFrames")]
     [SerializeField] private float _frameTime = 0.1f;
 
-    [Header("Audio")]
+ 
 
     private bool _invincible = false;
     private bool _dashInvincible = false;
@@ -83,11 +90,12 @@ public class Move : BuyableBehavior, IDamageable
     void Start()
     {
         _initialSpeed = _speed;
+        _audioSource = GetComponent<AudioSource>();
         InputListener.onMoveEvent += OnMove;
         InputListener.onJumpEvent += OnJump;
         rb = GetComponent<Rigidbody>();
         _healthComponent = GetComponent<HealthComponent>();
-        BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     private void DeathTest()
@@ -108,7 +116,7 @@ public class Move : BuyableBehavior, IDamageable
         if (Keyboard.current != null && Keyboard.current.kKey.wasPressedThisFrame)
         {
             DeathTest();
-
+            
         }
     }
 
@@ -118,6 +126,7 @@ public class Move : BuyableBehavior, IDamageable
         {
             if (context.started)
             {
+                if (SoundManagerMino.Instance) SoundManagerMino.Instance.PlaySound(_playerJump,_audioSource, 0.3f );
                 _jumpBufferTimer = _jumpBufferTime;
                 _jumpHeld = true;
             }
@@ -148,6 +157,7 @@ public class Move : BuyableBehavior, IDamageable
             _dashInvincible = false;
 
         }
+        
 
         if (_healthComponent.CurrentHealth <= 0)
         {
@@ -266,7 +276,7 @@ public class Move : BuyableBehavior, IDamageable
     {
         DamageInfo dinfo = new DamageInfo();
         if (_invincible || _isRespawning || _dashInvincible) return dinfo;
-
+        SoundManagerMino.Instance.PlaySound(_playerHit, _audioSource);
         HealthComponent _healthCompoent = GetComponent<HealthComponent>();
         _healthCompoent.ModifyHealth((int)damage);
         if (_healthBar != null)
@@ -314,11 +324,14 @@ public class Move : BuyableBehavior, IDamageable
     {
         Debug.Log("Handle Death");
         if (_isRespawning) return;
+        SoundManagerMino.Instance.PlaySound(_playerDeath, _audioSource);
         StartCoroutine(Respawn());
     }
 
     IEnumerator Respawn()
     {
+        _doorAnimator.SetTrigger("Open");
+        ResetEnnemies();
         _isRespawning = true;
         _killed = true;
         Debug.Log("HandleDeath");
@@ -355,7 +368,16 @@ public class Move : BuyableBehavior, IDamageable
         // Debug.Log("IFrames finished");
     }
 
-
+    void ResetEnnemies()
+    {
+        GameObject[] Ennemies = GameObject.FindGameObjectsWithTag("Ennemy");
+        foreach (GameObject ennemy in Ennemies)
+        {
+            Destroy(ennemy);
+        }
+        
+        
+    }
 
 
 
@@ -383,7 +405,7 @@ public class Move : BuyableBehavior, IDamageable
                 break;
             case UpgradeCategory.Sound:
                 Debug.Log("buying player sound");
-                SoundManagerMino.Instance.SetPlayer(0);
+                SoundManagerMino.Instance.SetPlayer(15);
                 break;
             case UpgradeCategory.Health:
                 UpgradeHealth();

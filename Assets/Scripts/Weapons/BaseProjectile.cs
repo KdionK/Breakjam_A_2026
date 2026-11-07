@@ -85,7 +85,7 @@ public class BaseProjectile : MonoBehaviour
 
     protected void Explode()
     {
-        Collider[] hits = Physics.OverlapSphere(transform.position, ExplosionRadius);
+        Collider[] hits = Physics.OverlapSphere(transform.position, ExplosionRadius); //TODO add layer mask
 
         foreach (Collider c in hits)
         {
@@ -103,7 +103,7 @@ public class BaseProjectile : MonoBehaviour
     protected void ExplosionVFX()
     {
         Gizmos.color = new Color(1f, 0f, 0f, 1);
-        Gizmos.DrawSphere(transform.position, ExplosionRadius);
+        // Gizmos.DrawSphere(transform.position, ExplosionRadius);
         if (ExplosionVFXref) ExplosionVFXref.Play();
     }
 }

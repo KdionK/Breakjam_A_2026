@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.VFX;
 
-public class BaseWeapon : MonoBehaviour
+public class BaseWeapon : BuyableBehavior
 {
     [Header("AI")]
     [SerializeField] [Tooltip("If something else than the player is using this weapon, this must be True")]
@@ -23,8 +23,6 @@ public class BaseWeapon : MonoBehaviour
     
     [Header("Visual Effects")]
     [SerializeField] protected VisualEffect MuzzleFlash;
-    [SerializeField] [Tooltip("If true, will be hitscan instead of shooting a projectile")]
-    bool bUnlockedMuzzleFlash = false;
 
 
     [Header("Damage")]
@@ -50,8 +48,8 @@ public class BaseWeapon : MonoBehaviour
     private bool bReloading = false;
 
     [Header("Fire Rate")]
-    [SerializeField] [Tooltip("Automatic weapon or single fire? Single fire is also capped at" +
-                              " Max Fire Rate. AIs ignore this, they are always auto")]
+    [Tooltip("Automatic weapon or single fire? Single fire is also capped at" +
+             " Max Fire Rate. AIs ignore this, they are always auto")]
     bool bIsAuto = true;
     [SerializeField] [Tooltip("Max number of shots per second")]
     float MaxFireRate = 5f;
@@ -62,6 +60,11 @@ public class BaseWeapon : MonoBehaviour
 
     private bool bTryingToFire = false;
     
+    [Header("Upgrades")]
+    [SerializeField] private GameObject[] visualUpgrades; // added by mino
+    protected int textureLevel = 0;
+    public GameObject visualObject;
+    bool bUnlockedMuzzleFlash = false;
     
     private void Start()
     {
@@ -74,6 +77,13 @@ public class BaseWeapon : MonoBehaviour
         {
             IntervalBetweenShots = 1 / MaxAIFireRate;
         }
+
+        if (BuyHistory.Instance)
+        {
+            textureLevel = BuyHistory.Instance.GetLevel(UnitType.Player, UpgradeCategory.Texture);
+            UpgradeTexture();
+        }
+        if (BattleStats.Instance) BattleStats.Instance.Subscribe<BuyAction>(OnBoughtEvent);
     }
 
     protected void Update()
@@ -126,6 +136,7 @@ public class BaseWeapon : MonoBehaviour
     {
         CurrentAmmo = MagSize;
         CurrentReloadTimer = 0;
+        if (EconomyManager.Instance) EconomyManager.Instance.FullMagText.text = CurrentAmmo.ToString();
         bReloading = false;
     }
 
@@ -133,15 +144,15 @@ public class BaseWeapon : MonoBehaviour
     {
         if (bIsHitscan)
         {
-            Debug.Log("ShootRaycast");
+            //Debug.Log("ShootRaycast");
             SpawnRaycast();
         }
         else
         {
-            Debug.Log("ShootProjectile");
+            //Debug.Log("ShootProjectile");
             SpawnProjectile();
         }
-
+        
         NextFireTime = Time.time + IntervalBetweenShots;
 
         if (bUnlockedMuzzleFlash) VFXMuzzleFlash();
@@ -149,6 +160,7 @@ public class BaseWeapon : MonoBehaviour
         if (bNeedsToReload)
         {
             CurrentAmmo--;
+            if (EconomyManager.Instance) EconomyManager.Instance.CurrentAmmoText.text = CurrentAmmo.ToString();
             //Debug.Log("Ammo: " + _currentAmmo + "/" + _magSize);
             if (CurrentAmmo <= 0)
             {
@@ -201,6 +213,7 @@ public class BaseWeapon : MonoBehaviour
 
     protected void VFXMuzzleFlash()
     {
+        MuzzleFlash.Reinit();
         MuzzleFlash.Play();
     }
     
@@ -213,5 +226,36 @@ public class BaseWeapon : MonoBehaviour
     {
         bTryingToFire = false;
         NextFireTime = 0f;
+    }
+    
+    private void OnBoughtEvent(BuyAction action)
+    {
+        Debug.Log($"Bought: {action}");
+        if (action.Type != UnitType.Player) return;
+        if (bIsAIControlled) return;
+
+        switch (action.Category)
+        {
+            case UpgradeCategory.Texture:
+                textureLevel++;
+                UpgradeTexture();
+                break;
+            case UpgradeCategory.Vfx:
+                ActivateWeaponVFX();
+                break;
+        }
+    }
+
+    protected void ActivateWeaponVFX()
+    {
+        bUnlockedMuzzleFlash = true;
+    }
+    protected void UpgradeTexture()
+    {
+        if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
+        int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
+        visualObject.SetActive(false);
+        visualUpgrades[i].SetActive(true);
+        visualObject = visualUpgrades[i];
     }
 }

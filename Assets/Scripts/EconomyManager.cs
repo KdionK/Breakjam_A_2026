@@ -7,6 +7,12 @@ public class EconomyManager : MonoBehaviour
 
     [SerializeField] private TextMeshProUGUI _numberText;
     [SerializeField] private NumberPopUpSpawner popUpSpawner;
+    
+    [SerializeField] private TextMeshProUGUI currentAmmoText;
+    [SerializeField] private TextMeshProUGUI _fullMagAmmo;
+    
+    public TextMeshProUGUI CurrentAmmoText => currentAmmoText;
+    public TextMeshProUGUI FullMagText => _fullMagAmmo;
 
     /// Le temps d'attente entre chaque mise à jour de l'animation
     [SerializeField][Range(0.001f, 0.5f)] float _secondesEntreUpdateAnimation = 0.005f;

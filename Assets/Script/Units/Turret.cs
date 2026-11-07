@@ -95,7 +95,9 @@ public class Turret : MonoBehaviour, IDamageable
     
     private void UpgradeTexture()
     {
+        
         if (textureLevel <= 0 || visualUpgrades.Length == 0) return;
+        Debug.Log("Upgrade Texture");
         int i = Mathf.Min(textureLevel, visualUpgrades.Length) - 1;
         visualObject.SetActive(false);
         visualUpgrades[i].SetActive(true);

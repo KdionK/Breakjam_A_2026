@@ -14,6 +14,8 @@ public class Slide : BuyableBehavior
     [SerializeField] Transform _slideCamRoot;
     [SerializeField] float _slideDuration = 0.3f;
     [SerializeField] float _slideCooldown = 1f;
+    private AudioSource _playerAudio;
+    [SerializeField] AudioClip _slideSound;
 
     [Header("Camera")]
     [SerializeField] float _camSmoothSpeed = 10f; // higher = snappier
@@ -34,6 +36,7 @@ public class Slide : BuyableBehavior
     {
         _camDefaultLocalPos = _slideCamRoot.transform.localPosition;
         _initialFov = _cinemachineCamera.Lens.FieldOfView;
+        _playerAudio = GetComponent<AudioSource>();
         InputListener.onSlideEvent += OnSlide;
         rb = GetComponent<Rigidbody>();
     }
@@ -58,7 +61,7 @@ public class Slide : BuyableBehavior
         if (!context.performed) return; // ignore started / canceled (release)
 
         if (!_canSlide || !_moveScript._isGrounded || _moveScript._isDashing) return;
-
+        SoundManagerMino.Instance.PlaySound(_slideSound,_playerAudio);
 
         Vector3 dir = GetMoveDirection();
         if (dir.sqrMagnitude < 0.01f)

@@ -1,12 +1,8 @@
-using System;
 using System.Collections;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
-using Random = UnityEngine.Random;
-using Slider = UnityEngine.UIElements.Slider;
 
 public class MapPopUp : MonoBehaviour
 {
@@ -15,55 +11,74 @@ public class MapPopUp : MonoBehaviour
    [SerializeField] private TextMeshProUGUI PriceTag;
    [SerializeField] private Slider expirationSlider;
    [SerializeField] [Range(10, 30)] private int expirationTime = 22;
+   [SerializeField] SO_PopUpComponent _PopUpComponent;
 
-   
-
+   private PopUpSpawner _parentSpawner;
+   private GameImportance _importance;
+   private Coroutine _expirationCoroutine = null;
    private const string _PriceTagFormat = "{0}¢";
-   
+
+   public GameImportance Importance => _importance;
    public UnityEvent OnExpire;
    public UnityEvent OnBuy;
-   private Coroutine _expirationCoroutine = null;
+   
+   public SO_PopUpComponent _component;
+   
    
    private void Awake()
    {
-       expirationTime = Random.Range(20, 30);
-       _expirationCoroutine = StartCoroutine(SetExpirationSlider());
-       OnExpire.AddListener(DestroyPopUp);
+    //    expirationTime = Random.Range(20, 30);
+    //    _expirationCoroutine = StartCoroutine(SetExpirationSlider());
+    //    OnExpire.AddListener(DestroyPopUp);
+    SetPopUp(_component);
+
    }
 
-   public void SetPopUp(string title, Sprite icon, int price)
+   public void SetPopUp(SO_PopUpComponent component)
    {
-        _PopUpTitle.text = title;
-        Icon.sprite = icon;
-        PriceTag.text = string.Format(_PriceTagFormat, price);
+       _PopUpTitle.text = component.Title;
+       if (component.Icon != null)
+        Icon.sprite = component.Icon;
+
+       PriceTag.text = string.Format(_PriceTagFormat, component.Price);
+    //    _parentSpawner = parentSpawner;
+       _component = component;
    }
 
-    public static MapPopUp CreatePopUp(PopUpSpawner parent, SO_PopUpComponent popUpcomponent)
-    {
-        var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
-        var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,Quaternion.identity,parent.transform);
-        popUpInstance.SetPopUp(popUpcomponent.Title, popUpcomponent.Icon, popUpcomponent.Price);
-        return popUpInstance;
-    }
+
+    // public static MapPopUp CreatePopUp(PopUpSpawner parent, SO_PopUpComponent popUpcomponent)
+    // {
+    //     var popUpPrefab = Resources.Load<MapPopUp>("Prefabs/MapPopUp");
+    //     var popUpInstance = Instantiate(popUpPrefab,parent.transform.position,parent.transform.rotation,parent.transform);
+    //     popUpInstance.SetPopUp(popUpcomponent, parent);
+
+    //     parent.HasPopUpOn = true;
+    //     return popUpInstance;
+    // }
 
     private IEnumerator SetExpirationSlider()
-    {
-        float currentExpirationLeft = expirationSlider.value;
-        expirationSlider.value = currentExpirationLeft/expirationTime;
+{
+    float currentExpirationLeft = expirationTime;
 
-        while (currentExpirationLeft > 0)
-        {
-            currentExpirationLeft -= Time.deltaTime;
-            expirationSlider.value = currentExpirationLeft/expirationTime;
-            yield return new WaitForEndOfFrame();
-        }
-        OnExpire?.Invoke();
+    expirationSlider.value = 1f;
+
+    while (currentExpirationLeft > 0)
+    {
+        currentExpirationLeft -= Time.deltaTime;
+        expirationSlider.value = currentExpirationLeft / expirationTime;
+
+        yield return null;
     }
+
+    expirationSlider.value = 0f;
+    OnExpire?.Invoke();
+}
 
     public void DestroyPopUp()
     {
         if (_expirationCoroutine != null) StopCoroutine(_expirationCoroutine);
             _expirationCoroutine = null;
+        _parentSpawner.HasPopUpOn = false;
         Destroy(gameObject);
     }
     
